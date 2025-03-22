@@ -42,27 +42,27 @@ flutter pub add items_selector
 `SingleSelectOption` is used within the `SingleListItemSelector` and `SingleGridItemSelector` widgets and includes two boolean properties: `allowUnselectedInitialItem` and `allowUnselectedMainItem`. When the `initialItem` property is set, enabling `allowUnselectedInitialItem` makes those initial items unselectable. Similarly, enabling `allowUnselectedMainItem` prevents the main items from being selected.
 
 
-| Row | Initial Items | Main Items | Allow Unselect Main Item | Allow Unselect Initial Item | Image/Description | URL |
-|:---:|:------------:|:---------:|:-----------------------:|:--------------------------:|:-----------------:|:---:|
-| 1  | Y | Y | Y | Y | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/1.gif?raw=true) | URL Link |
-| 5  | Y | Y | Y | N | ![2](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/2.gif?raw=true) | URL Link |
-| 9  | Y | Y | N | Y | ![3](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/3.gif?raw=true) | URL Link |
-| 13 | Y | Y | N | N | ![4](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/4.gif?raw=true) | URL Link |
-| 14 | N | Y | N | N | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/5.gif?raw=true) | URL Link |
+| Row | Initial Items | Main Items | Allow Unselect Main Item | Allow Unselect Initial Item | Image/Description | 
+|:---:|:------------:|:---------:|:-----------------------:|:--------------------------:|:-----------------:|
+| 1  | Y | Y | Y | Y | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/1.gif?raw=true)   |
+| 2  | Y | Y | Y | N | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/2.gif?raw=true)   |
+| 3  | Y | Y | N | Y | ![9](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/3.gif?raw=true)   |
+| 4  | Y | Y | N | N | ![13](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/4.gif?raw=true)  |
+| 5  | N | Y | N | N | ![14](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/5.gif?raw=true)  |
 
 <br>
 
 ## MultiSelectOption
 `MultiSelectOption` is used within the `MultiListItemSelector` and `MultiGridItemSelector` widgets and includes two properties: `allowUnselectedInitialItem` and `maxItems`. When the `initialItems` property is set, enabling `allowUnselectedInitialItem` makes those initial items unselectable. The `maxItems` property defines the maximum number of items that can be selected.
 
-| Row | Initial Items | Main Item | Allow Unselect Initial Item | Max Count | Image | URL |
-|:---:|:------------:|:--------:|:----------------------:|:---------:|:-----:|:---:|
-| 1  | Y | Y | Y | Y | ![6](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/1.gif?raw=true) | URL |
-| 5  | Y | Y | N | Y | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/2.gif?raw=true) | URL |
-| 6  | N | Y | N | Y | ![4](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/3.gif?raw=true) | URL |
-| 9  | Y | Y | Y | N | ![3](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/4.gif?raw=true) | URL |
-| 13 | Y | Y | N | N | ![2](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/5.gif?raw=true) | URL |
-| 14 | N | Y | N | N | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/6.gif?raw=true) | URL |
+| Row | Initial Items | Main Item | Allow Unselect Initial Item | Max Count | Image |
+|:---:|:------------:|:--------:|:----------------------:|:---------:|:-----:|
+| 1  | Y | Y | Y | Y | ![6](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/1.gif?raw=true) |
+| 2  | Y | Y | N | Y | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/2.gif?raw=true) | 
+| 3  | N | Y | N | Y | ![4](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/3.gif?raw=true) | 
+| 4  | Y | Y | Y | N | ![3](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/4.gif?raw=true) |
+| 5  | Y | Y | N | N | ![2](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/5.gif?raw=true) |
+| 6  | N | Y | N | N | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/6.gif?raw=true) | 
 
 <br>
 
