@@ -1,5 +1,5 @@
 name: items_selector
-description: "A new Flutter project."
+description: "A Flutter package for selecting single or multiple items from a list or grid"
 version: 0.0.1
 homepage:
 
