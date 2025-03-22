@@ -69,7 +69,6 @@ flutter pub add items_selector
 
 
 # Widgets
-## Item Selection Widgets  
 
 The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and MultiGridItemSelector** widgets provide a flexible solution for selecting items from a collection, supporting both **single** and **multi-selection** modes.  
 
