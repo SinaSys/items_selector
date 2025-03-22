@@ -69,7 +69,28 @@ flutter pub add items_selector
 
 
 # Widgets
-The `SingleListItemSelector`, `SingleGridItemSelector`, `MultiListItemSelector`, and `MultiGridItemSelector` widgets provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes. They require three main properties: `items`, `builder`, and `selectedItems`. The `items` property defines the available list of items, while the `builder` function is used to create custom widgets for selected and unselected states through the `selectedItem` and `unSelectedItem` properties. The `selectedItems` callback returns the list of selected items whenever a selection is made. Additionally, the optional `initialItems` property allows specifying pre-selected items at initialization. Selection behavior can be further customized using selection options specific to each widget type: `SingleListItemSelector` and `SingleGridItemSelector` use `SingleSelectOptions`, which includes properties like `allowUnselectInitialItem` and `allowUnselectMainItem` to control selection behavior, while `MultiListItemSelector` and `MultiGridItemSelector` use `MultiSelectOptions`, which provides `allowUnselectInitialItem` to determine whether initial items can be unselected and `maxItems` to set a selection limit. The key difference among these widgets is their layout: `SingleListItemSelector` and `MultiListItemSelector` arrange items in a horizontal or vertical list using `ListView`, whereas `SingleGridItemSelector` and `MultiGridItemSelector` display items in a grid format using `GridView`.
+## Item Selection Widgets  
+
+The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and MultiGridItemSelector** widgets provide a flexible solution for selecting items from a collection, supporting both **single** and **multi-selection** modes.  
+
+### 🔹 Key Properties  
+- **`items`** → Defines the available list of items.  
+- **`builder`** → Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`.  
+- **`selectedItems`** → Returns the list of selected items when a selection is made.  
+- **`initialItems` (optional)** → Allows specifying pre-selected items at initialization.  
+
+### ⚙️ Selection Behavior  
+- **SingleListItemSelector & SingleGridItemSelector** → Use `SingleSelectOptions`, which includes:  
+  - `allowUnselectInitialItem` → Controls if initial items can be unselected.  
+  - `allowUnselectMainItem` → Determines if main items can be unselected.  
+- **MultiListItemSelector & MultiGridItemSelector** → Use `MultiSelectOptions`, which includes:  
+  - `allowUnselectInitialItem` → Controls if initial items can be unselected.  
+  - `maxItems` → Limits the number of selectable items.  
+
+### 🖼️ Layout Differences  
+- **📜 List-based Widgets** → `SingleListItemSelector` & `MultiListItemSelector` use **List** (horizontal/vertical).  
+- **🔲 Grid-based Widgets** → `SingleGridItemSelector` & `MultiGridItemSelector` use **GridView**.  
+
 
 
 <br>
