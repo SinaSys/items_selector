@@ -703,3 +703,54 @@ MultiGridItemSelector<Person>(
 
 <br>
 
+
+## ⚠️ Troubleshooting  
+
+### Issue: `initialItems` Not Working for Custom Classes  
+If you use a **custom class** as the item type and set the `initialItems` property, you might notice that the initial items are **not selected** when the app runs. This happens because **Dart uses reference equality by default**, meaning it does not automatically recognize two objects as equal even if their properties have the same values.  
+
+### ✅ Solution 1: Override `==` Operator and `hashCode`  
+To ensure Dart correctly identifies equal objects, override the **equality (`==`) operator** and **hashCode** in your custom class:  
+
+```dart
+class CustomItem {
+  final int id;
+  final String name;
+
+  CustomItem(this.id, this.name);
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) || (other is CustomItem && other.id == id && other.name == name);
+
+  @override
+  int get hashCode => id.hashCode ^ name.hashCode;
+}
+```
+
+### ✅ Solution 2: Use the equatable Package
+Instead of manually overriding == and hashCode, you can use the **equatable** package to simplify equality checks.
+
+1️⃣ **Add `equatable` to your dependencies:**  
+```dart
+flutter pub add equatable
+```
+2️⃣ Modify your custom class to extend `equatable`: 
+
+```dart
+import 'package:equatable/equatable.dart';
+
+class CustomItem extends Equatable {
+  final int id;
+  final String name;
+
+  const CustomItem(this.id, this.name);
+
+  @override
+  List<Object> get props => [id, name];
+}
+
+```
+
+With **Equatable**, Dart will automatically handle equality comparisons, ensuring `initialItems` work correctly! 🎯
+
