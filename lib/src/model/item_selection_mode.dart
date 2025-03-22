@@ -1,0 +1,4 @@
+enum ItemSelectionMode {
+  single,
+  multi,
+}
