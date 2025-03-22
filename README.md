@@ -93,12 +93,11 @@ The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and
 
 
 <br>
+<br>
+<br>
 
 
-## SingleListItemSelector 
-
-
-#### SingleListItemSelector (Primitive types)
+### SingleListItemSelector (Primitive types)
 
 ```dart
        SingleListItemSelector<int>(
@@ -122,9 +121,11 @@ The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and
 
 <br>
 
-#### SingleListItemSelector (Enums)
+
+### MultiListItemSelector (Enums)
+
 ```dart
-          SingleListItemSelector<Language>(
+          MultiListItemSelector<Language>(
             items: Language.values,
             selectedItems: (List<Language> selectedItems,_) {
               debugPrint(selectedItems.toString());
@@ -160,105 +161,7 @@ The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_list_item/enums.gif?raw=true">
-</p>
-
-
-<br>
-
-#### SingleListItemSelector (Custom classes)
-
-```dart
-           SingleListItemSelector<Person>(
-            direction: Axis.vertical,
-            items: people,
-            selectedItems: (List<Person> selectedItems, _) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              Person person = people[index];
-              return ItemSelector(
-                selectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ListTile(
-                    title: Text(
-                      person.fullName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: Text(
-                      "Age : ${person.age}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    trailing: switch (person.gender.name) {
-                      "male" => Image.asset("assets/images/male.png"),
-                      _ => Image.asset("assets/images/female.png")
-                    },
-                  ),
-                ),
-                unSelectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange.withValues(alpha: 0.6),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ListTile(
-                    title: Text(person.fullName),
-                    subtitle: Text("Age : ${person.age}"),
-                    trailing: switch (person.gender.name) {
-                      "male" => Image.asset("assets/images/male.png"),
-                      _ => Image.asset("assets/images/female.png")
-                    },
-                  ),
-                ),
-              );
-            },
-          )
-
-```
-
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_list_item/class.gif?raw=true">
-</p>
-
-<br>
-<br>
-<br>
-
-
-## SingleGridItemSelector
-
-### SingleGridItemSelector (Primitive types)
-
-```dart
-   SingleGridItemSelector<double>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 130.0,
-          crossAxisSpacing: 20.0,
-          mainAxisSpacing: 20.0,
-        ),
-        items: doubleItems,
-        selectedItems: (List<double> selectedItems,_) {
-          debugPrint(selectedItems.toString());
-        },
-        builder: (_, index) {
-          return ItemSelector(
-            selectedItem: yourDesireWidget(),
-            unSelectedItem: yourDesireWidget,
-          );
-        },
-      )
-
-```
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_grid_item/primitive.gif?raw=true">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_list_item/enum.gif?raw=true">
 </p>
 
 <br>
@@ -316,310 +219,7 @@ The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and
 
 
 
-### SingleGridItemSelector (Custom classes)
-
-```dart
- SingleGridItemSelector<Person>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 170.0,
-          crossAxisSpacing: 2.0,
-          mainAxisSpacing: 2.0,
-          mainAxisExtent: 200,
-        ),
-        items: people,
-        selectedItems: (List<Person> selectedItems, _) {
-          debugPrint(selectedItems.toString());
-        },
-        builder: (_, index) {
-          Person person = people[index];
-          return ItemSelector(
-            selectedItem: Container(
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                spacing: 10,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    person.fullName,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "Age : ${person.age}",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  switch (person.gender.name) {
-                    "male" => Image.asset(
-                        "assets/images/male.png",
-                        height: 60,
-                      ),
-                    _ => Image.asset(
-                        "assets/images/female.png",
-                        height: 60,
-                      )
-                  },
-                ],
-              ),
-            ),
-            unSelectedItem: Container(
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange.withValues(alpha: 0.6),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                spacing: 10,
-                children: [
-                  Text(person.fullName, textAlign: TextAlign.center),
-                  Text("Age : ${person.age}"),
-                  switch (person.gender.name) {
-                    "male" => Image.asset("assets/images/male.png", height: 40),
-                    _ => Image.asset("assets/images/female.png", height: 40)
-                  },
-                ],
-              ),
-            ),
-          );
-        },
-      )
-
-```
-
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_grid_item/class.gif?raw=true">
-</p>
-
-<br>
-<br>
-<br>
-
-
-## MultiListItemSelector 
-#### MultiListItemSelector (Primitive types)
-
-```dart
-          MultiListItemSelector<String>(
-            items: stringItems,
-            selectedItems: (List<String> selectedItems,_) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              return ItemSelector(
-                selectedItem: yourDesireWidget(),
-                unSelectedItem: yourDesireWidget(),
-              );
-            },
-          )
-```
-
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_list_item/primitive.gif?raw=true">
-</p>
-
-<br>
-
-#### MultiListItemSelector (Enums)
-
-```dart
-          MultiListItemSelector<Language>(
-            items: Language.values,
-            selectedItems: (List<Language> selectedItems,_) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              return ItemSelector(
-                selectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    Language.values[index].name.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                unSelectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange.withValues(alpha: 0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(Language.values[index].name.toString()),
-                ),
-              );
-            },
-          )
-
-```
-
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_list_item/enum.gif?raw=true">
-</p>
-
-<br>
-
-#### MultiListItemSelector (Custom classes)
-
-```dart
-          MultiListItemSelector<Person>(
-            direction: Axis.vertical,
-            items: people,
-            selectedItems: (List<Person> selectedItems, _) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              Person person = people[index];
-              return ItemSelector(
-                selectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ListTile(
-                    title: Text(
-                      person.fullName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: Text(
-                      "Age : ${person.age}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    trailing: switch (person.gender.name) {
-                      "male" => Image.asset("assets/images/male.png"),
-                      _ => Image.asset("assets/images/female.png")
-                    },
-                  ),
-                ),
-                unSelectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange.withValues(alpha: 0.6),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ListTile(
-                    title: Text(person.fullName),
-                    subtitle: Text("Age : ${person.age}"),
-                    trailing: switch (person.gender.name) {
-                      "male" => Image.asset("assets/images/male.png"),
-                      _ => Image.asset("assets/images/female.png")
-                    },
-                  ),
-                ),
-              );
-            },
-          )
-
-```
-
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_list_item/class.gif?raw=true">
-</p>
-
-<br>
-
-
-## MultiGridItemSelector 
-
-
-#### MultiGridItemSelector (Primitive types)
-
-```dart
-MultiGridItemSelector<int>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 130.0,
-          crossAxisSpacing: 20.0,
-          mainAxisSpacing: 20.0,
-        ),
-        items: integerItems,
-        selectedItems: (List<int> selectedItems, _) {
-          debugPrint(selectedItems.toString());
-        },
-        builder: (_, index) {
-          return ItemSelector(
-            selectedItem: yourDesireWidget(),
-            unSelectedItem: yourDesireWidget(),
-          );
-        },
-      )
-         
-```
-
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_grid_item/primitive.gif?raw=true">
-</p>
-
-<br>
-
-#### MultiGridItemSelector (Enums)
-
-```dart
-MultiGridItemSelector<Language>(
-        items: Language.values,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 130.0,
-          crossAxisSpacing: 20.0,
-          mainAxisSpacing: 20.0,
-        ),
-        selectedItems: (List<Language> selectedItems, _) {
-          debugPrint(selectedItems.toString());
-        },
-        builder: (_, index) {
-          return ItemSelector(
-            selectedItem: Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(
-                Language.values[index].name.toString(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            unSelectedItem: Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange.withValues(alpha: 0.3),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(Language.values[index].name.toString()),
-            ),
-          );
-        },
-      )
-         
-```
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_grid_item/enums.gif?raw=true">
-</p>
-
-<br>
-
-
-#### MultiGridItemSelector (Custom classes)
+### MultiGridItemSelector (Custom classes)
 
 ```dart
 MultiGridItemSelector<Person>(
@@ -700,7 +300,27 @@ MultiGridItemSelector<Person>(
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_grid_item/class.gif?raw=true">
 </p>
 
+<br>
+<br>
 
+# Examples  
+
+| Widget                     | Example | 
+|:--------------------------:|:--------------:|
+| SingleListItemSelector    | [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_item_selector/single_item_selector)             | 
+| MultiListItemSelector     |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_item_selector/multi_item_selector)           | 
+| SingleGridItemSelector     |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/grid_item_selector/single_item_selector)           | 
+| MultiGridItemSelector      |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/grid_item_selector/multi_item_selector)           | 
+
+<br>
+
+| Options                     | Example | 
+|:--------------------------:|:--------------:|
+| SingleSelectOptions    | [code](https://github.com/SinaSys/items_selector/blob/master/example/lib/options/example_single_option.dart)             | 
+| MultiSelectOptions     |  [code](https://github.com/SinaSys/items_selector/blob/master/example/lib/options/example_multi_option.dart)           | 
+
+
+<br>
 <br>
 
 
