@@ -6,3 +6,8 @@
 
 - Updated `README.md` for better clarity.
 
+
+## 0.1.2
+
+- Add examples
+
