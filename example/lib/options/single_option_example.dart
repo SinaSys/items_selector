@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:items_selector/items_selector.dart';
 
-class ExampleSingleOptions extends StatelessWidget {
-  const ExampleSingleOptions({super.key});
+class SingleOptionsExample extends StatelessWidget {
+  const SingleOptionsExample({super.key});
 
   static final List<int> integerItems = [10, 20, 30, 40, 50];
 
