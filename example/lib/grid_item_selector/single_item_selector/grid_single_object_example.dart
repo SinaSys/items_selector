@@ -12,11 +12,13 @@ class GridSingleObjectExample extends StatelessWidget {
         title: const Text("Single grid item (Object)"),
       ),
       body: SingleGridItemSelector<Person>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 170.0,
-          crossAxisSpacing: 2.0,
-          mainAxisSpacing: 2.0,
-          mainAxisExtent: 200,
+        gridConfiguration: GridConfiguration(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 130.0,
+            crossAxisSpacing: 20.0,
+            mainAxisSpacing: 20.0,
+            mainAxisExtent: 200,
+          ),
         ),
         items: people,
         selectedItems: (List<Person> selectedItems, _) {

@@ -17,10 +17,12 @@ class GridSingleEnumExample extends StatelessWidget {
         title: const Text("Single grid item (Enum)"),
       ),
       body: SingleGridItemSelector<Language>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 130.0,
-          crossAxisSpacing: 20.0,
-          mainAxisSpacing: 20.0,
+        gridConfiguration: GridConfiguration(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 130.0,
+            crossAxisSpacing: 20.0,
+            mainAxisSpacing: 20.0,
+          ),
         ),
         items: Language.values,
         selectedItems: (List<Language> selectedItems, _) {

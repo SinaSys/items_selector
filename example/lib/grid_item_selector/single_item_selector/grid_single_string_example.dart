@@ -13,10 +13,12 @@ class GridSingleStringExample extends StatelessWidget {
         title: const Text("Single grid item (String)"),
       ),
       body: SingleGridItemSelector<String>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 130.0,
-          crossAxisSpacing: 20.0,
-          mainAxisSpacing: 20.0,
+        gridConfiguration: GridConfiguration(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 130.0,
+            crossAxisSpacing: 20.0,
+            mainAxisSpacing: 20.0,
+          ),
         ),
         items: stringItems,
         selectedItems: (List<String> selectedItems, _) {
