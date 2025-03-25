@@ -62,7 +62,7 @@ class MultiOptionsExample extends StatelessWidget {
             items: integerItems,
             initialItems: [10, 20],
             options: MultiSelectOptions(
-              allowUnselectInitialItem: true,
+              allowUnselectInitialItems: true,
               maxItems: 3,
             ),
             selectedItems: (List<int> selectedItems, _) {
@@ -152,7 +152,7 @@ class MultiOptionsExample extends StatelessWidget {
             items: integerItems,
             initialItems: [10, 20],
             options: MultiSelectOptions(
-              allowUnselectInitialItem: false,
+              allowUnselectInitialItems: false,
               maxItems: 4,
             ),
             selectedItems: (List<int> selectedItems, _) {
@@ -241,7 +241,7 @@ class MultiOptionsExample extends StatelessWidget {
           MultiListItemSelector<int>(
             items: integerItems,
             options: MultiSelectOptions(
-              allowUnselectInitialItem: false,
+              allowUnselectInitialItems: false,
               maxItems: 3,
             ),
             selectedItems: (List<int> selectedItems, _) {
@@ -312,7 +312,7 @@ class MultiOptionsExample extends StatelessWidget {
             items: integerItems,
             initialItems: [10, 20],
             options: MultiSelectOptions(
-              allowUnselectInitialItem: true,
+              allowUnselectInitialItems: true,
             ),
             selectedItems: (List<int> selectedItems, _) {
               debugPrint(selectedItems.toString());
@@ -382,7 +382,7 @@ class MultiOptionsExample extends StatelessWidget {
             items: integerItems,
             initialItems: [10, 20],
             options: MultiSelectOptions(
-              allowUnselectInitialItem: false,
+              allowUnselectInitialItems: false,
             ),
             selectedItems: (List<int> selectedItems, _) {
               debugPrint(selectedItems.toString());
@@ -451,7 +451,7 @@ class MultiOptionsExample extends StatelessWidget {
           MultiListItemSelector<int>(
             items: integerItems,
             options: MultiSelectOptions(
-              allowUnselectInitialItem: false,
+              allowUnselectInitialItems: false,
             ),
             selectedItems: (List<int> selectedItems, _) {
               debugPrint(selectedItems.toString());

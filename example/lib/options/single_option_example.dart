@@ -41,7 +41,10 @@ class SingleOptionsExample extends StatelessWidget {
           SingleListItemSelector<int>(
             items: integerItems,
             initialItems: [10, 20],
-            options: SingleSelectOptions(allowUnselectInitialItem: true, allowUnselectMainItem: true),
+            options: SingleSelectOptions(
+              allowUnselectInitialItems: true,
+              allowUnselectMainItems: true,
+            ),
             selectedItems: (List<int> selectedItems, _) {
               debugPrint(selectedItems.toString());
             },
@@ -108,7 +111,10 @@ class SingleOptionsExample extends StatelessWidget {
           ),
           SingleListItemSelector<int>(
             initialItems: [10, 20],
-            options: SingleSelectOptions(allowUnselectInitialItem: false, allowUnselectMainItem: true),
+            options: SingleSelectOptions(
+              allowUnselectInitialItems: false,
+              allowUnselectMainItems: true,
+            ),
             items: integerItems,
             selectedItems: (List<int> selectedItems, _) {
               debugPrint(selectedItems.toString());
@@ -176,7 +182,10 @@ class SingleOptionsExample extends StatelessWidget {
           ),
           SingleListItemSelector<int>(
             initialItems: [10, 20],
-            options: SingleSelectOptions(allowUnselectInitialItem: true, allowUnselectMainItem: false),
+            options: SingleSelectOptions(
+              allowUnselectInitialItems: true,
+              allowUnselectMainItems: false,
+            ),
             items: integerItems,
             selectedItems: (List<int> selectedItems, _) {
               debugPrint(selectedItems.toString());
@@ -244,7 +253,10 @@ class SingleOptionsExample extends StatelessWidget {
           ),
           SingleListItemSelector<int>(
             initialItems: [10, 20],
-            options: SingleSelectOptions(allowUnselectInitialItem: false, allowUnselectMainItem: false),
+            options: SingleSelectOptions(
+              allowUnselectInitialItems: false,
+              allowUnselectMainItems: false,
+            ),
             items: integerItems,
             selectedItems: (List<int> selectedItems, _) {
               debugPrint(selectedItems.toString());
@@ -311,7 +323,10 @@ class SingleOptionsExample extends StatelessWidget {
             ],
           ),
           SingleListItemSelector<int>(
-            options: SingleSelectOptions(allowUnselectInitialItem: false, allowUnselectMainItem: false),
+            options: SingleSelectOptions(
+              allowUnselectInitialItems: false,
+              allowUnselectMainItems: false,
+            ),
             items: integerItems,
             selectedItems: (List<int> selectedItems, _) {
               debugPrint(selectedItems.toString());

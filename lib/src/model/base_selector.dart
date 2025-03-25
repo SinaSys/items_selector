@@ -19,7 +19,7 @@ abstract class BaseSelector<T> extends StatefulWidget {
     this.hasLongPress = false,
     required this.type,
   }) : assert(
-          options == null || options.allowUnselectInitialItem == false || initialItems != null,
+          options == null || options.allowUnselectInitialItems == false || initialItems != null,
           "If allowUnselectInitialItem is true, initialItems cannot be null",
         );
 
@@ -67,28 +67,28 @@ class BaseSelectorState<T> extends State<BaseSelector<T>> with SingleSelectUtil<
     if (widget.options != null) {
       var singleSelectOptions = widget.options as SingleSelectOptions;
 
-      if (singleSelectOptions.allowUnselectMainItem!) {
+      if (singleSelectOptions.allowUnselectMainItems!) {
         /// 1
-        if (widget.options!.allowUnselectInitialItem!) {
+        if (widget.options!.allowUnselectInitialItems!) {
           itemsWrapper = selectableMainItemsWithSelectableInitialItems(itemsWrapper, item);
         }
 
         ///2
-        if (!singleSelectOptions.allowUnselectInitialItem!) {
+        if (!singleSelectOptions.allowUnselectInitialItems!) {
           if (!item.isInitialItem) {
             itemsWrapper = selectableMainItemsWithUnSelectableInitialItems(itemsWrapper, item);
           }
         }
       }
 
-      if (!singleSelectOptions.allowUnselectMainItem!) {
+      if (!singleSelectOptions.allowUnselectMainItems!) {
         ///3
-        if (singleSelectOptions.allowUnselectInitialItem!) {
+        if (singleSelectOptions.allowUnselectInitialItems!) {
           itemsWrapper = unSelectableMainItemsWithSelectableInitialItems(itemsWrapper, item);
         }
 
         ///4
-        if (!singleSelectOptions.allowUnselectInitialItem!) {
+        if (!singleSelectOptions.allowUnselectInitialItems!) {
           itemsWrapper = unSelectableMainItemsWithUnSelectableInitialItems(itemsWrapper, item);
         }
       }
@@ -120,7 +120,7 @@ class BaseSelectorState<T> extends State<BaseSelector<T>> with SingleSelectUtil<
         );
       } else {
         /// UnSelectableInitialItems
-        if (multiSelectOption.allowUnselectInitialItem!) {
+        if (multiSelectOption.allowUnselectInitialItems!) {
           itemsWrapper = selectWithUnSelectableInitialItems(
             itemsWrapper: itemsWrapper,
             item: item,

@@ -11,7 +11,7 @@ mixin MultiSelectUtil<T> {
     for (var i = 0; i < itemsWrapper.length; ++i) {
       if (item.item == itemsWrapper[i].item) {
         if (itemsWrapper.where((item) => item.isSelected).length < multiSelectOption.maxItems!) {
-          if (multiSelectOption.allowUnselectInitialItem!) {
+          if (multiSelectOption.allowUnselectInitialItems!) {
             itemsWrapper[index].isSelected = !itemsWrapper[index].isSelected;
           } else {
             if (!item.isInitialItem) {
