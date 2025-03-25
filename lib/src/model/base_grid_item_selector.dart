@@ -1,59 +1,28 @@
-import 'item_selector.dart';
 import 'base_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:items_selector/items_selector.dart';
 import 'package:items_selector/src/utils/extensions.dart';
-import 'package:flutter/gestures.dart' show DragStartBehavior;
 
 class BaseGridGridItemSelector<T> extends BaseSelector<T> {
+  final GridConfiguration gridConfiguration;
+
   BaseGridGridItemSelector({
     super.key,
     required super.items,
     required super.builder,
-    required this.gridDelegate,
     required super.selectedItems,
     super.initialItems,
-    super.hasLongPress,
-    super.options,
-    this.reverse = false,
-    this.controller,
-    this.primary,
-    this.physics,
-    this.shrinkWrap = false,
-    this.padding,
-    this.addAutomaticKeepAlive = false,
-    this.addRepaintBoundaries = true,
-    this.addSemanticIndexes = true,
-    this.cacheExtent,
-    this.semanticChildCount,
-    this.dragStartBehavior = DragStartBehavior.start,
-    this.clipBehavior = Clip.hardEdge,
-    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
-    this.restorationId,
     required super.type,
+    required super.options,
+    super.hasLongPress,
+    required this.gridConfiguration,
   });
 
-  final SliverGridDelegate gridDelegate;
-  final bool reverse;
-  final ScrollController? controller;
-  final bool? primary;
-  final ScrollPhysics? physics;
-  final bool shrinkWrap;
-  final EdgeInsetsGeometry? padding;
-  final bool addAutomaticKeepAlive;
-  final bool addRepaintBoundaries;
-  final bool addSemanticIndexes;
-  final double? cacheExtent;
-  final int? semanticChildCount;
-  final DragStartBehavior dragStartBehavior;
-  final Clip clipBehavior;
-  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
-  final String? restorationId;
-
   @override
-  BaseGridItemSelectorState<T> createState() => BaseGridItemSelectorState<T>();
+  BaseGridGridItemSelectorState<T> createState() => BaseGridGridItemSelectorState<T>();
 }
 
-class BaseGridItemSelectorState<T> extends BaseSelectorState<T> {
+class BaseGridGridItemSelectorState<T> extends BaseSelectorState<T> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> listItem = List.generate(
@@ -64,23 +33,27 @@ class BaseGridItemSelectorState<T> extends BaseSelectorState<T> {
       },
     );
     return GridView.builder(
+      findChildIndexCallback: baseGridItemSelectorWidget.gridConfiguration.findChildIndexCallback,
+      scrollDirection: baseGridItemSelectorWidget.gridConfiguration.scrollDirection,
+      hitTestBehavior: baseGridItemSelectorWidget.gridConfiguration.hitTestBehavior,
+      key: baseGridItemSelectorWidget.key,
       itemCount: listItem.length,
-      gridDelegate: baseGridItemSelectorWidget.gridDelegate,
-      shrinkWrap: baseGridItemSelectorWidget.shrinkWrap,
-      padding: baseGridItemSelectorWidget.padding,
-      controller: baseGridItemSelectorWidget.controller,
-      addAutomaticKeepAlives: baseGridItemSelectorWidget.addAutomaticKeepAlive,
-      addRepaintBoundaries: baseGridItemSelectorWidget.addRepaintBoundaries,
-      addSemanticIndexes: baseGridItemSelectorWidget.addSemanticIndexes,
-      cacheExtent: baseGridItemSelectorWidget.cacheExtent,
-      clipBehavior: baseGridItemSelectorWidget.clipBehavior,
-      dragStartBehavior: baseGridItemSelectorWidget.dragStartBehavior,
-      keyboardDismissBehavior: baseGridItemSelectorWidget.keyboardDismissBehavior,
-      physics: baseGridItemSelectorWidget.physics,
-      primary: baseGridItemSelectorWidget.primary,
-      restorationId: baseGridItemSelectorWidget.restorationId,
-      reverse: baseGridItemSelectorWidget.reverse,
-      semanticChildCount: baseGridItemSelectorWidget.semanticChildCount,
+      gridDelegate: baseGridItemSelectorWidget.gridConfiguration.gridDelegate,
+      shrinkWrap: baseGridItemSelectorWidget.gridConfiguration.shrinkWrap,
+      padding: baseGridItemSelectorWidget.gridConfiguration.padding,
+      controller: baseGridItemSelectorWidget.gridConfiguration.controller,
+      addAutomaticKeepAlives: baseGridItemSelectorWidget.gridConfiguration.addAutomaticKeepAlive,
+      addRepaintBoundaries: baseGridItemSelectorWidget.gridConfiguration.addRepaintBoundaries,
+      addSemanticIndexes: baseGridItemSelectorWidget.gridConfiguration.addSemanticIndexes,
+      cacheExtent: baseGridItemSelectorWidget.gridConfiguration.cacheExtent,
+      clipBehavior: baseGridItemSelectorWidget.gridConfiguration.clipBehavior,
+      dragStartBehavior: baseGridItemSelectorWidget.gridConfiguration.dragStartBehavior,
+      keyboardDismissBehavior: baseGridItemSelectorWidget.gridConfiguration.keyboardDismissBehavior,
+      physics: baseGridItemSelectorWidget.gridConfiguration.physics,
+      primary: baseGridItemSelectorWidget.gridConfiguration.primary,
+      restorationId: baseGridItemSelectorWidget.gridConfiguration.restorationId,
+      reverse: baseGridItemSelectorWidget.gridConfiguration.reverse,
+      semanticChildCount: baseGridItemSelectorWidget.gridConfiguration.semanticChildCount,
       itemBuilder: (BuildContext context, int index) {
         return listItem[index];
       },
