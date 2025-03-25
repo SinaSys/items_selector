@@ -18,10 +18,12 @@ class GridMultiEnumExample extends StatelessWidget {
       ),
       body: MultiGridItemSelector<Language>(
         items: Language.values,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 130.0,
-          crossAxisSpacing: 20.0,
-          mainAxisSpacing: 20.0,
+        gridConfiguration: GridConfiguration(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 130.0,
+            crossAxisSpacing: 20.0,
+            mainAxisSpacing: 20.0,
+          ),
         ),
         selectedItems: (List<Language> selectedItems, _) {
           debugPrint(selectedItems.toString());

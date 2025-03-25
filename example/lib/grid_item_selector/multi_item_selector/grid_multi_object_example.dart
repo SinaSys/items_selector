@@ -12,11 +12,13 @@ class GridMultiObjectExample extends StatelessWidget {
         title: const Text("Multi list item (Object)"),
       ),
       body: MultiGridItemSelector<Person>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 170.0,
-          crossAxisSpacing: 2.0,
-          mainAxisSpacing: 2.0,
-          mainAxisExtent: 200,
+        gridConfiguration: GridConfiguration(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 130.0,
+            crossAxisSpacing: 20.0,
+            mainAxisSpacing: 20.0,
+            mainAxisExtent: 200,
+          ),
         ),
         items: people,
         selectedItems: (List<Person> selectedItems, _) {
