@@ -8,7 +8,7 @@ import 'package:items_selector/src/model/select_options.dart';
 import 'package:items_selector/src/utils/multi_select_util_mixin.dart';
 import 'package:items_selector/src/utils/single_select_util_mixin.dart';
 
-class BaseSelector<T> extends StatefulWidget {
+abstract class BaseSelector<T> extends StatefulWidget {
   BaseSelector({
     super.key,
     required this.items,
@@ -177,16 +177,6 @@ class BaseSelectorState<T> extends State<BaseSelector<T>> with SingleSelectUtil<
         },
       true => () {}
     };
-  }
-
-  Widget defineListItemWidgetsByDirection(List<Widget> items) {
-    return SingleChildScrollView(
-      scrollDirection: singleListItemSelectorWidget.direction,
-      child: switch (singleListItemSelectorWidget.direction) {
-        Axis.horizontal => Row(children: items),
-        Axis.vertical => Column(children: items)
-      },
-    );
   }
 
   @override
