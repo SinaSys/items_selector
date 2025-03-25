@@ -1,5 +1,5 @@
 
-# Items Selector 
+# Items Selector
 
 <p align="center">
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/other/main_image.png?raw=true" alt="Group 7">
@@ -7,20 +7,20 @@
 
 <br>
 
-# Introduction 
+# Introduction
 This package provides a flexible and customizable solution for selecting items from a list. It supports both single and multi-selection modes, as well as the ability to define initial items (either fixed and non-selectable or selectable). The package offers versatile display options, including scrollable lists (horizontally or vertically) and grid views. Additionally, it is fully generic and supports all data types, making it adaptable to various use cases.
 
 
 <br>
 
 
-# Features  
--  Supports all primitive data types (e.g., int, String, etc.), enums, and custom classes. 
+# Features
+-  Supports all primitive data types (e.g., int, String, etc.), enums, and custom classes.
 -  Built-in state management handled by the package.
--  Provides both single-select and multi-select options. 
+-  Provides both single-select and multi-select options.
 -  Fully customizable widgets for selected and unselected states.
--  Displays scrollable lists horizontally or vertically. 
--  Supports grid view layouts. 
+-  Displays scrollable lists horizontally or vertically.
+-  Supports grid view layouts.
 -  Ability to define initial items (selectable or non-selectable).
 -  Animation support
 
@@ -28,7 +28,7 @@ This package provides a flexible and customizable solution for selecting items f
 <br>
 
 
-# How to use 
+# How to use
 In a terminal, located at the root of your package, run this command:
 ```dart
 flutter pub add items_selector
@@ -39,10 +39,10 @@ flutter pub add items_selector
 
 # Options
 ## SingleSelectOption
-`SingleSelectOption` is used within the `SingleListItemSelector` and `SingleGridItemSelector` widgets and includes two boolean properties: `allowUnselectedInitialItem` and `allowUnselectedMainItem`. When the `initialItem` property is set, enabling `allowUnselectedInitialItem` makes those initial items unselectable. Similarly, enabling `allowUnselectedMainItem` prevents the main items from being selected.
+`SingleSelectOption` is used within the `SingleListItemSelector` and `SingleGridItemSelector` widgets and includes two boolean properties: `allowUnselectedInitialItems` and `allowUnselectedMainItems`. When the `initialItems` property is set, enabling `allowUnselectedInitialItems` makes those initial items unselectable. Similarly, enabling `allowUnselectedMainItems` prevents the main items from being selected.
 
 
-| Row | Initial Items | Main Items | Allow Unselect Main Item | Allow Unselect Initial Item | Image/Description | 
+| Row | Initial Items | Main Items | Allow Unselect Main Items | Allow Unselect Initial Items | Image/Description | 
 |:---:|:------------:|:---------:|:-----------------------:|:--------------------------:|:-----------------:|
 | 1  | Y | Y | Y | Y | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/1.gif?raw=true)   |
 | 2  | Y | Y | Y | N | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/2.gif?raw=true)   |
@@ -53,9 +53,9 @@ flutter pub add items_selector
 <br>
 
 ## MultiSelectOption
-`MultiSelectOption` is used within the `MultiListItemSelector` and `MultiGridItemSelector` widgets and includes two properties: `allowUnselectedInitialItem` and `maxItems`. When the `initialItems` property is set, enabling `allowUnselectedInitialItem` makes those initial items unselectable. The `maxItems` property defines the maximum number of items that can be selected.
+`MultiSelectOption` is used within the `MultiListItemSelector` and `MultiGridItemSelector` widgets and includes two properties: `allowUnselectedInitialItems` and `maxItems`. When the `initialItems` property is set, enabling `allowUnselectedInitialItems` makes those initial items unselectable. The `maxItems` property defines the maximum number of items that can be selected.
 
-| Row | Initial Items | Main Item | Allow Unselect Initial Item | Max Count | Image |
+| Row | Initial Items | Main Items | Allow Unselect Initial Items | Max Items | Image |
 |:---:|:------------:|:--------:|:----------------------:|:---------:|:-----:|
 | 1  | Y | Y | Y | Y | ![6](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/1.gif?raw=true) |
 | 2  | Y | Y | N | Y | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/2.gif?raw=true) | 
@@ -70,25 +70,26 @@ flutter pub add items_selector
 
 # Widgets
 
-The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and MultiGridItemSelector** widgets provide a flexible solution for selecting items from a collection, supporting both **single** and **multi-selection** modes.  
+The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and MultiGridItemSelector** widgets provide a flexible solution for selecting items from a collection, supporting both **single** and **multi-selection** modes.
 
-### 🔹 Key Properties  
-- **`items`** → Defines the available list of items.  
-- **`builder`** → Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`.  
-- **`selectedItems`** → Returns the list of selected items when a selection is made.  
-- **`initialItems` (optional)** → Allows specifying pre-selected items at initialization.  
+### 🔹 Key Properties
+- **`items`** → Defines the available list of items.
+- **`builder`** → Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`.
+- **`selectedItems`** → Returns the list of selected items when a selection is made.
+- **`initialItems` (optional)** → Allows specifying pre-selected items at initialization.
+- **`gridConfiguration` (only for `SingleGridItemSelector` & `MultiGridItemSelector`)** → Encapsulates GridView-specific properties such as `gridDelegate`, `controller`, `physics`, `padding`, etc.
 
-### ⚙️ Selection Behavior  
-- **SingleListItemSelector & SingleGridItemSelector** → Use `SingleSelectOptions`, which includes:  
-  - `allowUnselectInitialItem` → Controls if initial items can be unselected.  
-  - `allowUnselectMainItem` → Determines if main items can be unselected.  
-- **MultiListItemSelector & MultiGridItemSelector** → Use `MultiSelectOptions`, which includes:  
-  - `allowUnselectInitialItem` → Controls if initial items can be unselected.  
-  - `maxItems` → Limits the number of selectable items.  
+### ⚙️ Selection Behavior
+- **SingleListItemSelector & SingleGridItemSelector** → Use `SingleSelectOptions`, which includes:
+  - `allowUnselectInitialItems` → Controls if initial items can be unselected.
+  - `allowUnselectMainItems` → Determines if main items can be unselected.
+- **MultiListItemSelector & MultiGridItemSelector** → Use `MultiSelectOptions`, which includes:
+  - `allowUnselectInitialItems` → Controls if initial items can be unselected.
+  - `maxItems` → Limits the number of selectable items.
 
-### 🖼️ Layout Differences  
-- **📜 List-based Widgets** → `SingleListItemSelector` & `MultiListItemSelector` use **List** (horizontal/vertical).  
-- **🔲 Grid-based Widgets** → `SingleGridItemSelector` & `MultiGridItemSelector` use **GridView**.  
+### 🖼️ Layout Differences
+- **📜 List-based Widgets** → `SingleListItemSelector` & `MultiListItemSelector` use **List** (horizontal/vertical).
+- **🔲 Grid-based Widgets** → `SingleGridItemSelector` & `MultiGridItemSelector` use **GridView**.
 
 
 
@@ -171,10 +172,12 @@ The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and
 
 ```dart
  SingleGridItemSelector<Language>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 130.0,
-          crossAxisSpacing: 20.0,
-          mainAxisSpacing: 20.0,
+          gridConfiguration: GridConfiguration(
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 130.0,
+            crossAxisSpacing: 20.0,
+            mainAxisSpacing: 20.0,
+          ),
         ),
         items: Language.values,
         selectedItems: (List<Language> selectedItems, _) {
@@ -223,78 +226,80 @@ The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and
 
 ```dart
 MultiGridItemSelector<Person>(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 170.0,
-          crossAxisSpacing: 2.0,
-          mainAxisSpacing: 2.0,
-          mainAxisExtent: 200,
-        ),
-        items: people,
-        selectedItems: (List<Person> selectedItems, _) {
-          debugPrint(selectedItems.toString());
-        },
-        builder: (_, index) {
-          Person person = people[index];
-          return ItemSelector(
-            selectedItem: Container(
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                spacing: 10,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    person.fullName,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "Age : ${person.age}",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  switch (person.gender.name) {
-                    "male" => Image.asset(
-                        "assets/images/male.png",
-                        height: 60,
-                      ),
-                    _ => Image.asset(
-                        "assets/images/female.png",
-                        height: 60,
-                      )
-                  },
-                ],
-              ),
-            ),
-            unSelectedItem: Container(
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange.withValues(alpha: 0.6),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                spacing: 10,
-                children: [
-                  Text(person.fullName, textAlign: TextAlign.center),
-                  Text("Age : ${person.age}"),
-                  switch (person.gender.name) {
-                    "male" => Image.asset("assets/images/male.png", height: 40),
-                    _ => Image.asset("assets/images/female.png", height: 40)
-                  },
-                ],
-              ),
-            ),
-          );
-        },
-      )
-         
+gridConfiguration: GridConfiguration(
+gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+maxCrossAxisExtent: 130.0,
+crossAxisSpacing: 20.0,
+mainAxisSpacing: 20.0,
+mainAxisExtent: 200,
+),
+),
+items: people,
+selectedItems: (List<Person> selectedItems, _) {
+debugPrint(selectedItems.toString());
+},
+builder: (_, index) {
+Person person = people[index];
+return ItemSelector(
+selectedItem: Container(
+padding: const EdgeInsets.all(15),
+decoration: BoxDecoration(
+color: Colors.deepOrange,
+borderRadius: BorderRadius.circular(10),
+),
+child: Column(
+spacing: 10,
+crossAxisAlignment: CrossAxisAlignment.center,
+children: [
+Text(
+person.fullName,
+textAlign: TextAlign.center,
+style: TextStyle(
+fontWeight: FontWeight.bold,
+),
+),
+Text(
+"Age : ${person.age}",
+style: TextStyle(
+fontWeight: FontWeight.bold,
+),
+),
+switch (person.gender.name) {
+"male" => Image.asset(
+"assets/images/male.png",
+height: 60,
+),
+_ => Image.asset(
+"assets/images/female.png",
+height: 60,
+)
+},
+],
+),
+),
+unSelectedItem: Container(
+padding: const EdgeInsets.all(15),
+decoration: BoxDecoration(
+color: Colors.deepOrange.withValues(alpha: 0.6),
+borderRadius: BorderRadius.circular(10),
+),
+child: Column(
+crossAxisAlignment: CrossAxisAlignment.center,
+spacing: 10,
+children: [
+Text(person.fullName, textAlign: TextAlign.center),
+Text("Age : ${person.age}"),
+switch (person.gender.name) {
+"male" => Image.asset("assets/images/male.png", height: 40),
+_ => Image.asset("assets/images/female.png", height: 40)
+},
+],
+),
+),
+);
+},
+)
+
 ```
 <p align="center">
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_grid_item/class.gif?raw=true">
@@ -303,7 +308,7 @@ MultiGridItemSelector<Person>(
 <br>
 <br>
 
-# Examples  
+# Examples
 
 | Widget                     | Example | 
 |:--------------------------:|:--------------:|
@@ -324,13 +329,13 @@ MultiGridItemSelector<Person>(
 <br>
 
 
-## ⚠️ Troubleshooting  
+## ⚠️ Troubleshooting
 
-### Issue: `initialItems` Not Working for Custom Classes  
-If you use a **custom class** as the item type and set the `initialItems` property, you might notice that the initial items are **not selected** when the app runs. This happens because **Dart uses reference equality by default**, meaning it does not automatically recognize two objects as equal even if their properties have the same values.  
+### Issue: `initialItems` Not Working for Custom Classes
+If you use a **custom class** as the item type and set the `initialItems` property, you might notice that the initial items are **not selected** when the app runs. This happens because **Dart uses reference equality by default**, meaning it does not automatically recognize two objects as equal even if their properties have the same values.
 
-### ✅ Solution 1: Override `==` Operator and `hashCode`  
-To ensure Dart correctly identifies equal objects, override the **equality (`==`) operator** and **hashCode** in your custom class:  
+### ✅ Solution 1: Override `==` Operator and `hashCode`
+To ensure Dart correctly identifies equal objects, override the **equality (`==`) operator** and **hashCode** in your custom class:
 
 ```dart
 class CustomItem {
@@ -341,7 +346,7 @@ class CustomItem {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || (other is CustomItem && other.id == id && other.name == name);
+          identical(this, other) || (other is CustomItem && other.id == id && other.name == name);
 
   @override
   int get hashCode => id.hashCode ^ name.hashCode;
@@ -351,11 +356,11 @@ class CustomItem {
 ### ✅ Solution 2: Use the equatable Package
 Instead of manually overriding == and hashCode, you can use the **equatable** package to simplify equality checks.
 
-1️⃣ **Add `equatable` to your dependencies:**  
+1️⃣ **Add `equatable` to your dependencies:**
 ```dart
 flutter pub add equatable
 ```
-2️⃣ Modify your custom class to extend `equatable`: 
+2️⃣ Modify your custom class to extend `equatable`:
 
 ```dart
 import 'package:equatable/equatable.dart';
