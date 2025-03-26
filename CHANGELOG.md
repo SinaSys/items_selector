@@ -1,14 +1,19 @@
-## 0.0.1
+## [1.0.0]
 
-* release initial version
+### Added
 
-## 0.1.1
+- Introduced **`SingleWrapItemSelector`** and **`MultiWrapItemSelector`** widgets, providing
+  flexible item arrangement using the `Wrap` layout.
 
-- Updated `README.md` for better clarity.
+### Changed
 
-## 0.1.2
+- **Removed default padding** applied to all widgets to give users more control over layout spacing.
+- **Removed `SingleChildScrollView`** from `SingleListItemSelector` and `MultiListItemSelector` to
+  avoid unintended scrolling behavior.
 
-- Add examples
+### Fixed
+
+- General improvements to layout consistency and flexibility.
 
 ## [0.2.0]
 
@@ -72,19 +77,16 @@
   )
   ```
 
-## [1.0.0]
+## 0.1.2
 
-### Added
+- Add examples
 
-- Introduced **`SingleWrapItemSelector`** and **`MultiWrapItemSelector`** widgets, providing
-  flexible item arrangement using the `Wrap` layout.
+## 0.1.1
 
-### Changed
+- Updated `README.md` for better clarity.
 
-- **Removed default padding** applied to all widgets to give users more control over layout spacing.
-- **Removed `SingleChildScrollView`** from `SingleListItemSelector` and `MultiListItemSelector` to
-  avoid unintended scrolling behavior.
+## 0.0.1
 
-### Fixed
+* release initial version
 
-- General improvements to layout consistency and flexibility.  
+
