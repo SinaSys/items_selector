@@ -23,6 +23,7 @@ flutter:
     - assets/images/widgets/multi_list_item/
     - assets/images/widgets/single_grid_item/
     - assets/images/widgets/multi_grid_item/
+    - assets/images/widgets/single_wrap_item/
     - assets/images/options/single/
     - assets/images/options/multi/
 
