@@ -10,11 +10,21 @@ import 'grid_item_selector/multi_item_selector/grid_multi_enum_example.dart';
 import 'grid_item_selector/multi_item_selector/grid_multi_double_example.dart';
 import 'grid_item_selector/multi_item_selector/grid_multi_object_example.dart';
 import 'grid_item_selector/multi_item_selector/grid_multi_string_example.dart';
+import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_int_example.dart';
 import 'package:example/grid_item_selector/multi_item_selector/grid_multi_int_example.dart';
+import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_enum_example.dart';
+import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_int_example.dart';
 import 'package:example/grid_item_selector/single_item_selector/grid_single_int_example.dart';
-import 'package:example/grid_item_selector/single_item_selector/grid_single_enum_example.dart';
 import 'package:example/list_item_selector/single_item_selector/list_single_int_example.dart';
+import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_double_example.dart';
+import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_enum_example.dart';
+import 'package:example/grid_item_selector/single_item_selector/grid_single_enum_example.dart';
+import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_object_example.dart';
 import 'package:example/list_item_selector/single_item_selector/list_single_enum_example.dart';
+import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_string_example.dart';
+import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_double_example.dart';
+import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_object_example.dart';
+import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_string_example.dart';
 import 'package:example/grid_item_selector/single_item_selector/grid_single_double_example.dart';
 import 'package:example/grid_item_selector/single_item_selector/grid_single_object_example.dart';
 import 'package:example/grid_item_selector/single_item_selector/grid_single_string_example.dart';
@@ -44,6 +54,20 @@ import 'package:example/list_item_selector/single_item_selector/list_single_stri
 /// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_string_example.dart
 /// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_enum_example.dart
 /// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_object_example.dart
+
+/// ================ SingleWrapItemSelector ================
+/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_int_example.dart
+/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_double_example.dart
+/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_string_example.dart
+/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_enum_example.dart
+/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_object_example.dart
+
+/// ================ MultiWrapItemSelector ================
+/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_int_example.dart
+/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_double_example.dart
+/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_string_example.dart
+/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_enum_example.dart
+/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_object_example.dart
 
 /// ================ MultiGridItemSelector ================
 /// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_int_example.dart
@@ -80,6 +104,8 @@ enum SelectionMode {
   multiList,
   singleGrid,
   multiGrid,
+  singleWrap,
+  multiWrap,
   singleOption,
   multiOption,
 }
@@ -97,6 +123,8 @@ class _HomePageState extends State<HomePage> {
     SelectionMode.multiList: false,
     SelectionMode.singleGrid: false,
     SelectionMode.multiGrid: false,
+    SelectionMode.singleWrap: false,
+    SelectionMode.multiWrap: false,
     SelectionMode.singleOption: false,
     SelectionMode.multiOption: false,
   };
@@ -137,6 +165,22 @@ class _HomePageState extends State<HomePage> {
       "object": GridMultiObjectExample(),
     };
 
+    Map<String, Widget> singleWrapRoutes = {
+      "int": WrapSingleIntExample(),
+      "double": WrapSingleDoubleExample(),
+      "string": WrapSingleStringExample(),
+      "enum": WrapSingleEnumExample(),
+      "object": WrapSingleObjectExample(),
+    };
+
+    Map<String, Widget> multiWrapRoutes = {
+      "int": WrapMultiIntExample(),
+      "double": WrapMultiDoubleExample(),
+      "string": WrapMultiStringExample(),
+      "enum": WrapMultiEnumExample(),
+      "object": WrapMultiObjectExample(),
+    };
+
     Map<String, Widget> singleOptionRoutes = {
       "SingleSelectOption": SingleOptionsExample(),
     };
@@ -149,6 +193,8 @@ class _HomePageState extends State<HomePage> {
       SelectionMode.singleList => singleListRoutes,
       SelectionMode.multiList => multiListRoutes,
       SelectionMode.singleGrid => singleGridRoutes,
+      SelectionMode.singleWrap => singleWrapRoutes,
+      SelectionMode.multiWrap => multiWrapRoutes,
       SelectionMode.singleOption => singleOptionRoutes,
       SelectionMode.multiOption => multiOptionRoutes,
       _ => multiGridRoutes,
@@ -287,6 +333,32 @@ class _HomePageState extends State<HomePage> {
                   expansionPanelList(
                     "Multi grid Item selector",
                     selectionMode: SelectionMode.multiGrid,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Text(
+                      "Wrap Item selector : ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  expansionPanelList(
+                    "Single wrap Item selector",
+                    selectionMode: SelectionMode.singleWrap,
+                  ),
+                  expansionPanelList(
+                    "Multi wrap Item selector",
+                    selectionMode: SelectionMode.multiWrap,
                   ),
                 ],
               ),
