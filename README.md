@@ -8,21 +8,21 @@
 <br>
 
 # Introduction
-This package provides a flexible and customizable solution for selecting items from a list. It supports both single and multi-selection modes, as well as the ability to define initial items (either fixed and non-selectable or selectable). The package offers versatile display options, including scrollable lists (horizontally or vertically) and grid views. Additionally, it is fully generic and supports all data types, making it adaptable to various use cases.
+This package provides a flexible and customizable solution for selecting items from a list. It supports both single and multi-selection modes, as well as the ability to define initial items (either fixed and non-selectable or selectable). The package offers versatile display options, including scrollable lists (horizontally or vertically), grid views, and wrap-based layouts for dynamic, multi-line item arrangements. Additionally, it is fully generic and supports all data types, making it adaptable to various use cases.
 
 
 <br>
 
 
 # Features
--  Supports all primitive data types (e.g., int, String, etc.), enums, and custom classes.
--  Built-in state management handled by the package.
--  Provides both single-select and multi-select options.
--  Fully customizable widgets for selected and unselected states.
--  Displays scrollable lists horizontally or vertically.
--  Supports grid view layouts.
--  Ability to define initial items (selectable or non-selectable).
--  Animation support
+- Supports all primitive data types (e.g., int, String, etc.), enums, and custom classes.
+- Built-in state management handled by the package.
+- Provides both single-select and multi-select options.
+- Fully customizable widgets for selected and unselected states.
+- Displays scrollable lists horizontally or vertically.
+- Supports grid view and wrap-based layouts for flexible item arrangement.
+- Ability to define initial items (selectable or non-selectable).
+- Animation support.
 
 
 <br>
@@ -38,8 +38,15 @@ flutter pub add items_selector
 <br>
 
 # Options
-## SingleSelectOption
-`SingleSelectOption` is used within the `SingleListItemSelector` and `SingleGridItemSelector` widgets and includes two boolean properties: `allowUnselectedInitialItems` and `allowUnselectedMainItems`. When the `initialItems` property is set, enabling `allowUnselectedInitialItems` makes those initial items unselectable. Similarly, enabling `allowUnselectedMainItems` prevents the main items from being selected.
+## **SingleSelectOption**
+
+`SingleSelectOption` is used within the **SingleListItemSelector**, **SingleGridItemSelector**, and **SingleWrapItemSelector** widgets and includes two boolean properties:
+
+- **`allowUnselectedInitialItems`**  
+  When the `initialItems` property is set, enabling this option allows those initial items to be **unselected**.
+
+- **`allowUnselectedMainItems`**  
+  Enabling this option prevents the **main items** from being selected.
 
 
 | Row | Initial Items | Main Items | Allow Unselect Main Items | Allow Unselect Initial Items | Image/Description | 
@@ -52,8 +59,16 @@ flutter pub add items_selector
 
 <br>
 
-## MultiSelectOption
-`MultiSelectOption` is used within the `MultiListItemSelector` and `MultiGridItemSelector` widgets and includes two properties: `allowUnselectedInitialItems` and `maxItems`. When the `initialItems` property is set, enabling `allowUnselectedInitialItems` makes those initial items unselectable. The `maxItems` property defines the maximum number of items that can be selected.
+## **MultiSelectOption**
+
+`MultiSelectOption` is used within the **MultiListItemSelector**, **MultiGridItemSelector**, and **MultiWrapItemSelector** widgets and includes two properties:
+
+- **`allowUnselectedInitialItems`**  
+  When the `initialItems` property is set, enabling this option allows those initial items to be **unselected**.
+
+- **`maxItems`**  
+  Defines the maximum number of items that can be selected.
+
 
 | Row | Initial Items | Main Items | Allow Unselect Initial Items | Max Items | Image |
 |:---:|:------------:|:--------:|:----------------------:|:---------:|:-----:|
@@ -67,29 +82,32 @@ flutter pub add items_selector
 <br>
 
 
+### **Widgets**
 
-# Widgets
+The widgets provide a flexible solution for selecting items from a collection, supporting both **single** and **multi-selection** modes.
 
-The **SingleListItemSelector, SingleGridItemSelector, MultiListItemSelector, and MultiGridItemSelector** widgets provide a flexible solution for selecting items from a collection, supporting both **single** and **multi-selection** modes.
-
-### 🔹 Key Properties
+#### 🔹 Key Properties
 - **`items`** → Defines the available list of items.
 - **`builder`** → Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`.
 - **`selectedItems`** → Returns the list of selected items when a selection is made.
-- **`initialItems` (optional)** → Allows specifying pre-selected items at initialization.
-- **`gridConfiguration` (only for `SingleGridItemSelector` & `MultiGridItemSelector`)** → Encapsulates GridView-specific properties such as `gridDelegate`, `controller`, `physics`, `padding`, etc.
+- **`initialItems`** (optional) → Allows specifying pre-selected items at initialization.
+- **`gridConfiguration`** (only for `SingleGridItemSelector` & `MultiGridItemSelector`) → Encapsulates GridView-specific properties such as `gridDelegate`, `controller`, `physics`, etc.
+- **`wrapConfiguration`** (only for `SingleWrapItemSelector` & `MultiWrapItemSelector`) → Encapsulates Wrap-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.
 
-### ⚙️ Selection Behavior
-- **SingleListItemSelector & SingleGridItemSelector** → Use `SingleSelectOptions`, which includes:
-  - `allowUnselectInitialItems` → Controls if initial items can be unselected.
-  - `allowUnselectMainItems` → Determines if main items can be unselected.
-- **MultiListItemSelector & MultiGridItemSelector** → Use `MultiSelectOptions`, which includes:
-  - `allowUnselectInitialItems` → Controls if initial items can be unselected.
-  - `maxItems` → Limits the number of selectable items.
+#### ⚙️ Selection Behavior
+- **SingleListItemSelector**, **SingleGridItemSelector**, & **SingleWrapItemSelector** → Use `SingleSelectOptions`, which includes:
+  - **`allowUnselectInitialItems`** → Controls if initial items can be unselected.
+  - **`allowUnselectMainItems`** → Determines if main items can be unselected.
 
-### 🖼️ Layout Differences
-- **📜 List-based Widgets** → `SingleListItemSelector` & `MultiListItemSelector` use **List** (horizontal/vertical).
+- **MultiListItemSelector**, **MultiGridItemSelector**, & **MultiWrapItemSelector** → Use `MultiSelectOptions`, which includes:
+  - **`allowUnselectInitialItems`** → Controls if initial items can be unselected.
+  - **`maxItems`** → Limits the number of selectable items.
+
+#### 🖼️ Layout Differences
+- **📜 List-based Widgets** → `SingleListItemSelector` & `MultiListItemSelector` use **Row or Column** (horizontal/vertical).
 - **🔲 Grid-based Widgets** → `SingleGridItemSelector` & `MultiGridItemSelector` use **GridView**.
+- **🔀 Wrap-based Widgets** → `SingleWrapItemSelector` & `MultiWrapItemSelector` use **Wrap**, enabling flexible item arrangement with automatic line breaks.
+
 
 
 
