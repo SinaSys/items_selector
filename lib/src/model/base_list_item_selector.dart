@@ -24,20 +24,17 @@ class BaseListItemSelector<T> extends BaseSelector<T> {
 
 class BaseGridGridItemSelectorState<T> extends BaseSelectorState<T> {
   Widget defineWidgetByDirection(List<Widget> items) {
-    return SingleChildScrollView(
-        scrollDirection: baseListItemSelectorWidget.direction,
-        child: switch (baseListItemSelectorWidget.direction) {
-        Axis.horizontal => Row(children: items),
-        Axis.vertical => Column(children: items)
-        },
-    );
+    return switch (baseListItemSelectorWidget.direction) {
+      Axis.horizontal => Row(children: items),
+      Axis.vertical => Column(children: items)
+    };
   }
 
   @override
   Widget build(BuildContext context) {
     final List<Widget> listItem = List.generate(
       itemsWrapper.length,
-          (index) {
+      (index) {
         ItemSelector item = widget.builder(context, index);
         return itemContainer(itemsWrapper[index], index, item);
       },
