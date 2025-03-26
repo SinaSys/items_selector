@@ -48,47 +48,50 @@ class ListSingleIntExample extends StatelessWidget {
               ),
             ],
           ),
-          SingleListItemSelector<int>(
-            items: integerItems,
-            selectedItems: (List<int> selectedItems, _) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              return ItemSelector(
-                selectedItem: AnimatedScale(
-                  duration: Duration(milliseconds: 300),
-                  scale: 1.1,
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Colors.deepOrange,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      integerItems[index].toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SingleListItemSelector<int>(
+              items: integerItems,
+              selectedItems: (List<int> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: AnimatedScale(
+                    duration: Duration(milliseconds: 300),
+                    scale: 1.1,
+                    child: Container(
+                      margin: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Colors.deepOrange,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        integerItems[index].toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                unSelectedItem: AnimatedScale(
-                  duration: Duration(milliseconds: 300),
-                  scale: 1.0,
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Colors.deepOrange.withValues(alpha: 0.3),
-                      borderRadius: BorderRadius.circular(10),
+                  unSelectedItem: AnimatedScale(
+                    duration: Duration(milliseconds: 300),
+                    scale: 1.0,
+                    child: Container(
+                      margin: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Colors.deepOrange.withValues(alpha: 0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(integerItems[index].toString()),
                     ),
-                    child: Text(integerItems[index].toString()),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ],
       ),

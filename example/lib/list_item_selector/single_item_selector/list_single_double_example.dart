@@ -19,41 +19,44 @@ class _ListSingleDoubleExampleState extends State<ListSingleDoubleExample> {
       ),
       body: Column(
         children: [
-          SingleListItemSelector<double>(
-            items: ListSingleDoubleExample.doubleItems,
-            selectedItems: (List<double> selectedItems, _) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              return ItemSelector(
-                selectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    ListSingleDoubleExample.doubleItems[index].toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SingleListItemSelector<double>(
+              items: ListSingleDoubleExample.doubleItems,
+              selectedItems: (List<double> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: Container(
+                    padding: const EdgeInsets.all(15),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      ListSingleDoubleExample.doubleItems[index].toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                unSelectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange.withValues(alpha: 0.3),
-                    borderRadius: BorderRadius.circular(10),
+                  unSelectedItem: Container(
+                    padding: const EdgeInsets.all(15),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange.withValues(alpha: 0.3),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      ListSingleDoubleExample.doubleItems[index].toString(),
+                    ),
                   ),
-                  child: Text(
-                    ListSingleDoubleExample.doubleItems[index].toString(),
-                  ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ],
       ),
