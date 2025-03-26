@@ -11,13 +11,6 @@ class ListSingleDoubleExample extends StatefulWidget {
 }
 
 class _ListSingleDoubleExampleState extends State<ListSingleDoubleExample> {
-  Map<String, dynamic> parameter = {
-    "initialItems": <double>[...ListSingleDoubleExample.doubleItems],
-    "option": false,
-    "allowUnselectMainItem": false,
-    "allowUnselectInitialItem": false,
-  };
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +28,7 @@ class _ListSingleDoubleExampleState extends State<ListSingleDoubleExample> {
               return ItemSelector(
                 selectedItem: Container(
                   padding: const EdgeInsets.all(15),
+                  margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.deepOrange,
                     borderRadius: BorderRadius.circular(10),
@@ -49,11 +43,14 @@ class _ListSingleDoubleExampleState extends State<ListSingleDoubleExample> {
                 ),
                 unSelectedItem: Container(
                   padding: const EdgeInsets.all(15),
+                  margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.deepOrange.withValues(alpha: 0.3),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Text(ListSingleDoubleExample.doubleItems[index].toString()),
+                  child: Text(
+                    ListSingleDoubleExample.doubleItems[index].toString(),
+                  ),
                 ),
               );
             },

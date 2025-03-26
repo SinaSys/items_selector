@@ -24,6 +24,7 @@ class MultiEnumExample extends StatelessWidget {
         builder: (_, index) {
           return ItemSelector(
             selectedItem: Container(
+              margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.deepOrange,
@@ -38,6 +39,7 @@ class MultiEnumExample extends StatelessWidget {
               ),
             ),
             unSelectedItem: Container(
+              margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.deepOrange.withValues(alpha: 0.3),

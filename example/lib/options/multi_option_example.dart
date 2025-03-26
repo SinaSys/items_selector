@@ -74,6 +74,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.1,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange,
@@ -92,6 +93,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.0,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange.withValues(alpha: 0.3),
@@ -164,6 +166,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.1,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange,
@@ -182,6 +185,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.0,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange.withValues(alpha: 0.3),
@@ -253,6 +257,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.1,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange,
@@ -271,6 +276,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.0,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange.withValues(alpha: 0.3),
@@ -323,6 +329,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.1,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange,
@@ -341,6 +348,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.0,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange.withValues(alpha: 0.3),
@@ -393,6 +401,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.1,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange,
@@ -411,6 +420,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.0,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange.withValues(alpha: 0.3),
@@ -462,6 +472,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.1,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange,
@@ -480,6 +491,7 @@ class MultiOptionsExample extends StatelessWidget {
                   duration: Duration(milliseconds: 300),
                   scale: 1.0,
                   child: Container(
+                    margin: EdgeInsets.all(10),
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.deepOrange.withValues(alpha: 0.3),

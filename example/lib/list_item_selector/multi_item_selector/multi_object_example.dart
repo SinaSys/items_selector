@@ -21,6 +21,7 @@ class MultiObjectExample extends StatelessWidget {
           Person person = people[index];
           return ItemSelector(
             selectedItem: Container(
+              margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.deepOrange,
@@ -46,6 +47,7 @@ class MultiObjectExample extends StatelessWidget {
               ),
             ),
             unSelectedItem: Container(
+              margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.deepOrange.withValues(alpha: 0.6),

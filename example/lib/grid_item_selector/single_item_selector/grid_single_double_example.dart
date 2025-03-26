@@ -28,6 +28,7 @@ class GridSingleDoubleExample extends StatelessWidget {
           return ItemSelector(
             selectedItem: Container(
               alignment: Alignment.center,
+              margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.deepOrange,
@@ -43,6 +44,7 @@ class GridSingleDoubleExample extends StatelessWidget {
             ),
             unSelectedItem: Container(
               alignment: Alignment.center,
+              margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.deepOrange.withValues(alpha: 0.3),

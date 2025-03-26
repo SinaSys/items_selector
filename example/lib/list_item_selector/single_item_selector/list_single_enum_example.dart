@@ -26,6 +26,7 @@ class ListSingleEnumExample extends StatelessWidget {
             builder: (_, index) {
               return ItemSelector(
                 selectedItem: Container(
+                  margin: EdgeInsets.all(10),
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     color: Colors.deepOrange,
@@ -40,12 +41,15 @@ class ListSingleEnumExample extends StatelessWidget {
                   ),
                 ),
                 unSelectedItem: Container(
+                  margin: EdgeInsets.all(10),
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     color: Colors.deepOrange.withValues(alpha: 0.3),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Text(Language.values[index].name.toString()),
+                  child: Text(
+                    Language.values[index].name.toString(),
+                  ),
                 ),
               );
             },
