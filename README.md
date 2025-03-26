@@ -348,7 +348,7 @@ MultiGridItemSelector<Person>(
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_wrap_item/single_wrap_item.gif">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_wrap_item/single_wrap_item.gif?raw=true">
 </p>
 
 
