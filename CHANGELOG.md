@@ -1,3 +1,11 @@
+## [1.0.1]
+
+### Fixed
+- Corrected the image URL in the README to properly display on pub.dev.
+
+This update does not change any functionality but ensures that documentation is correctly presented to users. 
+
+
 ## [1.0.0]
 
 ### Added
@@ -77,15 +85,15 @@
   )
   ```
 
-## 0.1.2
+## [0.1.2]
 
 - Add examples
 
-## 0.1.1
+## [0.1.1]
 
 - Updated `README.md` for better clarity.
 
-## 0.0.1
+## [0.0.1]
 
 * release initial version
 
