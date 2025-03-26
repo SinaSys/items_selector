@@ -42,7 +42,6 @@ class BaseGridGridItemSelectorState<T> extends BaseSelectorState<T> {
       shrinkWrap: baseGridItemSelectorWidget.gridConfiguration.shrinkWrap,
       padding: baseGridItemSelectorWidget.gridConfiguration.padding,
       controller: baseGridItemSelectorWidget.gridConfiguration.controller,
-      addAutomaticKeepAlives: baseGridItemSelectorWidget.gridConfiguration.addAutomaticKeepAlive,
       addRepaintBoundaries: baseGridItemSelectorWidget.gridConfiguration.addRepaintBoundaries,
       addSemanticIndexes: baseGridItemSelectorWidget.gridConfiguration.addSemanticIndexes,
       cacheExtent: baseGridItemSelectorWidget.gridConfiguration.cacheExtent,
