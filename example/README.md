@@ -1,16 +1,47 @@
-# example
+/// Examples :
 
-A new Flutter project.
+/// ================ SingleListItemSelector ================
+/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_int_example.dart
+/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_double_example.dart
+/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_string_example.dart
+/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_enum_example.dart
+/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_object_example.dart
 
-## Getting Started
+/// ================ MultiListItemSelector ================
+/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_int_example.dart
+/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_double_example.dart
+/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_string_example.dart
+/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_enum_example.dart
+/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_object_example.dart
 
-This project is a starting point for a Flutter application.
+/// ================ SingleGridItemSelector ================
+/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_int_example.dart
+/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_double_example.dart
+/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_string_example.dart
+/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_enum_example.dart
+/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_object_example.dart
 
-A few resources to get you started if this is your first Flutter project:
+/// ================ SingleWrapItemSelector ================
+/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_int_example.dart
+/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_double_example.dart
+/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_string_example.dart
+/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_enum_example.dart
+/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_object_example.dart
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+/// ================ MultiWrapItemSelector ================
+/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_int_example.dart
+/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_double_example.dart
+/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_string_example.dart
+/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_enum_example.dart
+/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_object_example.dart
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+/// ================ MultiGridItemSelector ================
+/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_int_example.dart
+/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_double_example.dart
+/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_string_example.dart
+/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_enum_example.dart
+/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_object_example.dart
+
+/// ================ Options ================
+/// SingleSelectOptions => https://github.com/SinaSys/items_selector/blob/master/example/lib/options/example_single_option.dart
+/// MultiSelectOptions => https://github.com/SinaSys/items_selector/blob/master/example/lib/options/example_multi_option.dart
