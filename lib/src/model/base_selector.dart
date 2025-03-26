@@ -55,11 +55,13 @@ class BaseSelectorState<T> extends State<BaseSelector<T>> with SingleSelectUtil<
   }
 
   void setSelectionMode(SelectOptions? option, ItemWrapper<T> item) {
-    switch (widget.type) {
-      case WidgetType.singleListItemSelector || WidgetType.singleGridItemSelector:
-        setSingleSelection(item);
-      case WidgetType.multiListItemSelector || WidgetType.multiGridItemSelector:
-        setMultiSelection(item, itemsWrapper.indexWhere((element) => element == item));
+    if (widget.type.isSingleTypeWidget) {
+      setSingleSelection(item);
+    } else {
+      setMultiSelection(
+        item,
+        itemsWrapper.indexWhere((element) => element == item),
+      );
     }
   }
 
@@ -149,22 +151,19 @@ class BaseSelectorState<T> extends State<BaseSelector<T>> with SingleSelectUtil<
   }
 
   Widget itemContainer(ItemWrapper<T> itemWrapper, int index, ItemSelector item) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: GestureDetector(
-        onLongPress: switch (widget.hasLongPress) {
-          true => defineGestureEvent(itemWrapper, index),
-          false => null,
-        },
-        onTap: switch (widget.hasLongPress) {
-          false => defineGestureEvent(itemWrapper, index),
-          true => null,
-        },
-        child: switch (itemsWrapper[index].isSelected) {
-          true => item.selectedItem,
-          false => item.unSelectedItem,
-        },
-      ),
+    return GestureDetector(
+      onLongPress: switch (widget.hasLongPress) {
+        true => defineGestureEvent(itemWrapper, index),
+        false => null,
+      },
+      onTap: switch (widget.hasLongPress) {
+        false => defineGestureEvent(itemWrapper, index),
+        true => null,
+      },
+      child: switch (itemsWrapper[index].isSelected) {
+        true => item.selectedItem,
+        false => item.unSelectedItem,
+      },
     );
   }
 
