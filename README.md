@@ -324,6 +324,35 @@ MultiGridItemSelector<Person>(
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_grid_item/class.gif?raw=true">
 </p>
 
+### SingleWrapItemSelector
+
+```dart
+          SingleWrapItemSelector<yourDataType>(
+            wrapConfiguration: WrapConfiguration(
+              spacing: 10,
+              runSpacing: 20.0,
+              ....
+            ),
+            items: yourListItem,
+            selectedItems: (List<yourDataTypes> selectedItems, _) {
+              debugPrint(selectedItems.toString());
+            },
+            builder: (_, index) {
+              return ItemSelector(
+                selectedItem: yourDesireWidget(),
+                unSelectedItem: yourDesireWidget(),
+              );
+            },
+          )
+
+```
+
+<p align="center">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_wrap_item/single_wrap_item.gif">
+</p>
+
+
+
 <br>
 <br>
 
