@@ -12,6 +12,7 @@ class MultiListItemSelector<T> extends BaseListItemSelector<T> {
     required super.selectedItems,
     required super.builder,
     super.direction,
+    super.listConfiguration,
   })  : assert(
           options?.maxItems == null || options!.maxItems! > 0,
           "maxItems should be a positive number",

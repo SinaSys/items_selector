@@ -12,6 +12,7 @@ class SingleListItemSelector<T> extends BaseListItemSelector<T> {
     required super.builder,
     SingleSelectOptions? options,
     super.direction,
+    super.listConfiguration,
   }) : super(
           options: options,
           type: WidgetType.singleListItemSelector,
