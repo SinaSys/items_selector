@@ -56,6 +56,48 @@ class ListSingleEnumExample extends StatelessWidget {
                 );
               },
             ),
+          ),
+          SingleListItemSelector<Language>(
+            direction: Axis.vertical,
+            listConfiguration: ListConfiguration(
+              shrinkWrap: true,
+            ),
+            items: Language.values,
+            selectedItems: (List<Language> selectedItems, _) {
+              debugPrint(selectedItems.toString());
+            },
+            builder: (_, index) {
+              return ItemSelector(
+                selectedItem: Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Colors.deepOrange,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    Language.values[index].name.toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                unSelectedItem: Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Colors.deepOrange.withValues(alpha: 0.3),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    Language.values[index].name.toString(),
+                  ),
+                ),
+              );
+            },
           )
         ],
       ),

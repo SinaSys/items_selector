@@ -12,42 +12,86 @@ class MultiDoubleExample extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Multi list item (Double)"),
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: MultiListItemSelector<double>(
-          items: doubleItems,
-          selectedItems: (List<double> selectedItems, _) {
-            debugPrint(selectedItems.toString());
-          },
-          builder: (_, index) {
-            return ItemSelector(
-              selectedItem: Container(
-                margin: EdgeInsets.all(10),
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: Colors.deepOrange,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  doubleItems[index].toString(),
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+      body: Column(
+        children: [
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: MultiListItemSelector<double>(
+              items: doubleItems,
+              selectedItems: (List<double> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: Container(
+                    margin: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      doubleItems[index].toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  unSelectedItem: Container(
+                    margin: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange.withValues(alpha: 0.3),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(doubleItems[index].toString()),
+                  ),
+                );
+              },
+            ),
+          ),
+          MultiListItemSelector<double>(
+            direction: Axis.vertical,
+            listConfiguration: ListConfiguration(
+              shrinkWrap: true,
+            ),
+            items: doubleItems,
+            selectedItems: (List<double> selectedItems, _) {
+              debugPrint(selectedItems.toString());
+            },
+            builder: (_, index) {
+              return ItemSelector(
+                selectedItem: Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Colors.deepOrange,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    doubleItems[index].toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              unSelectedItem: Container(
-                margin: EdgeInsets.all(10),
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: Colors.deepOrange.withValues(alpha: 0.3),
-                  borderRadius: BorderRadius.circular(10),
+                unSelectedItem: Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Colors.deepOrange.withValues(alpha: 0.3),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(doubleItems[index].toString()),
                 ),
-                child: Text(doubleItems[index].toString()),
-              ),
-            );
-          },
-        ),
+              );
+            },
+          )
+        ],
       ),
     );
   }

@@ -16,38 +16,6 @@ class ListSingleIntExample extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Items : [10,20,30,40,50]",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                "|",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.redAccent,
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                "Initial items : null",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black54,
-                ),
-              ),
-            ],
-          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: SingleListItemSelector<int>(
@@ -93,6 +61,56 @@ class ListSingleIntExample extends StatelessWidget {
               },
             ),
           ),
+          Expanded(
+            child: SingleListItemSelector<int>(
+              direction: Axis.vertical,
+              listConfiguration: ListConfiguration(
+                shrinkWrap: true,
+              ),
+              items: integerItems,
+              selectedItems: (List<int> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: AnimatedScale(
+                    duration: Duration(milliseconds: 300),
+                    scale: 1.1,
+                    child: Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Colors.deepOrange,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        integerItems[index].toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  unSelectedItem: AnimatedScale(
+                    duration: Duration(milliseconds: 300),
+                    scale: 1.0,
+                    child: Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Colors.deepOrange.withValues(alpha: 0.3),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(integerItems[index].toString()),
+                    ),
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );

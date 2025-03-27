@@ -58,6 +58,50 @@ class _ListSingleDoubleExampleState extends State<ListSingleDoubleExample> {
               },
             ),
           ),
+          Expanded(
+            child: SingleListItemSelector<double>(
+              direction: Axis.vertical,
+              listConfiguration: ListConfiguration(
+                shrinkWrap: true,
+              ),
+              items: ListSingleDoubleExample.doubleItems,
+              selectedItems: (List<double> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(15),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      ListSingleDoubleExample.doubleItems[index].toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  unSelectedItem: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(15),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange.withValues(alpha: 0.3),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      ListSingleDoubleExample.doubleItems[index].toString(),
+                    ),
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );
