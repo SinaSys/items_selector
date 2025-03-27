@@ -49,7 +49,7 @@ flutter pub add items_selector
   Enabling this option prevents the **main items** from being selected.
 
 
-| Row | Initial Items | Main Items | Allow Unselect Main Items | Allow Unselect Initial Items | Image/Description | 
+| Row | Initial Items | Main Items | Allow Unselect Main Items | Allow Unselect Initial Items | Image | 
 |:---:|:------------:|:---------:|:-----------------------:|:--------------------------:|:-----------------:|
 | 1  | Y | Y | Y | Y | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/1.gif?raw=true)   |
 | 2  | Y | Y | Y | N | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/2.gif?raw=true)   |
@@ -81,33 +81,40 @@ flutter pub add items_selector
 
 <br>
 
+## Widgets
 
-### **Widgets**
+The widgets provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.
 
-The widgets provide a flexible solution for selecting items from a collection, supporting both **single** and **multi-selection** modes.
-
-#### 🔹 Key Properties
+### 🔹 Common Properties (Available in All Widgets)
 - **`items`** → Defines the available list of items.
 - **`builder`** → Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`.
 - **`selectedItems`** → Returns the list of selected items when a selection is made.
 - **`initialItems`** (optional) → Allows specifying pre-selected items at initialization.
-- **`gridConfiguration`** (only for `SingleGridItemSelector` & `MultiGridItemSelector`) → Encapsulates GridView-specific properties such as `gridDelegate`, `controller`, `physics`, etc.
-- **`wrapConfiguration`** (only for `SingleWrapItemSelector` & `MultiWrapItemSelector`) → Encapsulates Wrap-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.
+- **`longPress`** (optional) → Enables selection using a long press instead of a regular tap. Default is `false`.
 
-#### ⚙️ Selection Behavior
-- **SingleListItemSelector**, **SingleGridItemSelector**, & **SingleWrapItemSelector** → Use `SingleSelectOptions`, which includes:
+### 🔹 Layout-Specific Properties
+- **`gridConfiguration`** (only for `SingleGridItemSelector` & `MultiGridItemSelector`) → Encapsulates `GridView`-specific properties such as `gridDelegate`, `controller`, `physics`, etc.
+- **`wrapConfiguration`** (optional, only for `SingleWrapItemSelector` & `MultiWrapItemSelector`) → Encapsulates `Wrap`-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.
+- **`listConfiguration`** (optional, only for `SingleListItemSelector` & `MultiListItemSelector`) → Determines if the widget should use `ListView` instead of `Row` or `Column`. If not provided, `Row` or `Column` is used by default based on the `direction` parameter.
+- **`direction`** (only for `SingleListItemSelector` & `MultiListItemSelector`) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.
+
+---
+
+### ⚙️ Selection Behavior
+- **SingleListItemSelector, SingleGridItemSelector, & SingleWrapItemSelector** → Use `SingleSelectOptions`, which includes:
   - **`allowUnselectInitialItems`** → Controls if initial items can be unselected.
   - **`allowUnselectMainItems`** → Determines if main items can be unselected.
 
-- **MultiListItemSelector**, **MultiGridItemSelector**, & **MultiWrapItemSelector** → Use `MultiSelectOptions`, which includes:
+- **MultiListItemSelector, MultiGridItemSelector, & MultiWrapItemSelector** → Use `MultiSelectOptions`, which includes:
   - **`allowUnselectInitialItems`** → Controls if initial items can be unselected.
   - **`maxItems`** → Limits the number of selectable items.
 
-#### 🖼️ Layout Differences
-- **📜 List-based Widgets** → `SingleListItemSelector` & `MultiListItemSelector` use **Row or Column** (horizontal/vertical).
-- **🔲 Grid-based Widgets** → `SingleGridItemSelector` & `MultiGridItemSelector` use **GridView**.
-- **🔀 Wrap-based Widgets** → `SingleWrapItemSelector` & `MultiWrapItemSelector` use **Wrap**, enabling flexible item arrangement with automatic line breaks.
+---
 
+### 🖼️ Layout Differences
+- **📜 List-based Widgets** → `SingleListItemSelector` & `MultiListItemSelector` use `Row` or `Column` by default, but if `listConfiguration` is provided, they use `ListView`. The layout is determined by the `direction` parameter (`Axis.horizontal` or `Axis.vertical`).
+- **🔲 Grid-based Widgets** → `SingleGridItemSelector` & `MultiGridItemSelector` use `GridView`.
+- **🔀 Wrap-based Widgets** → `SingleWrapItemSelector` & `MultiWrapItemSelector` use `Wrap`, enabling flexible item arrangement with automatic line breaks.
 
 
 
