@@ -1,3 +1,19 @@
+## [1.1.0] 
+
+### Added
+- **`listConfiguration`** property introduced in `SingleListItemSelector` & `MultiListItemSelector`.
+    - This allows users to switch from `Row`/`Column` to `ListView`, providing greater flexibility and access to `ListView` features such as scrolling behavior, physics, controllers, and more.
+    - If `listConfiguration` is not provided, the default behavior remains unchanged.
+
+### Changed
+- **Refactored codebase** for better readability and maintainability. No functional changes were made.
+- **Updated example files** to reflect recent improvements and demonstrate new capabilities.
+
+### Migration Notes
+- No breaking changes. Upgrading to this version will not cause any compilation errors or issues.
+
+
+
 ## [1.0.1]
 
 ### Fixed
