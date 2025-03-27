@@ -26,39 +26,6 @@ class BaseListItemSelector<T> extends BaseSelector<T> {
 }
 
 class BaseGridGridItemSelectorState<T> extends BaseSelectorState<T> {
-  Widget defineWidgetByDirection(List<Widget> items) {
-    if (baseListItemSelectorWidget.listConfiguration != null) {
-      return ListView.builder(
-        scrollDirection: baseListItemSelectorWidget.direction,
-        padding: baseListItemSelectorWidget.listConfiguration?.padding,
-        reverse: baseListItemSelectorWidget.listConfiguration?.reverse ?? false,
-        clipBehavior: baseListItemSelectorWidget.listConfiguration?.clipBehavior ?? Clip.hardEdge,
-        controller: baseListItemSelectorWidget.listConfiguration?.controller,
-        itemExtent: baseListItemSelectorWidget.listConfiguration?.itemExtent,
-        primary: baseListItemSelectorWidget.listConfiguration?.primary,
-        physics: baseListItemSelectorWidget.listConfiguration?.physics,
-        cacheExtent: baseListItemSelectorWidget.listConfiguration?.cacheExtent,
-        prototypeItem: baseListItemSelectorWidget.listConfiguration?.prototypeItem,
-        restorationId: baseListItemSelectorWidget.listConfiguration?.restorationId,
-        shrinkWrap: baseListItemSelectorWidget.listConfiguration?.shrinkWrap ?? false,
-        itemExtentBuilder: baseListItemSelectorWidget.listConfiguration?.itemExtentBuilder,
-        keyboardDismissBehavior: baseListItemSelectorWidget.listConfiguration?.keyboardDismissBehavior ??
-            ScrollViewKeyboardDismissBehavior.manual,
-        dragStartBehavior: baseListItemSelectorWidget.listConfiguration?.dragStartBehavior ?? DragStartBehavior.start,
-        hitTestBehavior: baseListItemSelectorWidget.listConfiguration?.hitTestBehavior ?? HitTestBehavior.opaque,
-        semanticChildCount: baseListItemSelectorWidget.listConfiguration?.semanticChildCount,
-        itemCount: items.length,
-        itemBuilder: (_, int index) {
-          return items[index];
-        },
-      );
-    }
-    return switch (baseListItemSelectorWidget.direction) {
-      Axis.horizontal => Row(children: items),
-      Axis.vertical => Column(children: items)
-    };
-  }
-
   @override
   Widget build(BuildContext context) {
     final List<Widget> listItem = List.generate(
@@ -68,6 +35,48 @@ class BaseGridGridItemSelectorState<T> extends BaseSelectorState<T> {
         return itemContainer(itemsWrapper[index], index, item);
       },
     );
-    return defineWidgetByDirection(listItem);
+    return _buildWidget(listItem);
+  }
+
+  Widget _buildWidget(List<Widget> items) {
+    final widget = baseListItemSelectorWidget;
+
+    if (widget.listConfiguration != null) {
+      return _buildScrollableList(items, widget.listConfiguration);
+    }
+    return _buildSimpleList(items);
+  }
+
+  Widget _buildSimpleList(List<Widget> items) {
+    return switch (baseListItemSelectorWidget.direction) {
+      Axis.horizontal => Row(children: items),
+      Axis.vertical => Column(children: items),
+    };
+  }
+
+  Widget _buildScrollableList(List<Widget> items, ListConfiguration? config) {
+    return ListView.builder(
+      scrollDirection: baseListItemSelectorWidget.direction,
+      padding: config?.padding,
+      reverse: config?.reverse ?? false,
+      clipBehavior: config?.clipBehavior ?? Clip.hardEdge,
+      controller: config?.controller,
+      itemExtent: config?.itemExtent,
+      primary: config?.primary,
+      physics: config?.physics,
+      cacheExtent: config?.cacheExtent,
+      prototypeItem: config?.prototypeItem,
+      restorationId: config?.restorationId,
+      shrinkWrap: config?.shrinkWrap ?? false,
+      itemExtentBuilder: config?.itemExtentBuilder,
+      keyboardDismissBehavior: config?.keyboardDismissBehavior ?? ScrollViewKeyboardDismissBehavior.manual,
+      dragStartBehavior: config?.dragStartBehavior ?? DragStartBehavior.start,
+      hitTestBehavior: config?.hitTestBehavior ?? HitTestBehavior.opaque,
+      semanticChildCount: config?.semanticChildCount,
+      itemCount: items.length,
+      itemBuilder: (_, int index) {
+        return items[index];
+      },
+    );
   }
 }
