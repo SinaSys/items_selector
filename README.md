@@ -95,7 +95,7 @@ The widgets provide a flexible solution for selecting items from a collection, s
 ### 🔹 Layout-Specific Properties
 - **`gridConfiguration`** (only for `SingleGridItemSelector` & `MultiGridItemSelector`) → Encapsulates `GridView`-specific properties such as `gridDelegate`, `controller`, `physics`, etc.
 - **`wrapConfiguration`** (optional, only for `SingleWrapItemSelector` & `MultiWrapItemSelector`) → Encapsulates `Wrap`-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.
-- **`listConfiguration`** (optional, only for `SingleListItemSelector` & `MultiListItemSelector`) → Determines if the widget should use `ListView` instead of `Row` or `Column`. If not provided, `Row` or `Column` is used by default based on the `direction` parameter.
+- **`listConfiguration`** (optional, only for `SingleListItemSelector` & `MultiListItemSelector`) → Determines if the widget should use `ListView` instead of `Row` or `Column`. If not provided, `Row` or `Column` is used by default based on the `direction` parameter. This property enhances user control, enabling access to all `ListView` features, including scrolling behavior, physics, controllers, and other customizable properties.
 - **`direction`** (only for `SingleListItemSelector` & `MultiListItemSelector`) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.
 
 ---
