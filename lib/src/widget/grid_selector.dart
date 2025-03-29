@@ -29,21 +29,6 @@ class GridSelector<T> extends BaseSelector<T> {
     super.options,
     required BuilderConfiguration builderConfiguration,
   })  : gridConfiguration = builderConfiguration,
-        assert(
-          options is! MultiSelectOptions || options.maxItems == null || options.maxItems! > 0,
-          "maxItems should be a positive number and only applicable for MultiSelectOptions",
-        ),
-        assert(
-          options is! MultiSelectOptions ||
-              options.maxItems == null ||
-              initialItems == null ||
-              options.maxItems! > initialItems.length,
-          "maxItems must be greater than the number of initialItems and only applicable for MultiSelectOptions",
-        ),
-        assert(
-          options is! MultiSelectOptions || options.maxItems == null || options.maxItems! <= items.length,
-          "maxItems must be less than or equal to the total number of items",
-        ),
         super(mode: BaseSelector.determineWidgetType(options));
 
   GridSelector.count({
@@ -56,21 +41,6 @@ class GridSelector<T> extends BaseSelector<T> {
     super.options,
     required CountConfiguration countConfiguration,
   })  : gridConfiguration = countConfiguration,
-        assert(
-          options is! MultiSelectOptions || options.maxItems == null || options.maxItems! > 0,
-          "maxItems should be a positive number",
-        ),
-        assert(
-          options is! MultiSelectOptions ||
-              options.maxItems == null ||
-              initialItems == null ||
-              options.maxItems! > initialItems.length,
-          "maxItems must be greater than the number of initialItems",
-        ),
-        assert(
-          options is! MultiSelectOptions || options.maxItems == null || options.maxItems! <= items.length,
-          "maxItems must be less than or equal to the total number of items",
-        ),
         super(mode: BaseSelector.determineWidgetType(options));
 
   GridSelector.extent({
@@ -83,21 +53,6 @@ class GridSelector<T> extends BaseSelector<T> {
     super.options,
     required ExtentConfiguration extentConfiguration,
   })  : gridConfiguration = extentConfiguration,
-        assert(
-          options is! MultiSelectOptions || options.maxItems == null || options.maxItems! > 0,
-          "maxItems should be a positive number and only applicable for MultiSelectOptions",
-        ),
-        assert(
-          options is! MultiSelectOptions ||
-              options.maxItems == null ||
-              initialItems == null ||
-              options.maxItems! > initialItems.length,
-          "maxItems must be greater than the number of initialItems and only applicable for MultiSelectOptions",
-        ),
-        assert(
-          options is! MultiSelectOptions || options.maxItems == null || options.maxItems! <= items.length,
-          "maxItems must be less than or equal to the total number of items",
-        ),
         super(mode: BaseSelector.determineWidgetType(options));
 
   @override
