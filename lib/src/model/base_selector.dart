@@ -18,9 +18,24 @@ abstract class BaseSelector<T> extends StatefulWidget {
     this.options,
     this.hasLongPress = false,
     required this.mode,
-  }) : assert(
+  })  : assert(
           options == null || options.allowUnselectInitialItems == false || initialItems != null,
           "If allowUnselectInitialItem is true, initialItems cannot be null",
+        ),
+        assert(
+          options is! MultiSelectOptions || options.maxItems == null || options.maxItems! > 0,
+          "maxItems should be a positive number",
+        ),
+        assert(
+          options is! MultiSelectOptions ||
+              options.maxItems == null ||
+              initialItems == null ||
+              options.maxItems! > initialItems.length,
+          "maxItems must be greater than the number of initialItems",
+        ),
+        assert(
+          options is! MultiSelectOptions || options.maxItems == null || options.maxItems! <= items.length,
+          "maxItems must be less than or equal to the total number of items",
         );
 
   final SelectionMode mode;
