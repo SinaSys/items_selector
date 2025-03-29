@@ -3,7 +3,7 @@ import 'item_selector.dart';
 import 'package:flutter/widgets.dart';
 import 'package:items_selector/src/utils/typedefs.dart';
 import 'package:items_selector/src/utils/extensions.dart';
-import 'package:items_selector/src/model/widget_type.dart';
+import 'package:items_selector/src/model/selection_mode.dart';
 import 'package:items_selector/src/model/select_options.dart';
 import 'package:items_selector/src/utils/multi_select_util_mixin.dart';
 import 'package:items_selector/src/utils/single_select_util_mixin.dart';
@@ -17,19 +17,26 @@ abstract class BaseSelector<T> extends StatefulWidget {
     required this.builder,
     this.options,
     this.hasLongPress = false,
-    required this.type,
+    required this.mode,
   }) : assert(
           options == null || options.allowUnselectInitialItems == false || initialItems != null,
           "If allowUnselectInitialItem is true, initialItems cannot be null",
         );
 
-  final WidgetType type;
+  final SelectionMode mode;
   final List<T> items;
   final List<T>? initialItems;
   final OnSelectedItemsChanged<T> selectedItems;
   final ItemBuilder builder;
   final SelectOptions? options;
   final bool hasLongPress;
+
+  static SelectionMode determineWidgetType(SelectOptions? options) {
+    return switch (options) {
+      SingleSelectOptions _ || null => SelectionMode.single,
+      MultiSelectOptions _ => SelectionMode.multi,
+    };
+  }
 
   final BaseSelectorState<T> stateInstance = BaseSelectorState<T>();
 
@@ -55,7 +62,7 @@ class BaseSelectorState<T> extends State<BaseSelector<T>> with SingleSelectUtil<
   }
 
   void setSelectionMode(SelectOptions? option, ItemWrapper<T> item) {
-    if (widget.type.isSingleTypeWidget) {
+    if (widget.mode == SelectionMode.single) {
       setSingleSelection(item);
     } else {
       setMultiSelection(
