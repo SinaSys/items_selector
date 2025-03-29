@@ -142,7 +142,7 @@ flutter pub add items_selector
 ### ListSelector 
 ```dart
          ListSelector<YourDataType>(
-                items: stringItems,
+                items: yourListOfItems,
                 //// If set to Axis.horizontal, Row is used; if set to Axis.vertical, Column is used.
                 direction: Axis.horizontal,
                 // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
