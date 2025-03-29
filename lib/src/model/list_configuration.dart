@@ -11,16 +11,12 @@ class ListConfiguration extends ListView {
     super.controller,
     super.dragStartBehavior,
     super.hitTestBehavior,
-    super.itemExtent,
     super.padding,
     super.physics,
     super.primary,
     super.keyboardDismissBehavior,
-    super.itemExtentBuilder,
-    super.prototypeItem,
     super.restorationId,
     super.reverse,
     super.shrinkWrap,
-    super.semanticChildCount,
   });
 }
