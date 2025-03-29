@@ -158,9 +158,10 @@ flutter pub add items_selector
             },
           )
 
+```
 
+```dart
         // Use ListSelector.separated if you need separators between items
-
           ListSelector<YourDataType>.separated(
             items: yourListOfItems,
             direction: Axis.horizontal, // Set to Axis.horizontal or Axis.vertical based on layout preference
@@ -173,7 +174,7 @@ flutter pub add items_selector
               debugPrint(selectedItems.toString());
             },
             separatorBuilder: (_, index) {
-              return yourDesiredWidget(); // Example separator widget
+              return yourDesiredWidget();
             },
             builder: (_, index) {
               return ItemSelector(
@@ -196,41 +197,81 @@ flutter pub add items_selector
 <br>
 
 
-### MultiListItemSelector (Enums)
+### GridSelector 
 
 ```dart
-          MultiListItemSelector<Language>(
-            items: Language.values,
-            selectedItems: (List<Language> selectedItems,_) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              return ItemSelector(
-                selectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    Language.values[index].name.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+           GridSelector<yourDataType>.builder(
+              items: integerItems,
+              // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+              // options: SingleSelectOptions(),  // Default is SingleSelectOptions
+              builderConfiguration: BuilderConfiguration(
+                // You can also pass other GridView.builder properties like physics, controller, etc.
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 120.0,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
                 ),
-                unSelectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange.withValues(alpha: 0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(Language.values[index].name.toString()),
-                ),
-              );
-            },
-          )
+                shrinkWrap: true,
+              ),
+              selectedItems: (List<yourDataType> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: yourDesireWidget(),
+                  unSelectedItem: yourDesireWidget(),
+                );
+              },
+            ),
+
+```
+
+```dart
+           GridSelector<yourDataType>.count(
+              items: integerItems,
+              // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+              // options: MultiSelectOptions(),  // Default is SingleSelectOptions
+              countConfiguration: CountConfiguration(
+                // You can also pass other GridView.count properties like physics, controller, etc.
+                crossAxisCount: 3,
+                shrinkWrap: true,
+              ),
+              selectedItems: (List<yourDataType> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: yourDesireWidget(),
+                  unSelectedItem: yourDesireWidget(),
+                );
+              },
+            )
+
+```
+
+```dart
+          GridSelector<yourDataType>.extent(
+              items: integerItems,
+              // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+              // options: MultiSelectOptions(),  // Default is SingleSelectOptions
+              extentConfiguration: ExtentConfiguration(
+                // You can also pass other GridView.extent properties like physics, controller, etc.
+                maxCrossAxisExtent: 150,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                shrinkWrap: true,
+              ),
+
+              selectedItems: (List<yourDataType> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: yourDesireWidget(),
+                  unSelectedItem: yourDesireWidget(),
+                );
+              },
+            )
 
 ```
 
@@ -243,165 +284,28 @@ flutter pub add items_selector
 <br>
 
 
-### SingleGridItemSelector (Enums)
+### WrapSelector
 
 ```dart
- SingleGridItemSelector<Language>(
-          gridConfiguration: GridConfiguration(
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 130.0,
-            crossAxisSpacing: 20.0,
-            mainAxisSpacing: 20.0,
+       WrapSelector<yourDataType>(
+          items: integerItems,
+          // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+          // options: MultiSelectOptions(),  // Default is SingleSelectOptions
+          wrapConfiguration: WrapConfiguration(
+            // You can also pass other wrap properties like runAlignment, crossAxisAlignment, etc.
+            spacing: 10,
+            runSpacing: 20.0,
           ),
-        ),
-        items: Language.values,
-        selectedItems: (List<Language> selectedItems, _) {
-          debugPrint(selectedItems.toString());
-        },
-        builder: (_, index) {
-          return ItemSelector(
-            selectedItem: Container(
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(
-                Language.values[index].name.toString(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            unSelectedItem: Container(
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange.withValues(alpha: 0.3),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(Language.values[index].name.toString()),
-            ),
-          );
-        },
-      )
-
-```
-
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_grid_item/enums.gif?raw=true">
-</p>
-
-
-<br>
-
-
-
-### MultiGridItemSelector (Custom classes)
-
-```dart
-MultiGridItemSelector<Person>(
-      gridConfiguration: GridConfiguration(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 130.0,
-          crossAxisSpacing: 20.0,
-          mainAxisSpacing: 20.0,
-          mainAxisExtent: 200,
-        ),
-      ),
-      items: people,
-      selectedItems: (List<Person> selectedItems, _) {
-        debugPrint(selectedItems.toString());
-      },
-      builder: (_, index) {
-        Person person = people[index];
-        return ItemSelector(
-          selectedItem: Container(
-            padding: const EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              color: Colors.deepOrange,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              spacing: 10,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  person.fullName,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "Age : ${person.age}",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                switch (person.gender.name) {
-                  "male" => Image.asset(
-                    "assets/images/male.png",
-                    height: 60,
-                  ),
-                  _ => Image.asset(
-                    "assets/images/female.png",
-                    height: 60,
-                  )
-                },
-              ],
-            ),
-          ),
-          unSelectedItem: Container(
-            padding: const EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              color: Colors.deepOrange.withValues(alpha: 0.6),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              spacing: 10,
-              children: [
-                Text(person.fullName, textAlign: TextAlign.center),
-                Text("Age : ${person.age}"),
-                switch (person.gender.name) {
-                  "male" => Image.asset("assets/images/male.png", height: 40),
-                  _ => Image.asset("assets/images/female.png", height: 40)
-                },
-              ],
-            ),
-          ),
-        );
-      },
-    )
-
-
-```
-<p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_grid_item/class.gif?raw=true">
-</p>
-
-### SingleWrapItemSelector
-
-```dart
-          SingleWrapItemSelector<yourDataType>(
-            wrapConfiguration: WrapConfiguration(
-              spacing: 10,
-              runSpacing: 20.0,
-              ....
-            ),
-            items: yourListItem,
-            selectedItems: (List<yourDataTypes> selectedItems, _) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              return ItemSelector(
-                selectedItem: yourDesireWidget(),
-                unSelectedItem: yourDesireWidget(),
-              );
-            },
-          )
-
+          selectedItems: (List<yourDataType> selectedItems, _) {
+            debugPrint(selectedItems.toString());
+          },
+          builder: (_, index) {
+            return ItemSelector(
+              selectedItem: yourDesireWidget(),
+              unSelectedItem: yourDesireWidget(),
+            );
+          },
+        )
 ```
 
 <p align="center">
