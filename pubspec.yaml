@@ -1,6 +1,6 @@
 name: items_selector
 description: "A Flutter package for selecting single or multiple items from a list or grid"
-version: 2.0.0
+version: 2.1.0
 homepage: "https://github.com/SinaSys/items_selector"
 
 environment:
