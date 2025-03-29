@@ -1,80 +1,44 @@
 import 'package:flutter/material.dart';
+import 'list_selector/list_selector_int_example.dart';
+import 'grid_selector/grid_selector_int_example.dart';
+import 'list_selector/list_selector_enum_example.dart';
+import 'grid_selector/grid_selector_enum_example.dart';
+import 'grid_selector/grid_selector_object_example.dart';
+import 'grid_selector/grid_selector_string_example.dart';
+import 'list_selector/list_selector_double_example.dart';
+import 'list_selector/list_selector_object_example.dart';
+import 'list_selector/list_selector_string_example.dart';
 import 'package:example/options/multi_option_example.dart';
 import 'package:example/options/single_option_example.dart';
-import 'list_item_selector/multi_item_selector/multi_int_example.dart';
-import 'list_item_selector/multi_item_selector/multi_enum_example.dart';
-import 'list_item_selector/multi_item_selector/multi_double_example.dart';
-import 'list_item_selector/multi_item_selector/multi_object_example.dart';
-import 'list_item_selector/multi_item_selector/multi_string_example.dart';
-import 'grid_item_selector/multi_item_selector/grid_multi_enum_example.dart';
-import 'grid_item_selector/multi_item_selector/grid_multi_double_example.dart';
-import 'grid_item_selector/multi_item_selector/grid_multi_object_example.dart';
-import 'grid_item_selector/multi_item_selector/grid_multi_string_example.dart';
-import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_int_example.dart';
-import 'package:example/grid_item_selector/multi_item_selector/grid_multi_int_example.dart';
-import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_enum_example.dart';
-import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_int_example.dart';
-import 'package:example/grid_item_selector/single_item_selector/grid_single_int_example.dart';
-import 'package:example/list_item_selector/single_item_selector/list_single_int_example.dart';
-import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_double_example.dart';
-import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_enum_example.dart';
-import 'package:example/grid_item_selector/single_item_selector/grid_single_enum_example.dart';
-import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_object_example.dart';
-import 'package:example/list_item_selector/single_item_selector/list_single_enum_example.dart';
-import 'package:example/wrap_item_selector/multi_wrap_selector/wrap_multi_string_example.dart';
-import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_double_example.dart';
-import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_object_example.dart';
-import 'package:example/wrap_item_selector/single_wrap_selector/wrap_single_string_example.dart';
-import 'package:example/grid_item_selector/single_item_selector/grid_single_double_example.dart';
-import 'package:example/grid_item_selector/single_item_selector/grid_single_object_example.dart';
-import 'package:example/grid_item_selector/single_item_selector/grid_single_string_example.dart';
-import 'package:example/list_item_selector/single_item_selector/list_single_double_example.dart';
-import 'package:example/list_item_selector/single_item_selector/list_single_object_example.dart';
-import 'package:example/list_item_selector/single_item_selector/list_single_string_example.dart';
+import 'package:example/wrap_selector/wrap_selector_int_example.dart';
+import 'package:example/wrap_selector/wrap_selector_enum_example.dart';
+import 'package:example/grid_selector/grid_selector_double_example.dart';
+import 'package:example/wrap_selector/wrap_selector_double_example.dart';
+import 'package:example/wrap_selector/wrap_selector_object_example.dart';
+import 'package:example/wrap_selector/wrap_selector_string_example.dart';
 
 /// Examples :
 
-/// ================ SingleListItemSelector ================
-/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_int_example.dart
-/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_double_example.dart
-/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_string_example.dart
-/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_enum_example.dart
-/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/single_item_selector/list_single_object_example.dart
+/// ================ ListSelector ================
+/// Int =>
+/// Double =>
+/// String =>
+/// Enum =>
+/// Object =>
 
-/// ================ MultiListItemSelector ================
-/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_int_example.dart
-/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_double_example.dart
-/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_string_example.dart
-/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_enum_example.dart
-/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/list_item_selector/multi_item_selector/multi_object_example.dart
+/// ================ GridSelector ================
+/// Int =>
+/// Double =>
+/// String =>
+/// Enum =>
+/// Object =>
 
-/// ================ SingleGridItemSelector ================
-/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_int_example.dart
-/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_double_example.dart
-/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_string_example.dart
-/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_enum_example.dart
-/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/single_item_selector/grid_single_object_example.dart
-
-/// ================ SingleWrapItemSelector ================
-/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_int_example.dart
-/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_double_example.dart
-/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_string_example.dart
-/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_enum_example.dart
-/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_object_example.dart
-
-/// ================ MultiWrapItemSelector ================
-/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_int_example.dart
-/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_double_example.dart
-/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_string_example.dart
-/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_enum_example.dart
-/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/wrap_item_selector/single_wrap_selector/wrap_single_object_example.dart
-
-/// ================ MultiGridItemSelector ================
-/// Int => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_int_example.dart
-/// Double => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_double_example.dart
-/// String => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_string_example.dart
-/// Enum => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_enum_example.dart
-/// Object => https://github.com/SinaSys/items_selector/blob/master/example/lib/grid_item_selector/multi_item_selector/grid_multi_object_example.dart
+/// ================ WrapSelector ================
+/// Int =>
+/// Double =>
+/// String =>
+/// Enum =>
+/// Object =>
 
 /// ================ Options ================
 /// SingleSelectOptions => https://github.com/SinaSys/items_selector/blob/master/example/lib/options/example_single_option.dart
@@ -133,52 +97,28 @@ class _HomePageState extends State<HomePage> {
     String title, {
     SelectionMode selectionMode = SelectionMode.singleList,
   }) {
-    Map<String, Widget> singleListRoutes = {
-      "int": ListSingleIntExample(),
-      "double": ListSingleDoubleExample(),
-      "string": ListSingleStringExample(),
-      "enum": ListSingleEnumExample(),
-      "object": ListSingleObjectExample(),
+    Map<String, Widget> listRoutes = {
+      "int": ListSelectorIntExample(),
+      "double": ListSelectorDoubleExample(),
+      "string": ListSelectorStringExample(),
+      "enum": ListSelectorEnumExample(),
+      "object": ListSelectorObjectExample(),
     };
 
-    Map<String, Widget> multiListRoutes = {
-      "int": MultiIntExample(),
-      "double": MultiDoubleExample(),
-      "string": MultiStringExample(),
-      "enum": MultiEnumExample(),
-      "object": MultiObjectExample(),
+    Map<String, Widget> gridRoutes = {
+      "int": GridSelectorIntExample(),
+      "double": GridSelectorDoubleExample(),
+      "string": GridSelectorStringExample(),
+      "enum": GridSelectorEnumExample(),
+      "object": GridSelectorObjectExample(),
     };
 
-    Map<String, Widget> singleGridRoutes = {
-      "int": GridSingleIntExample(),
-      "double": GridSingleDoubleExample(),
-      "string": GridSingleStringExample(),
-      "enum": GridSingleEnumExample(),
-      "object": GridSingleObjectExample(),
-    };
-
-    Map<String, Widget> multiGridRoutes = {
-      "int": GridMultiIntExample(),
-      "double": GridMultiDoubleExample(),
-      "string": GridMultiStringExample(),
-      "enum": GridMultiEnumExample(),
-      "object": GridMultiObjectExample(),
-    };
-
-    Map<String, Widget> singleWrapRoutes = {
-      "int": WrapSingleIntExample(),
-      "double": WrapSingleDoubleExample(),
-      "string": WrapSingleStringExample(),
-      "enum": WrapSingleEnumExample(),
-      "object": WrapSingleObjectExample(),
-    };
-
-    Map<String, Widget> multiWrapRoutes = {
-      "int": WrapMultiIntExample(),
-      "double": WrapMultiDoubleExample(),
-      "string": WrapMultiStringExample(),
-      "enum": WrapMultiEnumExample(),
-      "object": WrapMultiObjectExample(),
+    Map<String, Widget> wrapRoutes = {
+      "int": WrapSelectorIntExample(),
+      "double": WrapSelectorDoubleExample(),
+      "string": WrapSelectorStringExample(),
+      "enum": WrapSelectorEnumExample(),
+      "object": WrapSelectorObjectExample(),
     };
 
     Map<String, Widget> singleOptionRoutes = {
@@ -190,14 +130,12 @@ class _HomePageState extends State<HomePage> {
     };
 
     Map<String, Widget> currentSelection = switch (selectionMode) {
-      SelectionMode.singleList => singleListRoutes,
-      SelectionMode.multiList => multiListRoutes,
-      SelectionMode.singleGrid => singleGridRoutes,
-      SelectionMode.singleWrap => singleWrapRoutes,
-      SelectionMode.multiWrap => multiWrapRoutes,
+      SelectionMode.singleList => listRoutes,
+      SelectionMode.singleGrid => gridRoutes,
+      SelectionMode.singleWrap => wrapRoutes,
       SelectionMode.singleOption => singleOptionRoutes,
       SelectionMode.multiOption => multiOptionRoutes,
-      _ => multiGridRoutes,
+      _ => gridRoutes
     };
 
     return Padding(
@@ -236,7 +174,6 @@ class _HomePageState extends State<HomePage> {
     SelectionMode selectionMode = SelectionMode.singleList,
   }) {
     final List<String> selectors = ["Int", "Double", "String", "Enum", "Object"];
-    final List<String> options = ["SingleSelectOption", "MultiSelectOption"];
 
     List<Widget> items = switch (selectionMode) {
       SelectionMode.singleOption => [expansionPanelItem('SingleSelectOption', selectionMode: selectionMode)],
@@ -303,11 +240,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  expansionPanelList("Single list Item selector"),
-                  expansionPanelList(
-                    "Multi list Item selector",
-                    selectionMode: SelectionMode.multiList,
-                  ),
+                  expansionPanelList("Examples"),
                 ],
               ),
             ),
@@ -327,12 +260,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   expansionPanelList(
-                    "Single grid Item selector",
+                    "Examples",
                     selectionMode: SelectionMode.singleGrid,
-                  ),
-                  expansionPanelList(
-                    "Multi grid Item selector",
-                    selectionMode: SelectionMode.multiGrid,
                   ),
                 ],
               ),
@@ -353,12 +282,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   expansionPanelList(
-                    "Single wrap Item selector",
+                    "Examples",
                     selectionMode: SelectionMode.singleWrap,
-                  ),
-                  expansionPanelList(
-                    "Multi wrap Item selector",
-                    selectionMode: SelectionMode.multiWrap,
                   ),
                 ],
               ),
