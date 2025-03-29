@@ -18,27 +18,9 @@ import 'package:example/wrap_selector/wrap_selector_object_example.dart';
 import 'package:example/wrap_selector/wrap_selector_string_example.dart';
 
 /// Examples :
-
-/// ================ ListSelector ================
-/// Int =>
-/// Double =>
-/// String =>
-/// Enum =>
-/// Object =>
-
-/// ================ GridSelector ================
-/// Int =>
-/// Double =>
-/// String =>
-/// Enum =>
-/// Object =>
-
-/// ================ WrapSelector ================
-/// Int =>
-/// Double =>
-/// String =>
-/// Enum =>
-/// Object =>
+/// ListSelector => https://github.com/SinaSys/items_selector/tree/master/example/lib/list_selector
+/// GridSelector => https://github.com/SinaSys/items_selector/tree/master/example/lib/grid_selector
+/// WrapSelector => https://github.com/SinaSys/items_selector/tree/master/example/lib/wrap_selector
 
 /// ================ Options ================
 /// SingleSelectOptions => https://github.com/SinaSys/items_selector/blob/master/example/lib/options/example_single_option.dart
