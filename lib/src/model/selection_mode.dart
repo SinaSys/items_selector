@@ -1,0 +1,4 @@
+enum SelectionMode {
+  single,
+  multi,
+}
