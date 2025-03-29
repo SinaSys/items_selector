@@ -228,7 +228,7 @@ flutter pub add items_selector
 
 ```dart
            GridSelector<yourDataType>.builder(
-              items: integerItems,
+              items: yourListOfItems,
               // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
               // options: SingleSelectOptions(),  // Default is SingleSelectOptions
               builderConfiguration: BuilderConfiguration(
@@ -255,7 +255,7 @@ flutter pub add items_selector
 
 ```dart
            GridSelector<yourDataType>.count(
-              items: integerItems,
+              items: yourListOfItems,
               // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
               // options: MultiSelectOptions(),  // Default is SingleSelectOptions
               countConfiguration: CountConfiguration(
@@ -278,7 +278,7 @@ flutter pub add items_selector
 
 ```dart
           GridSelector<yourDataType>.extent(
-              items: integerItems,
+              items: yourListOfItems,
               // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
               // options: MultiSelectOptions(),  // Default is SingleSelectOptions
               extentConfiguration: ExtentConfiguration(
@@ -315,7 +315,7 @@ flutter pub add items_selector
 
 ```dart
        WrapSelector<yourDataType>(
-          items: integerItems,
+          items: yourListOfItems,
           // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
           // options: MultiSelectOptions(),  // Default is SingleSelectOptions
           wrapConfiguration: WrapConfiguration(
