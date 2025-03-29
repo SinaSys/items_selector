@@ -17,6 +17,51 @@ class ListSelectorStringExample extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 10, width: double.infinity),
+            Text("ListSelector() Row"),
+            Text("Multi select"),
+            SizedBox(height: 5),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: ListSelector<String>(
+                  direction: Axis.horizontal,
+                  flexConfiguration: FlexConfiguration(
+                    spacing: 10.0,
+                  ),
+                  options: MultiSelectOptions(),
+                  items: stringItems,
+                  selectedItems: (List<String> selectedItems, _) {
+                    debugPrint(selectedItems.toString());
+                  },
+                  builder: (_, index) {
+                    return ItemSelector(
+                      selectedItem: Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: Colors.deepOrange,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          stringItems[index],
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      unSelectedItem: Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: Colors.deepOrange.withValues(alpha: 0.3),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(stringItems[index]),
+                      ),
+                    );
+                  }),
+            ),
+            SizedBox(height: 20),
             Text("ListSelector.Builder"),
             Text("Single select"),
             SizedBox(
