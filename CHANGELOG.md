@@ -1,3 +1,40 @@
+## [2.0.0] 
+
+### 🚀 Added
+- Introduced three new widgets:
+    - **`ListSelector`** → Replaces `SingleListItemSelector` & `MultiListItemSelector`.
+    - **`GridSelector`** → Replaces `SingleGridItemSelector` & `MultiGridItemSelector`.
+    - **`WrapSelector`** → Replaces `SingleWrapItemSelector` & `MultiWrapItemSelector`.
+- `ListSelector` now provides two named constructors:
+    - **`ListSelector.builder`** → Builds a list of selectable items.
+    - **`ListSelector.separated`** → Adds separators between list items.
+- `GridSelector` introduces three named constructors mirroring Flutter's `GridView`:
+    - **`GridSelector.builder`**
+    - **`GridSelector.count`**
+    - **`GridSelector.extent`**
+- All widgets now take a **`SelectedOption`** parameter, which accepts both `SingleSelectOptions` and `MultiSelectOptions`, offering a unified API.
+- **Improved API consistency** across all selectors, simplifying usability.
+
+### 🔄 Changed
+- `ListSelector` always uses **`ListView`** under the hood instead of switching between `Row/Column` and `ListView`.
+- `GridSelector` uses a **sealed class configuration (`GridConfiguration`)**, requiring the correct subtype (`BuilderConfiguration`, `CountConfiguration`, or `ExtentConfiguration`) for each named constructor.
+- Codebase refactored for better readability and maintainability.
+
+### ⚠️ Migration Guide
+This update includes **breaking changes** that require adjustments to your existing code.
+
+- **Replace old widgets with new ones**:
+    - `SingleListItemSelector` → **`ListSelector.builder`** or **`ListSelector.separated`**
+    - `MultiListItemSelector` → **`ListSelector.builder`** or **`ListSelector.separated`**
+    - `SingleGridItemSelector` → **`GridSelector.builder`**, **`GridSelector.count`**, or **`GridSelector.extent`**
+    - `MultiGridItemSelector` → **`GridSelector.builder`**, **`GridSelector.count`**, or **`GridSelector.extent`**
+    - `SingleWrapItemSelector` → **`WrapSelector`**
+    - `MultiWrapItemSelector` → **`WrapSelector`**
+- Use the **new `SelectedOption` parameter** instead of separate selection options.
+- Ensure **GridSelector** uses the correct **`GridConfiguration` subtype** for its named constructors.
+- `ListSelector.separated` requires an additional **`separatorBuilder`** parameter.
+
+
 ## [1.1.0] 
 
 ### Added
