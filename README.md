@@ -321,19 +321,17 @@ flutter pub add items_selector
 
 | Widget                     | Example | 
 |:--------------------------:|:--------------:|
-| SingleListItemSelector    | [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_item_selector/single_item_selector)             | 
-| MultiListItemSelector     |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_item_selector/multi_item_selector)           | 
-| SingleGridItemSelector     |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/grid_item_selector/single_item_selector)           | 
-| MultiGridItemSelector      |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/grid_item_selector/multi_item_selector)           | 
-| SingleWrapItemSelector     |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/wrap_item_selector/single_wrap_selector)           | 
-| MultiWrapItemSelector      |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/wrap_item_selector/multi_wrap_selector)           | 
+| ListSelector               | [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_selector)             | 
+| GridSelector               |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/grid_selector)           | 
+| WrapSelector               |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/wrap_selector)           | 
+
 
 <br>
 
 | Options                     | Example | 
 |:--------------------------:|:--------------:|
-| SingleSelectOptions    | [code](https://github.com/SinaSys/items_selector/blob/master/example/lib/options/example_single_option.dart)             | 
-| MultiSelectOptions     |  [code](https://github.com/SinaSys/items_selector/blob/master/example/lib/options/example_multi_option.dart)           | 
+| SingleSelectOptions    | [code](https://github.com/SinaSys/items_selector/blob/master/example/lib/options/single_option_example.dart)             | 
+| MultiSelectOptions     |  [code](https://github.com/SinaSys/items_selector/blob/master/example/lib/options/multi_option_example.dart)           | 
 
 
 <br>
