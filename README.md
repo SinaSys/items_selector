@@ -158,9 +158,10 @@ flutter pub add items_selector
             },
           )
 
+```
 
+```dart
         // Use ListSelector.separated if you need separators between items
-
           ListSelector<YourDataType>.separated(
             items: yourListOfItems,
             direction: Axis.horizontal, // Set to Axis.horizontal or Axis.vertical based on layout preference
@@ -196,41 +197,55 @@ flutter pub add items_selector
 <br>
 
 
-### MultiListItemSelector (Enums)
+### GridSelector 
 
 ```dart
-          MultiListItemSelector<Language>(
-            items: Language.values,
-            selectedItems: (List<Language> selectedItems,_) {
-              debugPrint(selectedItems.toString());
-            },
-            builder: (_, index) {
-              return ItemSelector(
-                selectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    Language.values[index].name.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+           GridSelector<yourdataType>.builder(
+              items: integerItems,
+              // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+              // options: SingleSelectOptions(),  // Default is SingleSelectOptions
+              builderConfiguration: BuilderConfiguration(
+                // You can also pass other GridView.builder properties like physics, controller, etc.
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 120.0,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
                 ),
-                unSelectedItem: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange.withValues(alpha: 0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(Language.values[index].name.toString()),
-                ),
-              );
-            },
-          )
+                shrinkWrap: true,
+              ),
+              selectedItems: (List<yourdataType> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: yourDesireWidget(),
+                  unSelectedItem: yourDesireWidget(),
+                );
+              },
+            ),
+
+```
+
+```dart
+           GridSelector<yourdataType>.count(
+              items: integerItems,
+              // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+              // options: MultiSelectOptions(),  // Default is SingleSelectOptions
+              countConfiguration: CountConfiguration(
+                // You can also pass other GridView.count properties like physics, controller, etc.
+                crossAxisCount: 3,
+                shrinkWrap: true,
+              ),
+              selectedItems: (List<yourdataType> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: yourDesireWidget(),
+                  unSelectedItem: yourDesireWidget(),
+                );
+              },
+            )
 
 ```
 
