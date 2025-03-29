@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:items_selector/items_selector.dart';
 import 'package:items_selector/src/utils/extensions.dart';
 import 'package:items_selector/src/model/base_selector.dart';
+import 'package:items_selector/src/model/grid_configuration.dart';
 
 class GridSelector<T> extends BaseSelector<T> {
   final BaseGridConfiguration gridConfiguration;
@@ -15,7 +16,7 @@ class GridSelector<T> extends BaseSelector<T> {
     super.initialItems,
     super.options,
     required this.gridConfiguration,
-    required super.type,
+    required super.mode,
   });
 
   GridSelector.builder({
@@ -43,7 +44,7 @@ class GridSelector<T> extends BaseSelector<T> {
           options is! MultiSelectOptions || options.maxItems == null || options.maxItems! <= items.length,
           "maxItems must be less than or equal to the total number of items",
         ),
-        super(type: BaseSelector.determineWidgetType(options));
+        super(mode: BaseSelector.determineWidgetType(options));
 
   GridSelector.count({
     super.key,
@@ -70,7 +71,7 @@ class GridSelector<T> extends BaseSelector<T> {
           options is! MultiSelectOptions || options.maxItems == null || options.maxItems! <= items.length,
           "maxItems must be less than or equal to the total number of items",
         ),
-        super(type: BaseSelector.determineWidgetType(options));
+        super(mode: BaseSelector.determineWidgetType(options));
 
   GridSelector.extent({
     super.key,
@@ -97,7 +98,7 @@ class GridSelector<T> extends BaseSelector<T> {
           options is! MultiSelectOptions || options.maxItems == null || options.maxItems! <= items.length,
           "maxItems must be less than or equal to the total number of items",
         ),
-        super(type: BaseSelector.determineWidgetType(options));
+        super(mode: BaseSelector.determineWidgetType(options));
 
   @override
   GridSelectorState<T> createState() => GridSelectorState<T>();

@@ -15,7 +15,7 @@ class WrapSelector<T> extends BaseSelector<T> {
     super.options,
     super.initialItems,
     super.hasLongPress,
-  }) : super(type: BaseSelector.determineWidgetType(options));
+  }) : super(mode: BaseSelector.determineWidgetType(options));
 
   @override
   WrapSelectorState<T> createState() => WrapSelectorState<T>();

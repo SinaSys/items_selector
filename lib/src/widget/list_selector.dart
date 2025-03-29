@@ -12,7 +12,7 @@ class ListSelector<T> extends BaseSelector<T> {
   ListSelector._({
     super.key,
     required super.items,
-    required super.type,
+    required super.mode,
     required super.selectedItems,
     required super.builder,
     super.hasLongPress,
@@ -33,7 +33,7 @@ class ListSelector<T> extends BaseSelector<T> {
     this.listConfiguration,
     this.direction = Axis.vertical,
   })  : separatorBuilder = null,
-        super(type: BaseSelector.determineWidgetType(options));
+        super(mode: BaseSelector.determineWidgetType(options));
 
   ListSelector.separated({
     super.key,
@@ -47,7 +47,7 @@ class ListSelector<T> extends BaseSelector<T> {
     this.listConfiguration,
     this.direction = Axis.vertical,
   }) : super(
-          type: BaseSelector.determineWidgetType(options),
+          mode: BaseSelector.determineWidgetType(options),
         );
 
   @override
