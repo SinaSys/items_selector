@@ -81,9 +81,9 @@ flutter pub add items_selector
 
 <br>
 
-## Widgets  
+## Widgets
 
-`ListSelector`, `GridSelector`, and `WrapSelector` provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.  
+**ListSelector, GridSelector, and WrapSelector** provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.  
 
 ### 🔹 Common Properties (Available in All Widgets)  
 - **`items`** → Defines the available list of items.  
@@ -94,18 +94,19 @@ flutter pub add items_selector
 - **`options`** → Defines selection behavior and supports both `SingleSelectOption` and `MultiSelectOption`.  
 
 ### 🔹 Layout-Specific Properties  
-- **`wrapConfiguration`** (only for `WrapSelector`) → Encapsulates `Wrap`-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.  
-- **`listConfiguration`** (only for `ListSelector`) → Provides greater flexibility by allowing access to `ListView` properties such as scrolling behavior, physics, controllers, and other customizable options.  
-- **`direction`** (only for `ListSelector`) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.  
-- **`gridConfiguration`** (only for `GridSelector`) → Determines the grid behavior and must be set to one of the following configurations:  
-  - `BuilderConfiguration` → For `GridSelector.builder`, similar to `GridView.builder`.  
-  - `CountConfiguration` → For `GridSelector.count`, similar to `GridView.count`.  
-  - `ExtentConfiguration` → For `GridSelector.extent`, similar to `GridView.extent`.  
+- **`wrapConfiguration`** (only for WrapSelector) → Encapsulates `Wrap`-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.  
+- **`listConfiguration`** (only for `ListSelector.builder` and `ListSelector.separated`) → Provides greater flexibility by allowing access to `ListView` properties such as scrolling behavior, physics, controllers, and other customizable options.  
+- **`flexConfiguration`** (only for `ListSelector`'s generative constructor) → Used for configuring `Row` or `Column` properties such as `MainAxisAlignment`, `MainAxisSize`, `CrossAxisAlignment`, etc.  
+- **`direction`** (only for ListSelector) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.  
+- **`gridConfiguration`** (only for GridSelector) → Determines the grid behavior and must be set to one of the following configurations:  
+  - **`BuilderConfiguration`** → For `GridSelector.builder`, similar to `GridView.builder`.  
+  - **`CountConfiguration`** → For `GridSelector.count`, similar to `GridView.count`.  
+  - **`ExtentConfiguration`** → For `GridSelector.extent`, similar to `GridView.extent`.  
 
 ---
 
 ## ⚙️ Selection Behavior  
-- **All Widgets (`ListSelector`, `GridSelector`, `WrapSelector`)** → Use a unified `options` parameter, which supports:  
+- **All Widgets (ListSelector, GridSelector, WrapSelector)** → Use a unified `options` parameter, which supports:  
   - **`SingleSelectOption`**  
     - `allowUnselectInitialItems` → Controls if initial items can be unselected.  
     - `allowUnselectMainItems` → Determines if main items can be unselected.  
@@ -116,18 +117,20 @@ flutter pub add items_selector
 ---
 
 ## 🖼️ Layout Differences  
-- **📜 List-based Widget** → `ListSelector` uses `ListView` for rendering items.  
-  - Provides two named constructors:  
-    - `ListSelector.builder` → Uses a builder function to generate items dynamically.  
-    - `ListSelector.separated` → Requires an additional `separatorBuilder` parameter to define separators between items.  
-- **🔲 Grid-based Widget** → `GridSelector` provides three named constructors:  
-  - `GridSelector.builder` → Uses a builder function to create grid items dynamically.  
-  - `GridSelector.count` → Uses a fixed number of columns.  
-  - `GridSelector.extent` → Uses a maximum cross-axis extent for items.  
-  - Requires a corresponding `GridConfiguration` (`BuilderConfiguration`, `CountConfiguration`, or `ExtentConfiguration`).  
-- **🔀 Wrap-based Widget** → `WrapSelector` provides a flexible item arrangement with automatic line breaks.  
-  - It has a single constructor and does not use named constructors.  
 
+- **📜 List-based Widget → `ListSelector` provides three constructors:**  
+  - **`ListSelector()`** → Uses **`Row`** or **`Column`** under the hood, depending on the `direction` parameter. Accepts `flexConfiguration` for customizing row/column properties.  
+  - **`ListSelector.builder`** → Uses **`ListView.builder`** for rendering items dynamically.  
+  - **`ListSelector.separated`** → Uses **`ListView.separated`**, requiring an additional **`separatorBuilder`** parameter to define separators between items.  
+
+- **🔲 Grid-based Widget → `GridSelector` provides three named constructors:**  
+  - **`GridSelector.builder`** → Uses a builder function to create grid items dynamically.  
+  - **`GridSelector.count`** → Uses a fixed number of columns.  
+  - **`GridSelector.extent`** → Uses a maximum cross-axis extent for items.  
+  - **Requires a corresponding `GridConfiguration`** (`BuilderConfiguration`, `CountConfiguration`, or `ExtentConfiguration`).  
+
+- **🔀 Wrap-based Widget → `WrapSelector` provides a flexible item arrangement with automatic line breaks.**  
+  - It has a **single generative constructor** and does **not** use named constructors.  
 
 
 
