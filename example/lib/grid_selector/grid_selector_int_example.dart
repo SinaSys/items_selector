@@ -15,6 +15,8 @@ class GridSelectorIntExample extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Text(" GridSelector.builder"),
+            Text("Single select"),
             GridSelector<int>.builder(
               options: SingleSelectOptions(),
               builderConfiguration: BuilderConfiguration(
@@ -60,6 +62,8 @@ class GridSelectorIntExample extends StatelessWidget {
                 );
               },
             ),
+            Text(" GridSelector.count"),
+            Text("Multi select"),
             GridSelector<int>.count(
               countConfiguration: CountConfiguration(
                 crossAxisCount: 3,

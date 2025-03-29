@@ -22,6 +22,8 @@ class GridSelectorEnumExample extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Text(" GridSelector.builder"),
+            Text("Single select"),
             GridSelector<Language>.builder(
               options: SingleSelectOptions(),
               builderConfiguration: BuilderConfiguration(
@@ -67,6 +69,8 @@ class GridSelectorEnumExample extends StatelessWidget {
                 );
               },
             ),
+            Text(" GridSelector.count"),
+            Text("Multi select"),
             GridSelector<Language>.count(
               countConfiguration: CountConfiguration(
                 crossAxisCount: 3,
