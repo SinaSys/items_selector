@@ -81,40 +81,53 @@ flutter pub add items_selector
 
 <br>
 
-## Widgets
+## Widgets  
 
-The widgets provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.
+`ListSelector`, `GridSelector`, and `WrapSelector` provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.  
 
-### 🔹 Common Properties (Available in All Widgets)
-- **`items`** → Defines the available list of items.
-- **`builder`** → Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`.
-- **`selectedItems`** → Returns the list of selected items when a selection is made.
-- **`initialItems`** (optional) → Allows specifying pre-selected items at initialization.
-- **`longPress`** (optional) → Enables selection using a long press instead of a regular tap. Default is `false`.
+### 🔹 Common Properties (Available in All Widgets)  
+- **`items`** → Defines the available list of items.  
+- **`builder`** → Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`.  
+- **`selectedItems`** → Returns the list of selected items when a selection is made.  
+- **`initialItems`** (optional) → Allows specifying pre-selected items at initialization.  
+- **`hasLongPress`** (optional) → Enables selection using a long press instead of a regular tap. Default is `false`.  
+- **`options`** → Defines selection behavior and supports both `SingleSelectOption` and `MultiSelectOption`.  
 
-### 🔹 Layout-Specific Properties
-- **`gridConfiguration`** (only for `SingleGridItemSelector` & `MultiGridItemSelector`) → Encapsulates `GridView`-specific properties such as `gridDelegate`, `controller`, `physics`, etc.
-- **`wrapConfiguration`** (optional, only for `SingleWrapItemSelector` & `MultiWrapItemSelector`) → Encapsulates `Wrap`-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.
-- **`listConfiguration`** (optional, only for `SingleListItemSelector` & `MultiListItemSelector`) → Determines if the widget should use `ListView` instead of `Row` or `Column`. If not provided, `Row` or `Column` is used by default based on the `direction` parameter. This property enhances user control, enabling access to all `ListView` features, including scrolling behavior, physics, controllers, and other customizable properties.
-- **`direction`** (only for `SingleListItemSelector` & `MultiListItemSelector`) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.
-
----
-
-### ⚙️ Selection Behavior
-- **SingleListItemSelector, SingleGridItemSelector, & SingleWrapItemSelector** → Use `SingleSelectOptions`, which includes:
-  - **`allowUnselectInitialItems`** → Controls if initial items can be unselected.
-  - **`allowUnselectMainItems`** → Determines if main items can be unselected.
-
-- **MultiListItemSelector, MultiGridItemSelector, & MultiWrapItemSelector** → Use `MultiSelectOptions`, which includes:
-  - **`allowUnselectInitialItems`** → Controls if initial items can be unselected.
-  - **`maxItems`** → Limits the number of selectable items.
+### 🔹 Layout-Specific Properties  
+- **`wrapConfiguration`** (only for `WrapSelector`) → Encapsulates `Wrap`-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.  
+- **`listConfiguration`** (only for `ListSelector`) → Provides greater flexibility by allowing access to `ListView` properties such as scrolling behavior, physics, controllers, and other customizable options.  
+- **`direction`** (only for `ListSelector`) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.  
+- **`gridConfiguration`** (only for `GridSelector`) → Determines the grid behavior and must be set to one of the following configurations:  
+  - `BuilderConfiguration` → For `GridSelector.builder`, similar to `GridView.builder`.  
+  - `CountConfiguration` → For `GridSelector.count`, similar to `GridView.count`.  
+  - `ExtentConfiguration` → For `GridSelector.extent`, similar to `GridView.extent`.  
 
 ---
 
-### 🖼️ Layout Differences
-- **📜 List-based Widgets** → `SingleListItemSelector` & `MultiListItemSelector` use `Row` or `Column` by default, but if `listConfiguration` is provided, they use `ListView`. The layout is determined by the `direction` parameter (`Axis.horizontal` or `Axis.vertical`).
-- **🔲 Grid-based Widgets** → `SingleGridItemSelector` & `MultiGridItemSelector` use `GridView`.
-- **🔀 Wrap-based Widgets** → `SingleWrapItemSelector` & `MultiWrapItemSelector` use `Wrap`, enabling flexible item arrangement with automatic line breaks.
+## ⚙️ Selection Behavior  
+- **All Widgets (`ListSelector`, `GridSelector`, `WrapSelector`)** → Use a unified `options` parameter, which supports:  
+  - **`SingleSelectOption`**  
+    - `allowUnselectInitialItems` → Controls if initial items can be unselected.  
+    - `allowUnselectMainItems` → Determines if main items can be unselected.  
+  - **`MultiSelectOption`**  
+    - `allowUnselectInitialItems` → Controls if initial items can be unselected.  
+    - `maxItems` → Limits the number of selectable items.  
+
+---
+
+## 🖼️ Layout Differences  
+- **📜 List-based Widget** → `ListSelector` uses `ListView` for rendering items.  
+  - Provides two named constructors:  
+    - `ListSelector.builder` → Uses a builder function to generate items dynamically.  
+    - `ListSelector.separated` → Requires an additional `separatorBuilder` parameter to define separators between items.  
+- **🔲 Grid-based Widget** → `GridSelector` provides three named constructors:  
+  - `GridSelector.builder` → Uses a builder function to create grid items dynamically.  
+  - `GridSelector.count` → Uses a fixed number of columns.  
+  - `GridSelector.extent` → Uses a maximum cross-axis extent for items.  
+  - Requires a corresponding `GridConfiguration` (`BuilderConfiguration`, `CountConfiguration`, or `ExtentConfiguration`).  
+- **🔀 Wrap-based Widget** → `WrapSelector` provides a flexible item arrangement with automatic line breaks.  
+  - It has a single constructor and does not use named constructors.  
+
 
 
 
@@ -123,25 +136,60 @@ The widgets provide a flexible solution for selecting items from a collection, s
 <br>
 
 
-### SingleListItemSelector (Primitive types)
+### ListSelector 
 
 ```dart
-       SingleListItemSelector<int>(
-            items: integerItems,
-            selectedItems: (List<int> selectedItems,_) {
+          ListSelector<YourDataType>.builder(
+            items: yourListOfItems,
+            direction: Axis.horizontal, // Set to Axis.horizontal or Axis.vertical based on layout preference
+            options: SingleSelectOptions(), // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+            listConfiguration: ListConfiguration(
+              shrinkWrap: true,
+              // You can also pass other ListView properties like physics, controller, etc.
+            ),
+            selectedItems: (List<YourDataType> selectedItems, _) {
               debugPrint(selectedItems.toString());
             },
             builder: (_, index) {
               return ItemSelector(
-                selectedItem: yourDesireWidget(),
-                unSelectedItem:yourDesireWidget() ,
+                selectedItem: yourDesiredWidget(),
+                unSelectedItem: yourDesiredWidget(),
               );
             },
-          ),
+          )
+
+
+        // Use ListSelector.separated if you need separators between items
+
+          ListSelector<YourDataType>.separated(
+            items: yourListOfItems,
+            direction: Axis.horizontal, // Set to Axis.horizontal or Axis.vertical based on layout preference
+            options: MultiSelectOptions(), // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+            listConfiguration: ListConfiguration(
+              shrinkWrap: true,
+              // You can also pass other ListView properties like physics, controller, etc.
+            ),
+            selectedItems: (List<YourDataType> selectedItems, _) {
+              debugPrint(selectedItems.toString());
+            },
+            separatorBuilder: (_, index) {
+              return yourDesiredWidget(); // Example separator widget
+            },
+            builder: (_, index) {
+              return ItemSelector(
+                selectedItem: yourDesiredWidget(),
+                unSelectedItem: yourDesiredWidget(),
+              );
+            },
+          )
+
+
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_list_item/primitive.gif?raw=true">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/single_select_int.gif?raw=true" width="32%">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/single_select_object.gif?raw=true" width="32%">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/multi_select_enum.gif?raw=true" width="32%">
 </p>
 
 
@@ -187,7 +235,9 @@ The widgets provide a flexible solution for selecting items from a collection, s
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_list_item/enum.gif?raw=true">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/multi_select_double.gif?raw=true" width="32%">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/multi_select_object.gif?raw=true" width="32%">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/single_select_enum.gif?raw=true" width="32%">
 </p>
 
 <br>
