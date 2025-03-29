@@ -1,14 +1,8 @@
 import 'package:items_selector/items_selector.dart';
 import 'package:items_selector/src/model/item_wrapper.dart';
 import 'package:items_selector/src/model/base_selector.dart';
-import 'package:items_selector/src/model/base_list_item_selector.dart';
-import 'package:items_selector/src/model/base_wrap_item_selector.dart';
 
 extension BaseSelectorExtension<T> on BaseSelectorState<T> {
-  BaseWrapItemSelector get baseWrapItemSelectorWidget => widget as BaseWrapItemSelector<T>;
-
-  BaseListItemSelector get baseListItemSelectorWidget => widget as BaseListItemSelector<T>;
-
   ListSelector get listSelectorWidget => widget as ListSelector<T>;
 
   GridSelector get gridSelectorWidget => widget as GridSelector<T>;
