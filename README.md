@@ -136,21 +136,54 @@ flutter pub add items_selector
 <br>
 
 
-### SingleListItemSelector (Primitive types)
+### ListSelector 
 
 ```dart
-       SingleListItemSelector<int>(
-            items: integerItems,
-            selectedItems: (List<int> selectedItems,_) {
+          ListSelector<YourDataType>.builder(
+            items: yourListOfItems,
+            direction: Axis.horizontal, // Set to Axis.horizontal or Axis.vertical based on layout preference
+            options: SingleSelectOptions(), // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+            listConfiguration: ListConfiguration(
+              shrinkWrap: true,
+              // You can also pass other ListView properties like physics, controller, etc.
+            ),
+            selectedItems: (List<YourDataType> selectedItems, _) {
               debugPrint(selectedItems.toString());
             },
             builder: (_, index) {
               return ItemSelector(
-                selectedItem: yourDesireWidget(),
-                unSelectedItem:yourDesireWidget() ,
+                selectedItem: yourDesiredWidget(),
+                unSelectedItem: yourDesiredWidget(),
               );
             },
-          ),
+          )
+
+
+        // Use ListSelector.separated if you need separators between items
+
+          ListSelector<YourDataType>.separated(
+            items: yourListOfItems,
+            direction: Axis.horizontal, // Set to Axis.horizontal or Axis.vertical based on layout preference
+            options: MultiSelectOptions(), // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+            listConfiguration: ListConfiguration(
+              shrinkWrap: true,
+              // You can also pass other ListView properties like physics, controller, etc.
+            ),
+            selectedItems: (List<YourDataType> selectedItems, _) {
+              debugPrint(selectedItems.toString());
+            },
+            separatorBuilder: (_, index) {
+              return yourDesiredWidget(); // Example separator widget
+            },
+            builder: (_, index) {
+              return ItemSelector(
+                selectedItem: yourDesiredWidget(),
+                unSelectedItem: yourDesiredWidget(),
+              );
+            },
+          )
+
+
 ```
 
 <p align="center">
