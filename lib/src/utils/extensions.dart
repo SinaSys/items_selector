@@ -1,24 +1,19 @@
+import 'package:items_selector/items_selector.dart';
 import 'package:items_selector/src/model/item_wrapper.dart';
 import 'package:items_selector/src/model/base_selector.dart';
-import 'package:items_selector/src/model/base_wrap_item_selector.dart';
 import 'package:items_selector/src/model/base_list_item_selector.dart';
-import 'package:items_selector/src/model/base_grid_item_selector.dart';
-import 'package:items_selector/src/widget/multi_grid_item_selector.dart';
-import 'package:items_selector/src/widget/multi_list_item_selector.dart';
-import 'package:items_selector/src/widget/single_grid_item_selector.dart';
+import 'package:items_selector/src/model/base_wrap_item_selector.dart';
 
 extension BaseSelectorExtension<T> on BaseSelectorState<T> {
-  BaseGridGridItemSelector get baseGridItemSelectorWidget => widget as BaseGridGridItemSelector<T>;
-
   BaseWrapItemSelector get baseWrapItemSelectorWidget => widget as BaseWrapItemSelector<T>;
-
-  SingleGridItemSelector get singleGridItemSelectorWidget => widget as SingleGridItemSelector<T>;
 
   BaseListItemSelector get baseListItemSelectorWidget => widget as BaseListItemSelector<T>;
 
-  MultiListItemSelector get multiListItemSelectorWidget => widget as MultiListItemSelector<T>;
+  ListSelector get listSelectorWidget => widget as ListSelector<T>;
 
-  MultiGridItemSelector get multiGridItemSelector => widget as MultiGridItemSelector<T>;
+  GridSelector get gridSelectorWidget => widget as GridSelector<T>;
+
+  WrapSelector get wrapSelectorWidget => widget as WrapSelector<T>;
 }
 
 extension ItemWrapperExtension<T> on List<ItemWrapper<T>> {
