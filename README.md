@@ -140,6 +140,30 @@ flutter pub add items_selector
 
 
 ### ListSelector 
+```dart
+         ListSelector<YourDataType>(
+                items: stringItems,
+                //// If set to Axis.horizontal, Row is used; if set to Axis.vertical, Column is used.
+                direction: Axis.horizontal,
+                // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+                options: MultiSelectOptions(),
+                // Default is SingleSelectOptions
+                flexConfiguration: FlexConfiguration(
+                  // You can also pass other Row or Column properties like mainAxisAlignment, crossAxisAlignment, etc.
+                  spacing: 10.0,
+                ),
+                selectedItems: (List<YourDataType> selectedItems, _) {
+                  debugPrint(selectedItems.toString());
+                },
+                builder: (_, index) {
+                  return ItemSelector(
+                    selectedItem: yourDesiredWidget(),
+                    unSelectedItem: yourDesiredWidget(),
+                  );
+                },
+              )
+
+```
 
 ```dart
           ListSelector<YourDataType>.builder(
