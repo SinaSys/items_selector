@@ -1,6 +1,44 @@
-## [2.0.0] 
+## [2.1.0]
 
 ### 🚀 Added
+
+- **Generative constructor for `ListSelector`**:
+    - Previously, `ListSelector` could only be used via `ListSelector.builder` and
+      `ListSelector.separated`.
+    - Now, the main constructor (`ListSelector()`) is accessible.
+    - This allows users to use `Row` or `Column` under the hood based on the `direction` property.
+
+- **New `flexConfiguration` property for `ListSelector`**:
+    - `ListSelector.builder` and `ListSelector.separated` use `listConfiguration` (ListView-based).
+    - `ListSelector()` now uses `flexConfiguration`, which supports Row/Column properties like:
+        - `mainAxisAlignment`
+        - `crossAxisAlignment`
+        - `mainAxisSize`
+        - `textDirection`
+        - `verticalDirection`
+        - `textBaseline`
+        - `clipBehavior`
+        - `spacing`
+
+### 🔄 Changed
+
+- `ListSelector.builder` and `ListSelector.separated` **still work the same** (using `ListView`
+  under the hood).
+- The default behavior remains unchanged—developers can now **choose between `ListView`
+  and `Row/Column`** based on their needs.
+
+### 📌 Migration Notes
+
+- **No breaking changes**.
+- If you prefer to use **Row/Column**, you can now use the **new generative constructor** and pass a
+  `flexConfiguration`.
+- If you are already using `ListSelector.builder` or `ListSelector.separated`, **no changes are
+  required**.
+
+## [2.0.0]
+
+### 🚀 Added
+
 - Introduced three new widgets:
     - **`ListSelector`** → Replaces `SingleListItemSelector` & `MultiListItemSelector`.
     - **`GridSelector`** → Replaces `SingleGridItemSelector` & `MultiGridItemSelector`.
@@ -12,52 +50,64 @@
     - **`GridSelector.builder`**
     - **`GridSelector.count`**
     - **`GridSelector.extent`**
-- All widgets now take a **`SelectedOption`** parameter, which accepts both `SingleSelectOptions` and `MultiSelectOptions`, offering a unified API.
+- All widgets now take a **`SelectedOption`** parameter, which accepts both `SingleSelectOptions`
+  and `MultiSelectOptions`, offering a unified API.
 - **Improved API consistency** across all selectors, simplifying usability.
 
 ### 🔄 Changed
-- `ListSelector` always uses **`ListView`** under the hood instead of switching between `Row/Column` and `ListView`.
-- `GridSelector` uses a **sealed class configuration (`GridConfiguration`)**, requiring the correct subtype (`BuilderConfiguration`, `CountConfiguration`, or `ExtentConfiguration`) for each named constructor.
+
+- `ListSelector` always uses **`ListView`** under the hood instead of switching between `Row/Column`
+  and `ListView`.
+- `GridSelector` uses a **sealed class configuration (`GridConfiguration`)**, requiring the correct
+  subtype (`BuilderConfiguration`, `CountConfiguration`, or `ExtentConfiguration`) for each named
+  constructor.
 - Codebase refactored for better readability and maintainability.
 
 ### ⚠️ Migration Guide
+
 This update includes **breaking changes** that require adjustments to your existing code.
 
 - **Replace old widgets with new ones**:
     - `SingleListItemSelector` → **`ListSelector.builder`** or **`ListSelector.separated`**
     - `MultiListItemSelector` → **`ListSelector.builder`** or **`ListSelector.separated`**
-    - `SingleGridItemSelector` → **`GridSelector.builder`**, **`GridSelector.count`**, or **`GridSelector.extent`**
-    - `MultiGridItemSelector` → **`GridSelector.builder`**, **`GridSelector.count`**, or **`GridSelector.extent`**
+    - `SingleGridItemSelector` → **`GridSelector.builder`**, **`GridSelector.count`**, or *
+      *`GridSelector.extent`**
+    - `MultiGridItemSelector` → **`GridSelector.builder`**, **`GridSelector.count`**, or *
+      *`GridSelector.extent`**
     - `SingleWrapItemSelector` → **`WrapSelector`**
     - `MultiWrapItemSelector` → **`WrapSelector`**
 - Use the **new `SelectedOption` parameter** instead of separate selection options.
-- Ensure **GridSelector** uses the correct **`GridConfiguration` subtype** for its named constructors.
+- Ensure **GridSelector** uses the correct **`GridConfiguration` subtype** for its named
+  constructors.
 - `ListSelector.separated` requires an additional **`separatorBuilder`** parameter.
 
-
-## [1.1.0] 
+## [1.1.0]
 
 ### Added
+
 - **`listConfiguration`** property introduced in `SingleListItemSelector` & `MultiListItemSelector`.
-    - This allows users to switch from `Row`/`Column` to `ListView`, providing greater flexibility and access to `ListView` features such as scrolling behavior, physics, controllers, and more.
+    - This allows users to switch from `Row`/`Column` to `ListView`, providing greater flexibility
+      and access to `ListView` features such as scrolling behavior, physics, controllers, and more.
     - If `listConfiguration` is not provided, the default behavior remains unchanged.
 
 ### Changed
-- **Refactored codebase** for better readability and maintainability. No functional changes were made.
+
+- **Refactored codebase** for better readability and maintainability. No functional changes were
+  made.
 - **Updated example files** to reflect recent improvements and demonstrate new capabilities.
 
 ### Migration Notes
+
 - No breaking changes. Upgrading to this version will not cause any compilation errors or issues.
-
-
 
 ## [1.0.1]
 
 ### Fixed
+
 - Corrected the image URL in the README to properly display on pub.dev.
 
-This update does not change any functionality but ensures that documentation is correctly presented to users. 
-
+This update does not change any functionality but ensures that documentation is correctly presented
+to users.
 
 ## [1.0.0]
 
