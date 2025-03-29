@@ -174,7 +174,7 @@ flutter pub add items_selector
               debugPrint(selectedItems.toString());
             },
             separatorBuilder: (_, index) {
-              return yourDesiredWidget(); // Example separator widget
+              return yourDesiredWidget();
             },
             builder: (_, index) {
               return ItemSelector(
@@ -200,7 +200,7 @@ flutter pub add items_selector
 ### GridSelector 
 
 ```dart
-           GridSelector<yourdataType>.builder(
+           GridSelector<yourDataType>.builder(
               items: integerItems,
               // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
               // options: SingleSelectOptions(),  // Default is SingleSelectOptions
@@ -213,7 +213,7 @@ flutter pub add items_selector
                 ),
                 shrinkWrap: true,
               ),
-              selectedItems: (List<yourdataType> selectedItems, _) {
+              selectedItems: (List<yourDataType> selectedItems, _) {
                 debugPrint(selectedItems.toString());
               },
               builder: (_, index) {
@@ -227,7 +227,7 @@ flutter pub add items_selector
 ```
 
 ```dart
-           GridSelector<yourdataType>.count(
+           GridSelector<yourDataType>.count(
               items: integerItems,
               // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
               // options: MultiSelectOptions(),  // Default is SingleSelectOptions
@@ -236,7 +236,33 @@ flutter pub add items_selector
                 crossAxisCount: 3,
                 shrinkWrap: true,
               ),
-              selectedItems: (List<yourdataType> selectedItems, _) {
+              selectedItems: (List<yourDataType> selectedItems, _) {
+                debugPrint(selectedItems.toString());
+              },
+              builder: (_, index) {
+                return ItemSelector(
+                  selectedItem: yourDesireWidget(),
+                  unSelectedItem: yourDesireWidget(),
+                );
+              },
+            )
+
+```
+
+```dart
+          GridSelector<yourDataType>.extent(
+              items: integerItems,
+              // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+              // options: MultiSelectOptions(),  // Default is SingleSelectOptions
+              extentConfiguration: ExtentConfiguration(
+                // You can also pass other GridView.extent properties like physics, controller, etc.
+                maxCrossAxisExtent: 150,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                shrinkWrap: true,
+              ),
+
+              selectedItems: (List<yourDataType> selectedItems, _) {
                 debugPrint(selectedItems.toString());
               },
               builder: (_, index) {
@@ -261,7 +287,7 @@ flutter pub add items_selector
 ### WrapSelector
 
 ```dart
-       WrapSelector<yourdataType>(
+       WrapSelector<yourDataType>(
           items: integerItems,
           // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
           // options: MultiSelectOptions(),  // Default is SingleSelectOptions
@@ -270,7 +296,7 @@ flutter pub add items_selector
             spacing: 10,
             runSpacing: 20.0,
           ),
-          selectedItems: (List<yourdataType> selectedItems, _) {
+          selectedItems: (List<yourDataType> selectedItems, _) {
             debugPrint(selectedItems.toString());
           },
           builder: (_, index) {
