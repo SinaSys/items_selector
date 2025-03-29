@@ -235,7 +235,9 @@ flutter pub add items_selector
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/multi_list_item/enum.gif?raw=true">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/multi_select_double.gif?raw=true" width="32%">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/multi_select_object.gif?raw=true" width="32%">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/single_select_enum.gif?raw=true" width="32%">
 </p>
 
 <br>
