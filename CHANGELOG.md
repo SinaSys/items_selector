@@ -1,3 +1,17 @@
+## [2.1.1] 
+
+### 🛠 Fixed
+- **Resolved an unused element warning** in `GridSelector`:
+    - Fixed the warning: *"The declaration 'GridSelector._' isn't referenced."*
+    - Removed the unused private constructor declaration.
+    - No functionality was affected—this was purely an internal cleanup.
+
+### 📌 Notes
+- **No breaking changes**.
+- This update improves code cleanliness but does not impact functionality.
+- Safe to upgrade from `2.1.0` without modifications.
+
+
 ## [2.1.0]
 
 ### 🚀 Added
