@@ -7,18 +7,6 @@ import 'package:items_selector/src/model/grid_configuration.dart';
 class GridSelector<T> extends BaseSelector<T> {
   final BaseGridConfiguration gridConfiguration;
 
-  GridSelector._({
-    super.key,
-    required super.items,
-    required super.selectedItems,
-    required super.builder,
-    super.hasLongPress,
-    super.initialItems,
-    super.options,
-    required this.gridConfiguration,
-    required super.mode,
-  });
-
   GridSelector.builder({
     super.key,
     required super.items,
