@@ -1,14 +1,15 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:items_selector/items_selector.dart';
 import 'package:items_selector/src/utils/extensions.dart';
 import 'package:items_selector/src/model/base_selector.dart';
+import 'package:flutter/gestures.dart' show DragStartBehavior;
 import 'package:items_selector/src/model/list_configuration.dart';
 
 enum ListSelectorType {
   flex,
   builder,
   separated,
+  wheel,
 }
 
 class ListSelector<T> extends BaseSelector<T> {
@@ -64,6 +65,23 @@ class ListSelector<T> extends BaseSelector<T> {
           mode: BaseSelector.determineWidgetType(options),
         );
 
+  ListSelector.wheel({
+    super.key,
+    required super.items,
+    required super.selectedItems,
+    required super.builder,
+    super.hasLongPress,
+    super.initialItems,
+    super.options,
+    required WheelConfiguration wheelConfiguration,
+  })  : configuration = wheelConfiguration,
+        direction = Axis.horizontal,
+        separatorBuilder = null,
+        selectorType = ListSelectorType.wheel,
+        super(
+          mode: BaseSelector.determineWidgetType(options),
+        );
+
   @override
   ListSelectorState<T> createState() => ListSelectorState<T>();
 }
@@ -81,6 +99,7 @@ class ListSelectorState<T> extends BaseSelectorState<T> {
 
     return switch (listSelectorWidget.selectorType) {
       ListSelectorType.flex => _buildFlexList(items),
+      ListSelectorType.wheel => _buildConfiguredListWheel(items),
       _ => _buildConfiguredList(items)
     };
   }
@@ -159,6 +178,31 @@ class ListSelectorState<T> extends BaseSelectorState<T> {
         final item = widget.builder(context, index);
         return itemContainer(itemsWrapper[index], index, item);
       },
+    );
+  }
+
+  Widget _buildConfiguredListWheel(List<Widget> items) {
+    final WheelConfiguration? config = listSelectorWidget.configuration as WheelConfiguration?;
+
+    return ListWheelScrollView(
+      itemExtent: config!.itemExtent,
+      clipBehavior: config.clipBehavior,
+      dragStartBehavior: config.dragStartBehavior,
+      physics: config.physics,
+      restorationId: config.restorationId,
+      controller: config.controller,
+      hitTestBehavior: config.hitTestBehavior,
+      diameterRatio: config.diameterRatio,
+      magnification: config.magnification,
+      offAxisFraction: config.offAxisFraction,
+      onSelectedItemChanged: config.onSelectedItemChanged,
+      overAndUnderCenterOpacity: config.overAndUnderCenterOpacity,
+      scrollBehavior: config.scrollBehavior,
+      useMagnifier: config.useMagnifier,
+      squeeze: config.squeeze,
+      perspective: config.perspective,
+      renderChildrenOutsideViewport: config.renderChildrenOutsideViewport,
+      children: items,
     );
   }
 }
