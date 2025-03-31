@@ -1,3 +1,10 @@
+## [2.2.0] 
+### ✨ New Features
+- **`ListSelector.wheel` added!** 🎡
+    - Uses `ListWheelScrollView` under the hood.
+    - Introduces `WheelConfiguration`, allowing customization of properties such as `itemExtent`, `squeeze`, `perspective`, and more.
+    - Unlike other `ListSelector` constructors, it **does not** accept a `direction` property since `ListWheelScrollView` does not have one.
+
 ## [2.1.1] 
 
 ### 🛠 Fixed
