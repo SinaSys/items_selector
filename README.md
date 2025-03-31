@@ -95,6 +95,21 @@ flutter pub add items_selector
 
 ---
 
+## 🖼️ Layout Differences  
+
+| Widget Type | Variants | Description |
+|-------------|-------------|-------------|
+| **📜 List-based Widgets** | `ListSelector()` | Uses `Row` or `Column` under the hood based on `direction`. |
+|  | `ListSelector.builder()` | Uses `ListView.builder` for dynamic item rendering. |
+|  | `ListSelector.separated()` | Uses `ListView.separated` with `separatorBuilder` for defining item separators. |
+|  | `ListSelector.wheel()` | Uses `ListWheelScrollView`. |
+| **🔲 Grid-based Widgets** | `GridSelector.builder()` | Uses a builder function for grid items. |
+|  | `GridSelector.count()` | Uses a fixed number of columns. |
+|  | `GridSelector.extent()` | Uses a maximum cross-axis extent for items. |
+| **🔀 Wrap-based Widget** | `WrapSelector()` | Provides automatic line breaks, single generative constructor (no named constructors). |
+
+---
+
 ## 🔹 Common Properties (Available in All Widgets)  
 
 | Property          | Description  |
@@ -117,13 +132,12 @@ flutter pub add items_selector
 | **`separatorBuilder`** | `ListSelector.separated` | A required function that defines separators between list items. |
 | **`flexConfiguration`** | `ListSelector()` (Generative Constructor) | Used for configuring `Row` or `Column` properties (`MainAxisAlignment`, `CrossAxisAlignment`, etc.). |
 | **`wheelConfiguration`** | `ListSelector.wheel` | Configures `ListWheelScrollView` properties like `itemExtent`, `squeeze`, `perspective`, etc. |
-| **`direction`** | `ListSelector()`, `ListSelector.builder`, `ListSelector.separated` *(Not available in `ListSelector.wheel`)* | Defines layout direction.  |
+| **`direction`** | `ListSelector()`, `ListSelector.builder`, `ListSelector.separated` | Defines layout direction.  |
 |  | `ListSelector()` *(Generative Constructor)* | Default: `Axis.horizontal`. |
 |  | `ListSelector.builder`, `ListSelector.separated` | Default: `Axis.vertical`. |
-| **`gridConfiguration`** | `_` | Determines grid behavior with configurations:  |
-| **`→ BuilderConfiguration`** | `GridSelector.builder` | Similar to `GridView.builder`. |
-| **`→ CountConfiguration`** | `GridSelector.count` | Similar to `GridView.count`. |
-| **`→ ExtentConfiguration`** | `GridSelector.extent` | Similar to `GridView.extent`. |
+| **`BuilderConfiguration`** | `GridSelector.builder` | Similar to `GridView.builder`. |
+| **`CountConfiguration`** | `GridSelector.count` | Similar to `GridView.count`. |
+| **`ExtentConfiguration`** | `GridSelector.extent` | Similar to `GridView.extent`. |
 
 ---
 
@@ -139,19 +153,6 @@ flutter pub add items_selector
 | `maxItems` | Limits the number of selectable items. |
 
 ---
-
-## 🖼️ Layout Differences  
-
-| Widget Type | Variants | Description |
-|-------------|-------------|-------------|
-| **📜 List-based Widgets** | `ListSelector()` | Uses `Row` or `Column` under the hood based on `direction`. Accepts `flexConfiguration`. |
-|  | `ListSelector.builder()` | Uses `ListView.builder` for dynamic item rendering. |
-|  | `ListSelector.separated()` | Uses `ListView.separated` with `separatorBuilder` for defining item separators. |
-|  | `ListSelector.wheel()` | Uses `ListWheelScrollView`, accepts `wheelConfiguration`. *(No `direction` property.)* |
-| **🔲 Grid-based Widgets** | `GridSelector.builder()` | Uses a builder function for grid items. |
-|  | `GridSelector.count()` | Uses a fixed number of columns. |
-|  | `GridSelector.extent()` | Uses a maximum cross-axis extent for items. |
-| **🔀 Wrap-based Widget** | `WrapSelector()` | Provides automatic line breaks, single generative constructor (no named constructors). |
 
 
 <br>
