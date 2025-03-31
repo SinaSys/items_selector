@@ -81,57 +81,78 @@ flutter pub add items_selector
 
 <br>
 
-## Widgets
+## 📌 Widgets Overview  
 
 **ListSelector, GridSelector, and WrapSelector** provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.  
 
-### 🔹 Common Properties (Available in All Widgets)  
-- **`items`** → Defines the available list of items.  
-- **`builder`** → Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`.  
-- **`selectedItems`** → Returns the list of selected items when a selection is made.  
-- **`initialItems`** (optional) → Allows specifying pre-selected items at initialization.  
-- **`hasLongPress`** (optional) → Enables selection using a long press instead of a regular tap. Default is `false`.  
-- **`options`** → Defines selection behavior and supports both `SingleSelectOption` and `MultiSelectOption`.  
+### 📋 Widget Variants  
 
-### 🔹 Layout-Specific Properties  
-- **`wrapConfiguration`** (only for WrapSelector) → Encapsulates `Wrap`-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.  
-- **`listConfiguration`** (only for `ListSelector.builder` and `ListSelector.separated`) → Provides greater flexibility by allowing access to `ListView` properties such as scrolling behavior, physics, controllers, and other customizable options.  
-- **`flexConfiguration`** (only for `ListSelector`'s generative constructor) → Used for configuring `Row` or `Column` properties such as `MainAxisAlignment`, `MainAxisSize`, `CrossAxisAlignment`, etc.  
-- **`direction`** (only for ListSelector) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.  
-- **`gridConfiguration`** (only for GridSelector) → Determines the grid behavior and must be set to one of the following configurations:  
-  - **`BuilderConfiguration`** → For `GridSelector.builder`, similar to `GridView.builder`.  
-  - **`CountConfiguration`** → For `GridSelector.count`, similar to `GridView.count`.  
-  - **`ExtentConfiguration`** → For `GridSelector.extent`, similar to `GridView.extent`.  
-
----
-
-## ⚙️ Selection Behavior  
-- **All Widgets (ListSelector, GridSelector, WrapSelector)** → Use a unified `options` parameter, which supports:  
-  - **`SingleSelectOption`**  
-    - `allowUnselectInitialItems` → Controls if initial items can be unselected.  
-    - `allowUnselectMainItems` → Determines if main items can be unselected.  
-  - **`MultiSelectOption`**  
-    - `allowUnselectInitialItems` → Controls if initial items can be unselected.  
-    - `maxItems` → Limits the number of selectable items.  
+| Widget Name       | Variants (Implemented in Library) |
+|------------------|--------------------------------|
+| **`ListSelector`** | `ListSelector()`, `ListSelector.builder()`, `ListSelector.separated()`, `ListSelector.wheel()` |
+| **`GridSelector`** | `GridSelector.builder()`, `GridSelector.count()`, `GridSelector.extent()` |
+| **`WrapSelector`** | `WrapSelector()` |
 
 ---
 
 ## 🖼️ Layout Differences  
 
-- **📜 List-based Widget → `ListSelector` provides three constructors:**  
-  - **`ListSelector()`** → Uses **`Row`** or **`Column`** under the hood, depending on the `direction` parameter. Accepts `flexConfiguration` for customizing row/column properties.  
-  - **`ListSelector.builder`** → Uses **`ListView.builder`** for rendering items dynamically.  
-  - **`ListSelector.separated`** → Uses **`ListView.separated`**, requiring an additional **`separatorBuilder`** parameter to define separators between items.  
+| Widget Type | Variants | Description |
+|-------------|-------------|-------------|
+| **📜 List-based Widgets** | `ListSelector()` | Uses `Row` or `Column` under the hood based on `direction`. |
+|  | `ListSelector.builder()` | Uses `ListView.builder` for dynamic item rendering. |
+|  | `ListSelector.separated()` | Uses `ListView.separated` with `separatorBuilder` for defining item separators. |
+|  | `ListSelector.wheel()` | Uses `ListWheelScrollView`. |
+| **🔲 Grid-based Widgets** | `GridSelector.builder()` | Uses a builder function for grid items. |
+|  | `GridSelector.count()` | Uses a fixed number of columns. |
+|  | `GridSelector.extent()` | Uses a maximum cross-axis extent for items. |
+| **🔀 Wrap-based Widget** | `WrapSelector()` | Provides automatic line breaks, single generative constructor (no named constructors). |
 
-- **🔲 Grid-based Widget → `GridSelector` provides three named constructors:**  
-  - **`GridSelector.builder`** → Uses a builder function to create grid items dynamically.  
-  - **`GridSelector.count`** → Uses a fixed number of columns.  
-  - **`GridSelector.extent`** → Uses a maximum cross-axis extent for items.  
-  - **Requires a corresponding `GridConfiguration`** (`BuilderConfiguration`, `CountConfiguration`, or `ExtentConfiguration`).  
+---
 
-- **🔀 Wrap-based Widget → `WrapSelector` provides a flexible item arrangement with automatic line breaks.**  
-  - It has a **single generative constructor** and does **not** use named constructors.  
+## 🔹 Common Properties (Available in All Widgets)  
 
+| Property          | Description  |
+|------------------|-------------|
+| **`items`** | Defines the available list of items. |
+| **`builder`** | Creates custom widgets for selected and unselected states via `selectedItem` and `unSelectedItem`. |
+| **`selectedItems`** | Returns the list of selected items when a selection is made. |
+| **`initialItems`** *(optional)* | Allows specifying pre-selected items at initialization. |
+| **`hasLongPress`** *(optional, default: `false`)* | Enables selection using a long press instead of a regular tap. |
+| **`options`** *(optional, default: `SingleSelectOption`)* | Defines selection behavior using `SingleSelectOption` or `MultiSelectOption`. |
+
+---
+
+## 🔹 Layout-Specific Properties  
+
+| Property | Available In | Description |
+|----------|-------------|-------------|
+| **`wrapConfiguration`** | `WrapSelector` | Configures `Wrap` properties like `alignment`, `spacing`, `runSpacing`, etc. |
+| **`listConfiguration`** | `ListSelector.builder`, `ListSelector.separated` | Provides access to `ListView` properties like scrolling behavior, physics, controllers, etc. |
+| **`separatorBuilder`** | `ListSelector.separated` | A required function that defines separators between list items. |
+| **`flexConfiguration`** | `ListSelector()` (Generative Constructor) | Used for configuring `Row` or `Column` properties (`MainAxisAlignment`, `CrossAxisAlignment`, etc.). |
+| **`wheelConfiguration`** | `ListSelector.wheel` | Configures `ListWheelScrollView` properties like `itemExtent`, `squeeze`, `perspective`, etc. |
+| **`direction`** | `ListSelector()`, `ListSelector.builder`, `ListSelector.separated` | Defines layout direction.  |
+|  | `ListSelector()` *(Generative Constructor)* | Default: `Axis.horizontal`. |
+|  | `ListSelector.builder`, `ListSelector.separated` | Default: `Axis.vertical`. |
+| **`BuilderConfiguration`** | `GridSelector.builder` | Similar to `GridView.builder`. |
+| **`CountConfiguration`** | `GridSelector.count` | Similar to `GridView.count`. |
+| **`ExtentConfiguration`** | `GridSelector.extent` | Similar to `GridView.extent`. |
+
+---
+
+## ⚙️ Selection Behavior  
+
+| Option | Description |
+|--------|-------------|
+| **`SingleSelectOption`** | Enables single-item selection. |
+| `allowUnselectInitialItems` | Controls whether initial items can be unselected. |
+| `allowUnselectMainItems` | Determines if main items can be unselected. |
+| **`MultiSelectOption`** | Enables multiple-item selection. |
+| `allowUnselectInitialItems` | Controls whether initial items can be unselected. |
+| `maxItems` | Limits the number of selectable items. |
+
+---
 
 
 <br>
@@ -213,11 +234,37 @@ flutter pub add items_selector
 
 
 ```
+```dart
+              ListSelector<YourDataType>.wheel(
+                  items: yourListOfItems,
+                  wheelConfiguration: WheelConfiguration(
+                    // You can also pass other ListWheelScrollView properties like squeeze, controller, etc.
+                    itemExtent: 60,
+                    diameterRatio: 3.0,
+                    perspective: 0.01,
+                  ),
+                  // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+                  options: MultiSelectOptions(),
+                  selectedItems: (List<YourDataType> selectedItems, _) {
+                    debugPrint(selectedItems.toString());
+                  },
+                  builder: (_, index) {
+                    return ItemSelector(
+                      selectedItem: yourDesiredWidget(),
+                      unSelectedItem: yourDesiredWidget(),
+                    );
+                  },
+                )
+```
 
 <p align="center">
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/single_select_int.gif?raw=true" width="32%">
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/single_select_object.gif?raw=true" width="32%">
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/multi_select_enum.gif?raw=true" width="32%">
+</p>
+
+<p align="center">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/list_wheel_multi_select.gif?raw=true" width="32%">
 </p>
 
 
