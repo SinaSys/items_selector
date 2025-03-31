@@ -180,7 +180,55 @@ class ListSelectorStringExample extends StatelessWidget {
                   );
                 },
               ),
-            )
+            ),
+            SizedBox(height: 10),
+            Text("ListSelector.wheel()"),
+            Text("Multi select"),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: SizedBox(
+                height: 200,
+                child: ListSelector<String>.wheel(
+                    wheelConfiguration: WheelConfiguration(
+                      itemExtent: 60,
+                      diameterRatio: 3.0,
+                      perspective: 0.01,
+                    ),
+                    options: MultiSelectOptions(),
+                    items: stringItems,
+                    selectedItems: (List<String> selectedItems, _) {
+                      debugPrint(selectedItems.toString());
+                    },
+                    builder: (_, index) {
+                      return ItemSelector(
+                        selectedItem: Container(
+                          alignment: Alignment.center,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: Colors.deepOrange,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            stringItems[index],
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        unSelectedItem: Container(
+                          alignment: Alignment.center,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: Colors.deepOrange.withValues(alpha: 0.3),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(stringItems[index]),
+                        ),
+                      );
+                    }),
+              ),
+            ),
           ],
         ),
       ),

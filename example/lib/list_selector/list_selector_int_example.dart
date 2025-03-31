@@ -125,7 +125,6 @@ class ListSelectorIntExample extends StatelessWidget {
             SizedBox(height: 20),
             Text("ListSelector.separated"),
             Text("Multi select"),
-
             SizedBox(
               height: 100,
               child: ListSelector<int>.separated(
@@ -137,7 +136,6 @@ class ListSelectorIntExample extends StatelessWidget {
                       child: VerticalDivider(
                         width: 10,
                         thickness: 2,
-
                       ),
                     ),
                   );
@@ -189,12 +187,55 @@ class ListSelectorIntExample extends StatelessWidget {
                   );
                 },
               ),
-            )
+            ),
+            SizedBox(height: 10),
+            Text("ListSelector.wheel()"),
+            Text("Multi select"),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: SizedBox(
+                height: 200,
+                child: ListSelector<int>.wheel(
+                    wheelConfiguration:
+                        WheelConfiguration(itemExtent: 60, diameterRatio: 2.0, perspective: 0.01, magnification: 1.0),
+                    options: MultiSelectOptions(),
+                    items: integerItems,
+                    selectedItems: (List<int> selectedItems, _) {
+                      debugPrint(selectedItems.toString());
+                    },
+                    builder: (_, index) {
+                      return ItemSelector(
+                        selectedItem: Container(
+                          alignment: Alignment.center,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: Colors.deepOrange,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            integerItems[index].toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        unSelectedItem: Container(
+                          alignment: Alignment.center,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: Colors.deepOrange.withValues(alpha: 0.3),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(integerItems[index].toString()),
+                        ),
+                      );
+                    }),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
