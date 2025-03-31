@@ -213,11 +213,37 @@ flutter pub add items_selector
 
 
 ```
+```dart
+              ListSelector<YourDataType>.wheel(
+                  items: yourListOfItems,
+                  wheelConfiguration: WheelConfiguration(
+                    // You can also pass other ListWheelScrollView properties like squeeze, controller, etc.
+                    itemExtent: 60,
+                    diameterRatio: 3.0,
+                    perspective: 0.01,
+                  ),
+                  // Can be SingleSelectOptions() or MultiSelectOptions() based on your requirement
+                  options: MultiSelectOptions(),
+                  selectedItems: (List<YourDataType> selectedItems, _) {
+                    debugPrint(selectedItems.toString());
+                  },
+                  builder: (_, index) {
+                    return ItemSelector(
+                      selectedItem: yourDesiredWidget(),
+                      unSelectedItem: yourDesiredWidget(),
+                    );
+                  },
+                )
+```
 
 <p align="center">
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/single_select_int.gif?raw=true" width="32%">
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/single_select_object.gif?raw=true" width="32%">
   <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/multi_select_enum.gif?raw=true" width="32%">
+</p>
+
+<p align="center">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/list_wheel_multi_select.gif?raw=true" width="32%">
 </p>
 
 
