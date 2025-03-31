@@ -91,13 +91,15 @@ flutter pub add items_selector
 - **`selectedItems`** → Returns the list of selected items when a selection is made.  
 - **`initialItems`** (optional) → Allows specifying pre-selected items at initialization.  
 - **`hasLongPress`** (optional) → Enables selection using a long press instead of a regular tap. Default is `false`.  
-- **`options`** → Defines selection behavior and supports both `SingleSelectOption` and `MultiSelectOption`.  
+- **`options`** (optional, defaults to `SingleSelectOption`) → Defines selection behavior using `SingleSelectOption` or `MultiSelectOption`.  
+
 
 ### 🔹 Layout-Specific Properties  
 - **`wrapConfiguration`** (only for WrapSelector) → Encapsulates `Wrap`-specific properties such as `alignment`, `spacing`, `runSpacing`, etc.  
 - **`listConfiguration`** (only for `ListSelector.builder` and `ListSelector.separated`) → Provides greater flexibility by allowing access to `ListView` properties such as scrolling behavior, physics, controllers, and other customizable options.  
-- **`flexConfiguration`** (only for `ListSelector`'s generative constructor) → Used for configuring `Row` or `Column` properties such as `MainAxisAlignment`, `MainAxisSize`, `CrossAxisAlignment`, etc.  
-- **`direction`** (only for ListSelector) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.  
+- **`flexConfiguration`** (only for `ListSelector`'s generative constructor) → Used for configuring `Row` or `Column` properties such as `MainAxisAlignment`, `MainAxisSize`, `CrossAxisAlignment`, etc.
+- **`wheelConfiguration`** (only for `ListSelector.wheel`) → Configures `ListWheelScrollView` properties such as `itemExtent`, `squeeze`, `perspective`, and others.  
+- **`direction`** (only for ListSelector()) → Defines the layout direction (`Axis.horizontal` or `Axis.vertical`). Default is `Axis.horizontal`.  
 - **`gridConfiguration`** (only for GridSelector) → Determines the grid behavior and must be set to one of the following configurations:  
   - **`BuilderConfiguration`** → For `GridSelector.builder`, similar to `GridView.builder`.  
   - **`CountConfiguration`** → For `GridSelector.count`, similar to `GridView.count`.  
@@ -121,7 +123,8 @@ flutter pub add items_selector
 - **📜 List-based Widget → `ListSelector` provides three constructors:**  
   - **`ListSelector()`** → Uses **`Row`** or **`Column`** under the hood, depending on the `direction` parameter. Accepts `flexConfiguration` for customizing row/column properties.  
   - **`ListSelector.builder`** → Uses **`ListView.builder`** for rendering items dynamically.  
-  - **`ListSelector.separated`** → Uses **`ListView.separated`**, requiring an additional **`separatorBuilder`** parameter to define separators between items.  
+  - **`ListSelector.separated`** → Uses **`ListView.separated`**, requiring an additional **`separatorBuilder`** parameter to define separators between items.
+  - **`ListSelector.wheel`** → Uses **`ListWheelScrollView`** under the hood and accepts **`wheelConfiguration`** for fine-tuning properties like `itemExtent`, `squeeze`, and `perspective`.
 
 - **🔲 Grid-based Widget → `GridSelector` provides three named constructors:**  
   - **`GridSelector.builder`** → Uses a builder function to create grid items dynamically.  
