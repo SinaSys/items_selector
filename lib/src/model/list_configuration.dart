@@ -1,5 +1,6 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/gestures.dart' show DragStartBehavior;
+import 'package:flutter/rendering.dart' show RenderListWheelViewport;
 
 sealed class BaseListConfiguration {}
 
@@ -63,4 +64,44 @@ class FlexConfiguration extends BaseListConfiguration {
   final TextBaseline? textBaseline;
   final Clip clipBehavior;
   final double spacing;
+}
+
+class WheelConfiguration extends BaseListConfiguration {
+  WheelConfiguration({
+    this.controller,
+    this.physics,
+    this.diameterRatio = RenderListWheelViewport.defaultDiameterRatio,
+    this.perspective = RenderListWheelViewport.defaultPerspective,
+    this.offAxisFraction = 0.0,
+    this.useMagnifier = false,
+    this.magnification = 1.0,
+    this.overAndUnderCenterOpacity = 1.0,
+    required this.itemExtent,
+    this.squeeze = 1.0,
+    this.onSelectedItemChanged,
+    this.renderChildrenOutsideViewport = false,
+    this.clipBehavior = Clip.hardEdge,
+    this.hitTestBehavior = HitTestBehavior.opaque,
+    this.restorationId,
+    this.scrollBehavior,
+    this.dragStartBehavior = DragStartBehavior.start,
+  });
+
+  final ScrollController? controller;
+  final ScrollPhysics? physics;
+  final double diameterRatio;
+  final double perspective;
+  final double offAxisFraction;
+  final bool useMagnifier;
+  final double magnification;
+  final double overAndUnderCenterOpacity;
+  final double itemExtent;
+  final double squeeze;
+  final ValueChanged<int>? onSelectedItemChanged;
+  final bool renderChildrenOutsideViewport;
+  final Clip clipBehavior;
+  final HitTestBehavior hitTestBehavior;
+  final String? restorationId;
+  final ScrollBehavior? scrollBehavior;
+  final DragStartBehavior dragStartBehavior;
 }
