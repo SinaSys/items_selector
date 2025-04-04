@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+@immutable
+class CheckBoxSelectorItem extends CheckboxListTile {
+  const CheckBoxSelectorItem({
+    super.key,
+    //  bool? value,
+    ValueChanged<bool?>? onChanged,
+    super.activeColor,
+    super.autofocus,
+    super.checkboxScaleFactor,
+    super.checkboxSemanticLabel,
+    super.checkboxShape,
+    super.checkColor,
+    super.contentPadding,
+    super.controlAffinity,
+    super.dense,
+    super.enabled,
+    super.enableFeedback,
+    super.fillColor,
+    super.focusNode,
+    super.hoverColor,
+    super.internalAddSemanticForOnTap,
+    super.isThreeLine,
+    super.isError,
+    super.materialTapTargetSize,
+    super.mouseCursor,
+    super.onFocusChange,
+    super.overlayColor,
+    super.secondary,
+    super.selected,
+    super.selectedTileColor,
+    super.shape,
+    super.side,
+    super.splashRadius,
+    super.subtitle,
+    super.tileColor,
+    super.title,
+    super.tristate,
+    super.visualDensity,
+  }) : super(
+          onChanged: null,
+          value: false,
+        );
+}
