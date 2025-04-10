@@ -40,7 +40,7 @@ flutter pub add items_selector
 # Options
 ## **SingleSelectOption**
 
-`SingleSelectOption` is used within the **SingleListItemSelector**, **SingleGridItemSelector**, and **SingleWrapItemSelector** widgets and includes two boolean properties:
+`SingleSelectOption` is used within the **ListSelector**, **GridSelector**, and **WrapSelector** widgets and includes two boolean properties:
 
 - **`allowUnselectedInitialItems`**  
   When the `initialItems` property is set, enabling this option allows those initial items to be **unselected**.
@@ -61,7 +61,7 @@ flutter pub add items_selector
 
 ## **MultiSelectOption**
 
-`MultiSelectOption` is used within the **MultiListItemSelector**, **MultiGridItemSelector**, and **MultiWrapItemSelector** widgets and includes two properties:
+`MultiSelectOption` is used within the **ListSelector**, **GridSelector**, and **WrapSelector** widgets and includes two properties:
 
 - **`allowUnselectedInitialItems`**  
   When the `initialItems` property is set, enabling this option allows those initial items to be **unselected**.
