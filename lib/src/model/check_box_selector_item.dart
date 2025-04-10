@@ -5,7 +5,7 @@ class CheckBoxSelectorItem extends CheckboxListTile {
   const CheckBoxSelectorItem({
     super.key,
     //  bool? value,
-    ValueChanged<bool?>? onChanged,
+    //ValueChanged<bool?>? onChanged,
     super.activeColor,
     super.autofocus,
     super.checkboxScaleFactor,
@@ -42,4 +42,87 @@ class CheckBoxSelectorItem extends CheckboxListTile {
           onChanged: null,
           value: false,
         );
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    final Map<String, dynamic> props = {
+      'key': key,
+      'activeColor': activeColor,
+      'autofocus': autofocus == false ? null : autofocus,
+      'checkboxScaleFactor': checkboxScaleFactor == 1.0 ? null : checkboxScaleFactor,
+      'checkboxSemanticLabel': checkboxSemanticLabel,
+      'checkboxShape': checkboxShape,
+      'checkColor': checkColor,
+      'contentPadding': contentPadding,
+      'controlAffinity': controlAffinity,
+      'dense': dense,
+      'enabled': enabled,
+      'enableFeedback': enableFeedback,
+      'fillColor': fillColor,
+      'focusNode': focusNode,
+      'hoverColor': hoverColor,
+      'internalAddSemanticForOnTap': internalAddSemanticForOnTap == false ? null : internalAddSemanticForOnTap,
+      'isThreeLine': isThreeLine == false ? null : isThreeLine,
+      'isError': isError == false ? null : isError,
+      'materialTapTargetSize': materialTapTargetSize,
+      'mouseCursor': mouseCursor,
+      'onFocusChange': onFocusChange,
+      'overlayColor': overlayColor,
+      'secondary': secondary,
+      'selected': selected == false ? null : selected,
+      'selectedTileColor': selectedTileColor,
+      'shape': shape,
+      'side': side,
+      'splashRadius': splashRadius,
+      'subtitle': subtitle,
+      'tileColor': tileColor,
+      'title': title.toString() == 'Text("item 1")' ? null : title, // optional
+      'tristate': tristate == false ? null : tristate,
+      'visualDensity': visualDensity,
+    };
+
+    final buffer = StringBuffer('CheckBoxSelectorItem(\n');
+
+    props.forEach((key, value) {
+      if (value != null) {
+        buffer.writeln('  $key: $value,');
+      }
+    });
+
+    buffer.write(')');
+    return buffer.toString();
+  }
+}
+
+class CheckBoxSelectorOption extends CheckBoxSelectorItem {
+  const CheckBoxSelectorOption({
+    super.key,
+    super.activeColor,
+    super.checkboxScaleFactor,
+    super.checkboxSemanticLabel,
+    super.checkboxShape,
+    super.checkColor,
+    super.contentPadding,
+    super.controlAffinity,
+    super.dense,
+    super.enabled,
+    super.enableFeedback,
+    super.fillColor,
+    super.focusNode,
+    super.hoverColor,
+    super.isError,
+    super.materialTapTargetSize,
+    super.mouseCursor,
+    super.onFocusChange,
+    super.overlayColor,
+    super.secondary,
+    super.selectedTileColor,
+    super.shape,
+    super.side,
+    super.splashRadius,
+    super.subtitle,
+    super.tileColor,
+    super.tristate,
+    super.visualDensity,
+  });
 }
