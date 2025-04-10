@@ -446,7 +446,7 @@ flutter pub add items_selector
 
 ```dart
     CheckBoxSelector(
-        initialItems: [0],
+        initialItems: [3,4],
         selectedItems: (selectedItems, indexes) {
           debugPrint(selectedItems.toString());
           debugPrint(indexes.toString());
@@ -483,8 +483,8 @@ flutter pub add items_selector
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/radio_selector/radio_selector.gif?raw=true">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/checkbox_selector/checkbox_selector.gif?raw=true">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/radio_selector/radio_selector.gif?raw=true" width="32%">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/checkbox_selector/checkbox_selector.gif?raw=true" width="32%">
 </p>
 
 
