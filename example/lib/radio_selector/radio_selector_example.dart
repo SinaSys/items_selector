@@ -13,7 +13,6 @@ class RadioSelectorExample extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(2.0),
           child: RadioSelector(
-            initialItem: 0,
             options: RadioSelectorOption(
               fillColor: WidgetStateProperty.all(Colors.white70),
               spacing: 2.0,
