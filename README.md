@@ -21,6 +21,7 @@ This package provides a flexible and customizable solution for selecting items f
 - Fully customizable widgets for selected and unselected states.
 - Displays scrollable lists horizontally or vertically.
 - Supports grid view and wrap-based layouts for flexible item arrangement.
+- Customizable RadioSelector and CheckBoxSelector widgets for item selection.
 - Ability to define initial items (selectable or non-selectable).
 - Animation support.
 
