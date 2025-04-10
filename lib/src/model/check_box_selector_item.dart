@@ -76,7 +76,7 @@ class CheckBoxSelectorItem extends CheckboxListTile {
       'splashRadius': splashRadius,
       'subtitle': subtitle,
       'tileColor': tileColor,
-      'title': title.toString() == 'Text("item 1")' ? null : title, // optional
+      'title': title,
       'tristate': tristate == false ? null : tristate,
       'visualDensity': visualDensity,
     };
@@ -96,6 +96,14 @@ class CheckBoxSelectorItem extends CheckboxListTile {
 
 class CheckBoxSelectorOption extends CheckBoxSelectorItem {
   const CheckBoxSelectorOption({
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.mainAxisSize = MainAxisSize.max,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.textDirection,
+    this.verticalDirection = VerticalDirection.down,
+    this.textBaseline,
+    this.clipBehavior = Clip.none,
+    this.spacing = 0.0,
     super.key,
     super.activeColor,
     super.checkboxScaleFactor,
@@ -125,4 +133,20 @@ class CheckBoxSelectorOption extends CheckBoxSelectorItem {
     super.tristate,
     super.visualDensity,
   });
+
+  final MainAxisAlignment mainAxisAlignment;
+
+  final MainAxisSize mainAxisSize;
+
+  final CrossAxisAlignment crossAxisAlignment;
+
+  final TextDirection? textDirection;
+
+  final VerticalDirection verticalDirection;
+
+  final TextBaseline? textBaseline;
+
+  final Clip clipBehavior;
+
+  final double spacing;
 }
