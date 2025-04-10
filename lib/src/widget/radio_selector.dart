@@ -8,10 +8,12 @@ class RadioSelector extends StatefulWidget {
     required this.items,
     required this.selectedItems,
     this.initialItem,
+    this.options,
   });
 
   final List<RadioSelectorItem> items;
   final OnSelectedRadioChanged<RadioSelectorItem> selectedItems;
+  final RadioSelectorOption? options;
   final int? initialItem;
 
   @override
@@ -19,61 +21,67 @@ class RadioSelector extends StatefulWidget {
 }
 
 class _RadioSelectorState extends State<RadioSelector> {
-  late RadioSelectorItem selectedRadio;
+  RadioSelectorItem? selectedRadio;
 
   @override
   void initState() {
     if (widget.initialItem != null) {
       selectedRadio = widget.items[widget.initialItem!];
-    } else {
-      selectedRadio = widget.items.first;
     }
     super.initState();
   }
 
   setSelectedRadio(RadioSelectorItem? item) {
     selectedRadio = item!;
-    widget.selectedItems(selectedRadio);
+    widget.selectedItems(selectedRadio!, widget.items.indexOf(item));
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: widget.options?.spacing ?? 0.0,
+      textBaseline: widget.options?.textBaseline,
+      mainAxisSize: widget.options?.mainAxisSize ?? MainAxisSize.max,
+      crossAxisAlignment: widget.options?.crossAxisAlignment ?? CrossAxisAlignment.center,
+      verticalDirection: widget.options?.verticalDirection ?? VerticalDirection.down,
+      textDirection: widget.options?.textDirection,
+      mainAxisAlignment: widget.options?.mainAxisAlignment ?? MainAxisAlignment.start,
       children: List.generate(
         widget.items.length,
         (int index) {
           RadioSelectorItem item = widget.items[index];
+          RadioSelectorOption? options = widget.options;
           return RadioListTile<RadioSelectorItem>(
             key: item.key,
             value: item,
-            title: item.title,
             groupValue: selectedRadio,
-            isThreeLine: item.isThreeLine,
-            subtitle: item.subtitle,
-            secondary: item.secondary,
-            activeColor: item.activeColor,
-            autofocus: item.autofocus,
-            contentPadding: item.contentPadding,
-            controlAffinity: item.controlAffinity,
-            dense: item.dense,
-            enableFeedback: item.enableFeedback,
-            fillColor: item.fillColor,
-            focusNode: item.focusNode,
-            hoverColor: item.hoverColor,
-            internalAddSemanticForOnTap: item.internalAddSemanticForOnTap,
-            materialTapTargetSize: item.materialTapTargetSize,
-            mouseCursor: item.mouseCursor,
-            onFocusChange: item.onFocusChange,
-            overlayColor: item.overlayColor,
-            selected: item.selected,
-            selectedTileColor: item.selectedTileColor,
-            shape: item.shape,
-            splashRadius: item.splashRadius,
-            tileColor: item.tileColor,
-            toggleable: item.toggleable,
-            visualDensity: item.visualDensity,
             onChanged: setSelectedRadio,
+            title: item.title,
+            subtitle: item.subtitle,
+            isThreeLine: item.isThreeLine,
+            toggleable: item.toggleable,
+            autofocus: item.autofocus,
+            selected: item.selected,
+            internalAddSemanticForOnTap: item.internalAddSemanticForOnTap,
+            secondary: item.secondary ?? options?.secondary,
+            activeColor: item.activeColor ?? options?.activeColor,
+            contentPadding: item.contentPadding ?? options?.contentPadding,
+            controlAffinity: item.controlAffinity ?? options?.controlAffinity,
+            dense: item.dense ?? options?.dense,
+            enableFeedback: item.enableFeedback ?? options?.enableFeedback,
+            fillColor: item.fillColor ?? options?.fillColor,
+            focusNode: item.focusNode ?? options?.focusNode,
+            hoverColor: item.hoverColor ?? options?.hoverColor,
+            materialTapTargetSize: item.materialTapTargetSize ?? options?.materialTapTargetSize,
+            mouseCursor: item.mouseCursor ?? options?.mouseCursor,
+            onFocusChange: item.onFocusChange ?? options?.onFocusChange,
+            overlayColor: item.overlayColor ?? options?.overlayColor,
+            selectedTileColor: item.selectedTileColor ?? options?.selectedTileColor,
+            shape: item.shape ?? options?.shape,
+            splashRadius: item.splashRadius ?? options?.splashRadius,
+            tileColor: item.tileColor ?? options?.tileColor,
+            visualDensity: item.visualDensity ?? options?.visualDensity,
           );
         },
       ),
