@@ -9,7 +9,10 @@ class RadioSelector extends StatefulWidget {
     required this.selectedItems,
     this.initialItem,
     this.options,
-  });
+  }) : assert(
+          initialItem == null || (initialItem >= 0 && initialItem < items.length),
+          'initialItem must be a valid index of the items list.',
+        );
 
   final List<RadioSelectorItem> items;
   final OnSelectedRadioChanged<RadioSelectorItem> selectedItems;
