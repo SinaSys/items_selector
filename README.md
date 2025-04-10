@@ -399,6 +399,94 @@ flutter pub add items_selector
 </p>
 
 
+<br>
+
+### RadioSelector
+
+```dart
+     RadioSelector(
+            options: RadioSelectorOption(
+              fillColor: WidgetStateProperty.all(Colors.white70),
+              spacing: 2.0,
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            items: [
+              RadioSelectorItem(
+                title: Text("Dart"),
+                subtitle: Text(
+                  "Client-optimized language used with Flutter",
+                  style: style,
+                ),
+                tileColor: Color(0xFF0175C2),
+              ),
+              RadioSelectorItem(
+                title: Text("Kotlin"),
+                subtitle: Text(
+                  "Modern language for Android development",
+                  style: style,
+                ),
+                tileColor: Color(0xFFFF5722),
+                secondary: Icon(
+                  Icons.android,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+            selectedItems: (selectedItems, indexes) {
+              debugPrint(selectedItems.toString());
+              debugPrint(indexes.toString());
+            },
+          )
+
+```
+
+<br>
+
+### CheckboxSelector
+
+```dart
+    CheckBoxSelector(
+        initialItems: [0],
+        selectedItems: (selectedItems, indexes) {
+          debugPrint(selectedItems.toString());
+          debugPrint(indexes.toString());
+        },
+        options: CheckBoxSelectorOption(
+          mainAxisAlignment: MainAxisAlignment.center,
+          controlAffinity: ListTileControlAffinity.leading,
+          fillColor: WidgetStateProperty.all(Colors.black26),
+        ),
+        items: [
+          CheckBoxSelectorItem(
+            title: Text("Dart", style: style),
+            subtitle: Text(
+              "Client-optimized language used with Flutter",
+              style: style,
+            ),
+            tileColor: Color(0xFF0175C2),
+          ),
+          CheckBoxSelectorItem(
+            title: Text("Kotlin", style: style),
+            subtitle: Text(
+              "Modern language for Android development",
+              style: style,
+            ),
+            tileColor: Color(0xFFFF5722),
+            secondary: Icon(
+              Icons.android,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      )
+
+```
+
+<p align="center">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/radio_selector/radio_selector.gif?raw=true">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/checkbox_selector/checkbox_selector.gif?raw=true">
+</p>
+
 
 <br>
 <br>
