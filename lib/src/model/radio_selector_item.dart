@@ -77,3 +77,28 @@ class RadioSelectorItem extends RadioListTile {
     return 'RadioSelectorItem(${properties.join(', ')})';
   }
 }
+
+class RadioSelectorOption extends RadioSelectorItem {
+  const RadioSelectorOption({
+    super.key,
+    super.activeColor,
+    super.contentPadding,
+    super.controlAffinity,
+    super.dense,
+    super.enableFeedback,
+    super.fillColor,
+    super.focusNode,
+    super.hoverColor,
+    super.internalAddSemanticForOnTap,
+    super.materialTapTargetSize,
+    super.mouseCursor,
+    super.onFocusChange,
+    super.overlayColor,
+    super.secondary,
+    super.selectedTileColor,
+    super.shape,
+    super.splashRadius,
+    super.tileColor,
+    super.visualDensity,
+  }) : super(title: null);
+}
