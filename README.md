@@ -81,7 +81,7 @@ flutter pub add items_selector
 
 <br>
 
-## 📌 Widgets Overview  (ListSelector | GridSelector | WrapSelector)
+## 📌 Widgets Overview  ( ListSelector | GridSelector | WrapSelector )
 
 **ListSelector, GridSelector, and WrapSelector** provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.  
 
@@ -159,6 +159,18 @@ flutter pub add items_selector
 <br>
 <br>
 
+
+## 📌 Widgets Overview  ( RadioSelector | CheckboxSelector )
+**CheckBoxSelector** is a versatile Flutter widget that provides an easy-to-implement solution for multi-selection scenarios using checkboxes. Built on top of `CheckBoxListTile`, it offers a vertically arranged list of checkboxes with comprehensive customization options through both global settings (via `CheckBoxSelectorOption`) and individual item properties (via `CheckBoxSelectorItem`). The widget simplifies selection management by supporting initial selections, providing callback functions that return both selected items and their indices, and maintaining all the native functionality of `CheckBoxListTile` while adding convenient layout controls like spacing and alignment. Developers can quickly implement feature-rich checkbox lists where global styles can be defined while still allowing specific items to override these defaults as needed.
+
+<br>
+
+**RadioSelector** is a customizable Flutter widget for selecting a single item from a vertical list of radio buttons. It wraps `RadioListTile` with a structured API and accepts a list of `RadioSelectorItems`, each inheriting all properties of `RadioListTile`. A shared configuration can be applied using the `options` property (`RadioSelectorOption`), which defines common styling and layout values like `activeColor`, `tileColor`, and `spacing`. Individual item properties override these shared settings. The widget also supports an optional `initialItem` to preselect a radio, and returns the selected item and its index via the `selectedItems` callback.
+
+
+<br>
+<br>
+<br>
 
 ### ListSelector 
 ```dart
