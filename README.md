@@ -395,9 +395,11 @@ flutter pub add items_selector
 
 | Widget                     | Example | 
 |:--------------------------:|:--------------:|
-| ListSelector               | [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_selector)             | 
+| ListSelector               | [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_selector)            | 
 | GridSelector               |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/grid_selector)           | 
 | WrapSelector               |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/wrap_selector)           | 
+| RadioSelector              |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/radio_selector)          | 
+| CheckBoxSelector           |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/checkbox_selector)       | 
 
 
 <br>
