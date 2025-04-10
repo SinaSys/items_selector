@@ -3,17 +3,24 @@ import 'package:items_selector/src/utils/typedefs.dart';
 import 'package:items_selector/src/model/check_box_selector_item.dart';
 
 class CheckBoxSelector extends StatefulWidget {
-  const CheckBoxSelector({
+  CheckBoxSelector({
     super.key,
     required this.items,
-    this.initialItem,
     required this.selectedItems,
+    this.initialItems,
     this.options,
-  });
+  })  : assert(
+          initialItems == null || initialItems.isNotEmpty,
+          'initialItems must not be an empty list if provided.',
+        ),
+        assert(
+          initialItems == null || initialItems.every((index) => index >= 0 && index < items.length),
+          'All initialItems must be valid indices of the items list.',
+        );
 
   final List<CheckBoxSelectorItem> items;
   final OnSelectedCheckboxChanged selectedItems;
-  final int? initialItem;
+  final List<int>? initialItems;
   final CheckBoxSelectorOption? options;
 
   @override
@@ -26,6 +33,16 @@ class _CheckBoxSelectorState extends State<CheckBoxSelector> {
   @override
   void initState() {
     items = widget.items.asMap().map((key, value) => (MapEntry(value, false)));
+    if (widget.initialItems != null) {
+      for (var i = 0; i < widget.initialItems!.length; ++i) {
+        for (final index in widget.initialItems!) {
+          if (index >= 0 && index < widget.items.length) {
+            final item = widget.items[index];
+            items[item] = true;
+          }
+        }
+      }
+    }
     super.initState();
   }
 
@@ -52,6 +69,13 @@ class _CheckBoxSelectorState extends State<CheckBoxSelector> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: widget.options?.spacing ?? 0.0,
+      textBaseline: widget.options?.textBaseline,
+      mainAxisSize: widget.options?.mainAxisSize ?? MainAxisSize.max,
+      crossAxisAlignment: widget.options?.crossAxisAlignment ?? CrossAxisAlignment.center,
+      verticalDirection: widget.options?.verticalDirection ?? VerticalDirection.down,
+      textDirection: widget.options?.textDirection,
+      mainAxisAlignment: widget.options?.mainAxisAlignment ?? MainAxisAlignment.start,
       children: List.generate(
         items.keys.length,
         (int index) {
