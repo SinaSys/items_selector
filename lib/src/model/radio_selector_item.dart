@@ -26,7 +26,7 @@ class RadioSelectorItem extends RadioListTile {
     super.splashRadius,
     super.subtitle,
     super.tileColor,
-    required super.title,
+    super.title,
     super.toggleable,
     super.visualDensity,
   }) : super(
