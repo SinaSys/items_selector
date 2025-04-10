@@ -74,7 +74,7 @@ class RadioSelectorItem extends RadioListTile {
       properties.add('internalAddSemanticForOnTap: $internalAddSemanticForOnTap');
     }
 
-    return 'RadioSelectorItem(${properties.join(', ')})';
+    return 'RadioSelectorItem(\n${properties.join(',\n')}\n)';
   }
 }
 
@@ -100,5 +100,29 @@ class RadioSelectorOption extends RadioSelectorItem {
     super.splashRadius,
     super.tileColor,
     super.visualDensity,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.mainAxisSize = MainAxisSize.max,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.textDirection,
+    this.verticalDirection = VerticalDirection.down,
+    this.textBaseline,
+    this.clipBehavior = Clip.none,
+    this.spacing = 0.0,
   }) : super(title: null);
+
+  final MainAxisAlignment mainAxisAlignment;
+
+  final MainAxisSize mainAxisSize;
+
+  final CrossAxisAlignment crossAxisAlignment;
+
+  final TextDirection? textDirection;
+
+  final VerticalDirection verticalDirection;
+
+  final TextBaseline? textBaseline;
+
+  final Clip clipBehavior;
+
+  final double spacing;
 }
