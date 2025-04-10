@@ -81,7 +81,7 @@ flutter pub add items_selector
 
 <br>
 
-## 📌 Widgets Overview  
+## 📌 Widgets Overview  (ListSelector | GridSelector | WrapSelector)
 
 **ListSelector, GridSelector, and WrapSelector** provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.  
 
