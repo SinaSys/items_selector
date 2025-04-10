@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:items_selector/src/model/check_box_selector_item.dart';
 import 'package:items_selector/src/utils/typedefs.dart';
+import 'package:items_selector/src/model/check_box_selector_item.dart';
 
 class CheckBoxSelector extends StatefulWidget {
   const CheckBoxSelector({
@@ -8,11 +8,13 @@ class CheckBoxSelector extends StatefulWidget {
     required this.items,
     this.initialItem,
     required this.selectedItems,
+    this.options,
   });
 
   final List<CheckBoxSelectorItem> items;
-  final OnSelectedItemsChanged selectedItems;
+  final OnSelectedCheckboxChanged selectedItems;
   final int? initialItem;
+  final CheckBoxSelectorOption? options;
 
   @override
   State<CheckBoxSelector> createState() => _CheckBoxSelectorState();
@@ -27,6 +29,26 @@ class _CheckBoxSelectorState extends State<CheckBoxSelector> {
     super.initState();
   }
 
+  void onChanged(CheckBoxSelectorItem item, bool isSelected) {
+    items[item] = isSelected;
+
+    List<CheckBoxSelectorItem> checkedItems = items.entries
+        .where((entry) => entry.value)
+        .map((entry) => entry.key) //
+        .toList(); //
+
+    List<int> selectedIndex = items.entries
+        .toList()
+        .asMap()
+        .entries
+        .where((entry) => entry.value.value == true)
+        .map((entry) => entry.key)
+        .toList();
+
+    widget.selectedItems(checkedItems, selectedIndex);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,37 +56,37 @@ class _CheckBoxSelectorState extends State<CheckBoxSelector> {
         items.keys.length,
         (int index) {
           CheckBoxSelectorItem item = [...items.keys][index];
+          CheckBoxSelectorOption? options = widget.options;
           return CheckboxListTile(
             key: item.key,
             value: [...items.values][index],
             onChanged: (bool? value) {
-              items[item] = value!;
-              setState(() {});
+              onChanged(item, value!);
             },
             title: item.title,
             isThreeLine: item.isThreeLine,
-            subtitle: item.subtitle,
-            secondary: item.secondary,
-            activeColor: item.activeColor,
             autofocus: item.autofocus,
-            contentPadding: item.contentPadding,
-            controlAffinity: item.controlAffinity,
-            dense: item.dense,
-            enableFeedback: item.enableFeedback,
-            fillColor: item.fillColor,
-            focusNode: item.focusNode,
-            hoverColor: item.hoverColor,
-            internalAddSemanticForOnTap: item.internalAddSemanticForOnTap,
-            materialTapTargetSize: item.materialTapTargetSize,
-            mouseCursor: item.mouseCursor,
-            onFocusChange: item.onFocusChange,
-            overlayColor: item.overlayColor,
             selected: item.selected,
-            selectedTileColor: item.selectedTileColor,
-            shape: item.shape,
-            splashRadius: item.splashRadius,
-            tileColor: item.tileColor,
-            visualDensity: item.visualDensity,
+            internalAddSemanticForOnTap: item.internalAddSemanticForOnTap,
+            subtitle: item.subtitle ?? options?.subtitle,
+            secondary: item.secondary ?? options?.secondary,
+            activeColor: item.activeColor ?? options?.activeColor,
+            contentPadding: item.contentPadding ?? options?.contentPadding,
+            controlAffinity: item.controlAffinity ?? options?.controlAffinity,
+            dense: item.dense ?? options?.dense,
+            enableFeedback: item.enableFeedback ?? options?.enableFeedback,
+            fillColor: item.fillColor ?? options?.fillColor,
+            focusNode: item.focusNode ?? options?.focusNode,
+            hoverColor: item.hoverColor ?? options?.hoverColor,
+            materialTapTargetSize: item.materialTapTargetSize ?? options?.materialTapTargetSize,
+            mouseCursor: item.mouseCursor ?? options?.mouseCursor,
+            onFocusChange: item.onFocusChange ?? options?.onFocusChange,
+            overlayColor: item.overlayColor ?? options?.overlayColor,
+            selectedTileColor: item.selectedTileColor ?? options?.selectedTileColor,
+            shape: item.shape ?? options?.shape,
+            splashRadius: item.splashRadius ?? options?.splashRadius,
+            tileColor: item.tileColor ?? options?.tileColor,
+            visualDensity: item.visualDensity ?? options?.visualDensity,
           );
         },
       ),
