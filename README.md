@@ -81,6 +81,7 @@ flutter pub add items_selector
 | 6  | N | Y | N | N | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/6.gif?raw=true) | 
 
 <br>
+<br>
 
 ## 📌 Widgets Overview  ( ListSelector | GridSelector | WrapSelector )
 
@@ -95,6 +96,8 @@ flutter pub add items_selector
 | **`WrapSelector`** | `WrapSelector()` |
 
 ---
+
+<br>
 
 ## 🖼️ Layout Differences  
 
@@ -111,6 +114,8 @@ flutter pub add items_selector
 
 ---
 
+<br>
+
 ## 🔹 Common Properties (Available in All Widgets)  
 
 | Property          | Description  |
@@ -123,6 +128,8 @@ flutter pub add items_selector
 | **`options`** *(optional, default: `SingleSelectOption`)* | Defines selection behavior using `SingleSelectOption` or `MultiSelectOption`. |
 
 ---
+
+<br>
 
 ## 🔹 Layout-Specific Properties  
 
@@ -142,16 +149,25 @@ flutter pub add items_selector
 
 ---
 
+<br>
+
 ## ⚙️ Selection Behavior  
 
-| Option | Description |
-|--------|-------------|
-| **`SingleSelectOption`** | Enables single-item selection. |
-| `allowUnselectInitialItems` | Controls whether initial items can be unselected. |
-| `allowUnselectMainItems` | Determines if main items can be unselected. |
-| **`MultiSelectOption`** | Enables multiple-item selection. |
-| `allowUnselectInitialItems` | Controls whether initial items can be unselected. |
-| `maxItems` | Limits the number of selectable items. |
+###  SingleSelectOptions
+
+| Option                      | Type    | Description                                                            |
+|-----------------------------|---------|------------------------------------------------------------------------|
+| `allowUnselectInitialItems` | `bool?` | If `true`, allows initial items to be unselected. Defaults to `false`.  |
+| `allowUnselectMainItems`    | `bool?` | If `true`, allows main items to be unselected. Defaults to `false`.     |
+
+<br>
+
+###  MultiSelectOptions
+
+| Option                      | Type    | Description                                                                |
+|-----------------------------|---------|----------------------------------------------------------------------------|
+| `allowUnselectInitialItems` | `bool?` | If `true`, allows initial items to be unselected. Defaults to `false`.      |
+| `maxItems`                  | `int?`  | Limits the number of selectable items. If `null`, no limit is enforced.    |
 
 ---
 
@@ -162,6 +178,9 @@ flutter pub add items_selector
 
 
 ## 📌 Widgets Overview  ( RadioSelector | CheckboxSelector )
+
+### ☑️ CheckBoxSelector
+
 **CheckBoxSelector** is a versatile Flutter widget that provides an easy-to-implement solution for multi-selection scenarios using checkboxes. Built on top of `CheckBoxListTile`, it offers a vertically arranged list of checkboxes with comprehensive customization options through both global settings (via `CheckBoxSelectorOption`) and individual item properties (via `CheckBoxSelectorItem`). The widget simplifies selection management by supporting initial selections, providing callback functions that return both selected items and their indices, and maintaining all the native functionality of `CheckBoxListTile` while adding convenient layout controls like spacing and alignment. Developers can quickly implement feature-rich checkbox lists where global styles can be defined while still allowing specific items to override these defaults as needed.
 
 ## Properties
@@ -175,6 +194,8 @@ flutter pub add items_selector
 
 
 <br>
+
+### 🔘 RadioSelector
 
 **RadioSelector** is a customizable Flutter widget for selecting a single item from a vertical list of radio buttons. It wraps `RadioListTile` with a structured API and accepts a list of `RadioSelectorItems`, each inheriting all properties of `RadioListTile`. A shared configuration can be applied using the `options` property (`RadioSelectorOption`), which defines common styling and layout values like `activeColor`, `tileColor`, and `spacing`. Individual item properties override these shared settings. The widget also supports an optional `initialItem` to preselect a radio, and returns the selected item and its index via the `selectedItems` callback.
 
