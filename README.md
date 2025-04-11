@@ -8,7 +8,7 @@
 <br>
 
 # Introduction
-This package provides a flexible and customizable solution for selecting items from a list. It supports both single and multi-selection modes, as well as the ability to define initial items (either fixed and non-selectable or selectable). The package offers versatile display options, including scrollable lists (horizontally or vertically), grid views, and wrap-based layouts for dynamic, multi-line item arrangements. Additionally, it is fully generic and supports all data types, making it adaptable to various use cases.
+This package provides a flexible and customizable solution for selecting items from a list. It supports both single and multi-selection modes, as well as the ability to define initial items (either fixed and non-selectable or selectable). The package offers versatile display options, including scrollable lists (horizontal or vertical), grid views, wrap-based layouts for dynamic multi-line arrangements, radio button lists with RadioSelector, and checkbox lists with CheckBoxSelector. Additionally, it is fully generic and supports all data types, making it adaptable to various use cases.
 
 
 <br>
