@@ -1,3 +1,25 @@
+## [2.3.0]
+
+### ✨ New Features
+- **`RadioSelector` added!** 🔘
+  - A widget for single-selection radio button lists, using `RadioListTile` under the hood.
+  - Supports a list of `RadioSelectorItem` objects, which extend `RadioListTile` for individual customization.
+  - Includes a `RadioSelectorOption` for global styling and layout properties like `spacing` and `mainAxisAlignment`.
+  - Features an `initialItem` property for setting a default selection and a callback (`OnSelectedRadioChanged`) for handling selection changes.
+
+- **`CheckBoxSelector` added!** ✅
+  - A widget for multi-selection checkbox lists, using `CheckboxListTile` under the hood.
+  - Accepts a list of `CheckBoxSelectorItem` objects, which extend `CheckboxListTile` for individual customization.
+  - Provides a `CheckBoxSelectorOption` for global styling and layout properties like `spacing` and `crossAxisAlignment`.
+  - Supports an `initialItems` property for pre-selecting multiple items and a callback (`OnSelectedCheckboxChanged`) for tracking selected items and their indices.
+
+### 📌 Notes
+- **No breaking changes**.
+- These new widgets expand the library’s selection capabilities, complementing existing widgets like `ListSelector` and `GridSelector`.
+- Safe to upgrade from `2.2.0` without modifications to existing code.
+
+
+
 ## [2.2.0] 
 ### ✨ New Features
 - **`ListSelector.wheel` added!** 🎡

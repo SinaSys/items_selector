@@ -8,7 +8,7 @@
 <br>
 
 # Introduction
-This package provides a flexible and customizable solution for selecting items from a list. It supports both single and multi-selection modes, as well as the ability to define initial items (either fixed and non-selectable or selectable). The package offers versatile display options, including scrollable lists (horizontally or vertically), grid views, and wrap-based layouts for dynamic, multi-line item arrangements. Additionally, it is fully generic and supports all data types, making it adaptable to various use cases.
+This package provides a flexible and customizable solution for selecting items from a list. It supports both single and multi-selection modes, as well as the ability to define initial items (either fixed and non-selectable or selectable). The package offers versatile display options, including scrollable lists (horizontal or vertical), grid views, wrap-based layouts for dynamic multi-line arrangements, radio button lists with RadioSelector, and checkbox lists with CheckBoxSelector. Additionally, it is fully generic and supports all data types, making it adaptable to various use cases.
 
 
 <br>
@@ -21,6 +21,7 @@ This package provides a flexible and customizable solution for selecting items f
 - Fully customizable widgets for selected and unselected states.
 - Displays scrollable lists horizontally or vertically.
 - Supports grid view and wrap-based layouts for flexible item arrangement.
+- Customizable RadioSelector and CheckBoxSelector widgets for item selection.
 - Ability to define initial items (selectable or non-selectable).
 - Animation support.
 
@@ -40,7 +41,7 @@ flutter pub add items_selector
 # Options
 ## **SingleSelectOption**
 
-`SingleSelectOption` is used within the **SingleListItemSelector**, **SingleGridItemSelector**, and **SingleWrapItemSelector** widgets and includes two boolean properties:
+`SingleSelectOption` is used within the **ListSelector**, **GridSelector**, and **WrapSelector** widgets and includes two boolean properties:
 
 - **`allowUnselectedInitialItems`**  
   When the `initialItems` property is set, enabling this option allows those initial items to be **unselected**.
@@ -61,7 +62,7 @@ flutter pub add items_selector
 
 ## **MultiSelectOption**
 
-`MultiSelectOption` is used within the **MultiListItemSelector**, **MultiGridItemSelector**, and **MultiWrapItemSelector** widgets and includes two properties:
+`MultiSelectOption` is used within the **ListSelector**, **GridSelector**, and **WrapSelector** widgets and includes two properties:
 
 - **`allowUnselectedInitialItems`**  
   When the `initialItems` property is set, enabling this option allows those initial items to be **unselected**.
@@ -80,8 +81,9 @@ flutter pub add items_selector
 | 6  | N | Y | N | N | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/6.gif?raw=true) | 
 
 <br>
+<br>
 
-## 📌 Widgets Overview  
+## 📌 Widgets Overview  ( ListSelector | GridSelector | WrapSelector )
 
 **ListSelector, GridSelector, and WrapSelector** provide a flexible solution for selecting items from a collection, supporting both single and multi-selection modes.  
 
@@ -94,6 +96,8 @@ flutter pub add items_selector
 | **`WrapSelector`** | `WrapSelector()` |
 
 ---
+
+<br>
 
 ## 🖼️ Layout Differences  
 
@@ -110,6 +114,8 @@ flutter pub add items_selector
 
 ---
 
+<br>
+
 ## 🔹 Common Properties (Available in All Widgets)  
 
 | Property          | Description  |
@@ -122,6 +128,8 @@ flutter pub add items_selector
 | **`options`** *(optional, default: `SingleSelectOption`)* | Defines selection behavior using `SingleSelectOption` or `MultiSelectOption`. |
 
 ---
+
+<br>
 
 ## 🔹 Layout-Specific Properties  
 
@@ -141,16 +149,25 @@ flutter pub add items_selector
 
 ---
 
+<br>
+
 ## ⚙️ Selection Behavior  
 
-| Option | Description |
-|--------|-------------|
-| **`SingleSelectOption`** | Enables single-item selection. |
-| `allowUnselectInitialItems` | Controls whether initial items can be unselected. |
-| `allowUnselectMainItems` | Determines if main items can be unselected. |
-| **`MultiSelectOption`** | Enables multiple-item selection. |
-| `allowUnselectInitialItems` | Controls whether initial items can be unselected. |
-| `maxItems` | Limits the number of selectable items. |
+###  SingleSelectOptions
+
+| Option                      | Type    | Description                                                            |
+|-----------------------------|---------|------------------------------------------------------------------------|
+| `allowUnselectInitialItems` | `bool?` | If `true`, allows initial items to be unselected. Defaults to `false`.  |
+| `allowUnselectMainItems`    | `bool?` | If `true`, allows main items to be unselected. Defaults to `false`.     |
+
+<br>
+
+###  MultiSelectOptions
+
+| Option                      | Type    | Description                                                                |
+|-----------------------------|---------|----------------------------------------------------------------------------|
+| `allowUnselectInitialItems` | `bool?` | If `true`, allows initial items to be unselected. Defaults to `false`.      |
+| `maxItems`                  | `int?`  | Limits the number of selectable items. If `null`, no limit is enforced.    |
 
 ---
 
@@ -159,6 +176,43 @@ flutter pub add items_selector
 <br>
 <br>
 
+
+## 📌 Widgets Overview  ( RadioSelector | CheckboxSelector )
+
+### ☑️ CheckBoxSelector
+
+**CheckBoxSelector** is a versatile Flutter widget that provides an easy-to-implement solution for multi-selection scenarios using checkboxes. Built on top of `CheckBoxListTile`, it offers a vertically arranged list of checkboxes with comprehensive customization options through both global settings (via `CheckBoxSelectorOption`) and individual item properties (via `CheckBoxSelectorItem`). The widget simplifies selection management by supporting initial selections, providing callback functions that return both selected items and their indices, and maintaining all the native functionality of `CheckBoxListTile` while adding convenient layout controls like spacing and alignment. Developers can quickly implement feature-rich checkbox lists where global styles can be defined while still allowing specific items to override these defaults as needed.
+
+## Properties
+
+| Property         | Type                              | Description                                                                 |
+|------------------|-----------------------------------|-----------------------------------------------------------------------------|
+| `items`          | `List<CheckBoxSelectorItem>`      | A list of `CheckBoxSelectorItem` objects representing the checkboxes. Each item extends `CheckboxListTile` and supports all its properties. |
+| `selectedItems`  | `void Function(List<CheckBoxSelectorItem>, List<int> index)` | A callback invoked when checkbox selections change, providing the list of selected items and their indices. |
+| `options`        | `CheckBoxSelectorOption?`         | Optional global configuration for all checkboxes, extending `CheckBoxSelectorItem` with additional layout properties like `spacing`, `mainAxisAlignment`, and `crossAxisAlignment`. |
+| `initialItems`   | `List<int>?`                      | Optional list of indices for initially selected items. Each index must be valid within the `items` list. |
+
+
+<br>
+
+### 🔘 RadioSelector
+
+**RadioSelector** is a customizable Flutter widget for selecting a single item from a vertical list of radio buttons. It wraps `RadioListTile` with a structured API and accepts a list of `RadioSelectorItems`, each inheriting all properties of `RadioListTile`. A shared configuration can be applied using the `options` property (`RadioSelectorOption`), which defines common styling and layout values like `activeColor`, `tileColor`, and `spacing`. Individual item properties override these shared settings. The widget also supports an optional `initialItem` to preselect a radio, and returns the selected item and its index via the `selectedItems` callback.
+
+## Properties
+
+| Property         | Type                                    | Description                                                                 |
+|------------------|-----------------------------------------|-----------------------------------------------------------------------------|
+| `items`          | `List<RadioSelectorItem>`              | A list of `RadioSelectorItem` objects representing the radio buttons. Each item extends `RadioListTile` and supports all its properties. |
+| `selectedItems`  | `void Function(RadioSelectorItem,int index)` | A callback invoked when a radio button is selected, providing the selected item and its index. |
+| `options`        | `RadioSelectorOption?`                 | Optional global configuration for all radio buttons, extending `RadioSelectorItem` with additional layout properties like `spacing`, `mainAxisAlignment`, and `crossAxisAlignment`. |
+| `initialItem`    | `int?`                                 | Optional index of the initially selected item. Must be a valid index within the `items` list. |
+
+
+
+<br>
+<br>
+<br>
 
 ### ListSelector 
 ```dart
@@ -387,6 +441,94 @@ flutter pub add items_selector
 </p>
 
 
+<br>
+
+### RadioSelector
+
+```dart
+     RadioSelector(
+            options: RadioSelectorOption(
+              fillColor: WidgetStateProperty.all(Colors.white70),
+              spacing: 2.0,
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            items: [
+              RadioSelectorItem(
+                title: Text("Dart"),
+                subtitle: Text(
+                  "Client-optimized language used with Flutter",
+                  style: style,
+                ),
+                tileColor: Color(0xFF0175C2),
+              ),
+              RadioSelectorItem(
+                title: Text("Kotlin"),
+                subtitle: Text(
+                  "Modern language for Android development",
+                  style: style,
+                ),
+                tileColor: Color(0xFFFF5722),
+                secondary: Icon(
+                  Icons.android,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+            selectedItems: (selectedItems, indexes) {
+              debugPrint(selectedItems.toString());
+              debugPrint(indexes.toString());
+            },
+          )
+
+```
+
+<br>
+
+### CheckboxSelector
+
+```dart
+    CheckBoxSelector(
+        initialItems: [3,4],
+        selectedItems: (selectedItems, indexes) {
+          debugPrint(selectedItems.toString());
+          debugPrint(indexes.toString());
+        },
+        options: CheckBoxSelectorOption(
+          mainAxisAlignment: MainAxisAlignment.center,
+          controlAffinity: ListTileControlAffinity.leading,
+          fillColor: WidgetStateProperty.all(Colors.black26),
+        ),
+        items: [
+          CheckBoxSelectorItem(
+            title: Text("Dart", style: style),
+            subtitle: Text(
+              "Client-optimized language used with Flutter",
+              style: style,
+            ),
+            tileColor: Color(0xFF0175C2),
+          ),
+          CheckBoxSelectorItem(
+            title: Text("Kotlin", style: style),
+            subtitle: Text(
+              "Modern language for Android development",
+              style: style,
+            ),
+            tileColor: Color(0xFFFF5722),
+            secondary: Icon(
+              Icons.android,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      )
+
+```
+
+<p align="center">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/radio_selector/radio_selector.gif?raw=true" width="32%">
+  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/checkbox_selector/checkbox_selector.gif?raw=true" width="32%">
+</p>
+
 
 <br>
 <br>
@@ -395,9 +537,11 @@ flutter pub add items_selector
 
 | Widget                     | Example | 
 |:--------------------------:|:--------------:|
-| ListSelector               | [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_selector)             | 
+| ListSelector               | [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/list_selector)            | 
 | GridSelector               |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/grid_selector)           | 
 | WrapSelector               |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/wrap_selector)           | 
+| RadioSelector              |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/radio_selector)          | 
+| CheckBoxSelector           |  [code](https://github.com/SinaSys/items_selector/tree/master/example/lib/checkbox_selector)       | 
 
 
 <br>
@@ -414,7 +558,7 @@ flutter pub add items_selector
 
 ## ⚠️ Troubleshooting
 
-### Issue: `initialItems` Not Working for Custom Classes
+### Issue: `initialItems` Not Working for Custom Classes (ListSelector, GridSelector, or WrapSelector)
 If you use a **custom class** as the item type and set the `initialItems` property, you might notice that the initial items are **not selected** when the app runs. This happens because **Dart uses reference equality by default**, meaning it does not automatically recognize two objects as equal even if their properties have the same values.
 
 ### ✅ Solution 1: Override `==` Operator and `hashCode`

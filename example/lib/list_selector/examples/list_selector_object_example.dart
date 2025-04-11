@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:example/model/person.dart';
+import 'package:example/data/person.dart';
 import 'package:items_selector/items_selector.dart';
 
 class ListSelectorObjectExample extends StatelessWidget {
