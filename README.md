@@ -558,7 +558,7 @@ flutter pub add items_selector
 
 ## ⚠️ Troubleshooting
 
-### Issue: `initialItems` Not Working for Custom Classes
+### Issue: `initialItems` Not Working for Custom Classes (ListSelector, GridSelector, or WrapSelector)
 If you use a **custom class** as the item type and set the `initialItems` property, you might notice that the initial items are **not selected** when the app runs. This happens because **Dart uses reference equality by default**, meaning it does not automatically recognize two objects as equal even if their properties have the same values.
 
 ### ✅ Solution 1: Override `==` Operator and `hashCode`
