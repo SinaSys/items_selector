@@ -10,37 +10,31 @@ enum RadioSelectorType {
 class RadioSelector extends StatefulWidget {
   const RadioSelector({
     super.key,
-    required this.items,
+    required List<RadioSelectorItem> this.items,
     required this.selectedItems,
     this.initialItem,
-    this.options,
+    RadioSelectorOption? this.options,
   })  : assert(
           initialItem == null || (initialItem >= 0 && initialItem < items.length),
           'initialItem must be a valid index of the items list.',
         ),
         direction = null,
-        customRadioSelectorOption = null,
-        customItems = const [],
         separator = null,
         _type = RadioSelectorType.simple;
 
   const RadioSelector.custom({
     super.key,
     required this.selectedItems,
-    required this.customItems,
+    required List<CustomRadioSelectorItem> this.items,
     this.initialItem,
-    this.customRadioSelectorOption,
+    CustomRadioSelectorOption? this.options,
     this.direction = Axis.vertical,
     this.separator,
-  })  : options = null,
-        items = const [],
-        _type = RadioSelectorType.custom;
+  }) : _type = RadioSelectorType.custom;
 
-  final List<RadioSelectorItem> items;
-  final List<CustomRadioSelectorItem> customItems;
+  final List<dynamic> items;
+  final dynamic options;
   final OnSelectedRadioChanged<RadioSelectorItem> selectedItems;
-  final RadioSelectorOption? options;
-  final CustomRadioSelectorOption? customRadioSelectorOption;
   final int? initialItem;
   final Axis? direction;
   final RadioSelectorType _type;
@@ -127,8 +121,8 @@ class _RadioSelectorState extends State<RadioSelector> {
   }
 
   Widget buildCustomRadioListSelectorWidget(Axis? direction) {
-    final List<CustomRadioSelectorItem> items = widget.customItems;
-    final CustomRadioSelectorOption? option = widget.customRadioSelectorOption;
+    final List<CustomRadioSelectorItem> items = widget.items as List<CustomRadioSelectorItem>;
+    final CustomRadioSelectorOption? option = widget.options as CustomRadioSelectorOption?;
     return Flex(
       direction: direction ?? Axis.vertical,
       children: List.generate(
