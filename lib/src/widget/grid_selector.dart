@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:items_selector/items_selector.dart';
 import 'package:items_selector/src/utils/extensions.dart';
-import 'package:items_selector/src/model/base_selector.dart';
-import 'package:items_selector/src/model/grid_configuration.dart';
+import 'package:items_selector/src/common/base_selector.dart';
+import 'package:items_selector/src/configuration/grid_configuration.dart';
 
 class GridSelector<T> extends BaseSelector<T> {
   final BaseGridConfiguration gridConfiguration;

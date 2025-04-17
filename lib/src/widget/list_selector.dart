@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:items_selector/items_selector.dart';
 import 'package:items_selector/src/utils/extensions.dart';
-import 'package:items_selector/src/model/base_selector.dart';
+import 'package:items_selector/src/common/base_selector.dart';
 import 'package:flutter/gestures.dart' show DragStartBehavior;
-import 'package:items_selector/src/model/list_configuration.dart';
+import 'package:items_selector/src/configuration/list_configuration.dart';
 
 enum ListSelectorType {
   flex,

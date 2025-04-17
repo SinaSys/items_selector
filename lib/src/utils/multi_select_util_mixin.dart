@@ -1,5 +1,5 @@
-import 'package:items_selector/src/model/item_wrapper.dart';
-import 'package:items_selector/src/model/select_options.dart';
+import 'package:items_selector/src/common/item_wrapper.dart';
+import 'package:items_selector/src/common/select_options.dart';
 
 mixin MultiSelectUtil<T> {
   List<ItemWrapper<T>> selectWithMaxItems({

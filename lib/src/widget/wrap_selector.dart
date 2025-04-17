@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:items_selector/items_selector.dart';
 import 'package:items_selector/src/utils/extensions.dart';
-import 'package:items_selector/src/model/base_selector.dart';
+import 'package:items_selector/src/common/base_selector.dart';
 
 class WrapSelector<T> extends BaseSelector<T> {
   final WrapConfiguration? wrapConfiguration;

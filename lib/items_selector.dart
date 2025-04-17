@@ -1,10 +1,10 @@
 library;
 
-export 'src/model/item_selector.dart';
-export 'src/model/select_options.dart';
-export 'src/model/wrap_configuration.dart';
-export 'src/model/list_configuration.dart' hide BaseListConfiguration;
-export 'src/model/grid_configuration.dart' hide BaseGridConfiguration;
+export 'src/common/item_selector.dart';
+export 'src/common/select_options.dart';
+export 'src/configuration/wrap_configuration.dart';
+export 'src/configuration/list_configuration.dart' hide BaseListConfiguration;
+export 'src/configuration/grid_configuration.dart' hide BaseGridConfiguration;
 export 'src/model/radio_selector_item.dart';
 export 'src/model/check_box_selector_item.dart';
 

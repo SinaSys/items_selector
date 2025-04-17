@@ -1,4 +1,4 @@
-import 'package:items_selector/src/model/item_wrapper.dart';
+import 'package:items_selector/src/common/item_wrapper.dart';
 
 mixin SingleSelectUtil<T> {
   /// 1

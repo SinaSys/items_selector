@@ -1,6 +1,6 @@
 import 'package:items_selector/items_selector.dart';
-import 'package:items_selector/src/model/item_wrapper.dart';
-import 'package:items_selector/src/model/base_selector.dart';
+import 'package:items_selector/src/common/item_wrapper.dart';
+import 'package:items_selector/src/common/base_selector.dart';
 
 extension BaseSelectorExtension<T> on BaseSelectorState<T> {
   ListSelector get listSelectorWidget => widget as ListSelector<T>;
