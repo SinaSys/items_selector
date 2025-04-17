@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:items_selector/src/utils/typedefs.dart';
 import 'package:items_selector/src/model/radio_selector_item.dart';
 
+enum RadioSelectorType {
+  simple,
+  custom,
+}
+
 class RadioSelector extends StatefulWidget {
   const RadioSelector({
     super.key,
@@ -9,15 +14,37 @@ class RadioSelector extends StatefulWidget {
     required this.selectedItems,
     this.initialItem,
     this.options,
-  }) : assert(
+  })  : assert(
           initialItem == null || (initialItem >= 0 && initialItem < items.length),
           'initialItem must be a valid index of the items list.',
-        );
+        ),
+        direction = null,
+        customRadioSelectorOption = null,
+        customItems = const [],
+        separator = null,
+        _type = RadioSelectorType.simple;
+
+  const RadioSelector.custom({
+    super.key,
+    required this.selectedItems,
+    required this.customItems,
+    this.initialItem,
+    this.customRadioSelectorOption,
+    this.direction = Axis.vertical,
+    this.separator,
+  })  : options = null,
+        items = const [],
+        _type = RadioSelectorType.custom;
 
   final List<RadioSelectorItem> items;
+  final List<CustomRadioSelectorItem> customItems;
   final OnSelectedRadioChanged<RadioSelectorItem> selectedItems;
   final RadioSelectorOption? options;
+  final CustomRadioSelectorOption? customRadioSelectorOption;
   final int? initialItem;
+  final Axis? direction;
+  final RadioSelectorType _type;
+  final Widget? separator;
 
   @override
   State<RadioSelector> createState() => _RadioSelectorState();
@@ -25,6 +52,7 @@ class RadioSelector extends StatefulWidget {
 
 class _RadioSelectorState extends State<RadioSelector> {
   RadioSelectorItem? selectedRadio;
+  CustomRadioSelectorItem? customSelectedRadio;
 
   @override
   void initState() {
@@ -42,6 +70,13 @@ class _RadioSelectorState extends State<RadioSelector> {
 
   @override
   Widget build(BuildContext context) {
+    return switch (widget._type) {
+      RadioSelectorType.simple => buildRadioListSelectorWidget(),
+      RadioSelectorType.custom => buildCustomRadioListSelectorWidget(widget.direction),
+    };
+  }
+
+  Widget buildRadioListSelectorWidget() {
     return Column(
       spacing: widget.options?.spacing ?? 0.0,
       textBaseline: widget.options?.textBaseline,
@@ -88,6 +123,61 @@ class _RadioSelectorState extends State<RadioSelector> {
           );
         },
       ),
+    );
+  }
+
+  Widget buildCustomRadioListSelectorWidget(Axis? direction) {
+    final List<CustomRadioSelectorItem> items = widget.customItems;
+    final CustomRadioSelectorOption? option = widget.customRadioSelectorOption;
+    return Flex(
+      direction: direction ?? Axis.vertical,
+      children: List.generate(
+        items.length,
+        (index) {
+          final CustomRadioSelectorItem item = items[index];
+          return Row(
+            spacing: item.layoutOption?.spacing ?? 0.0,
+            textBaseline: item.layoutOption?.textBaseline,
+            mainAxisSize: item.layoutOption?.mainAxisSize ?? MainAxisSize.max,
+            crossAxisAlignment: item.layoutOption?.crossAxisAlignment ?? CrossAxisAlignment.center,
+            verticalDirection: item.layoutOption?.verticalDirection ?? VerticalDirection.down,
+            textDirection: item.layoutOption?.textDirection,
+            mainAxisAlignment: item.layoutOption?.mainAxisAlignment ?? MainAxisAlignment.start,
+            children: [
+              item.leading ?? SizedBox(),
+              Radio(
+                value: item,
+                groupValue: customSelectedRadio,
+                autofocus: item.radioOption?.autofocus ?? option?.autofocus ?? false,
+                focusNode: item.radioOption?.focusNode ?? option?.focusNode,
+                materialTapTargetSize: item.radioOption?.materialTapTargetSize ?? option?.materialTapTargetSize,
+                visualDensity: item.radioOption?.visualDensity ?? option?.visualDensity,
+                fillColor: item.radioOption?.fillColor ?? option?.fillColor,
+                toggleable: item.radioOption?.toggleable ?? option?.toggleable ?? false,
+                splashRadius: item.radioOption?.splashRadius ?? option?.splashRadius,
+                overlayColor: item.radioOption?.overlayColor ?? option?.overlayColor,
+                mouseCursor: item.radioOption?.mouseCursor ?? option?.mouseCursor,
+                hoverColor: item.radioOption?.hoverColor ?? option?.hoverColor,
+                activeColor: item.radioOption?.activeColor ?? option?.activeColor,
+                focusColor: item.radioOption?.focusColor ?? option?.focusColor,
+                onChanged: (item) {
+                  customSelectedRadio = item!;
+                  //widget.selectedItems(selectedRadio!, widget.items.indexOf(item));
+                  setState(() {});
+                },
+              ),
+              item.trailing ?? SizedBox(),
+            ],
+          );
+        },
+      )
+          .expand(
+            (item) => [
+              item,
+              if (widget.separator != null) widget.separator!,
+            ],
+          )
+          .toList(),
     );
   }
 }
