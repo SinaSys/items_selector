@@ -3,8 +3,8 @@ import 'item_selector.dart';
 import 'package:flutter/widgets.dart';
 import 'package:items_selector/src/utils/typedefs.dart';
 import 'package:items_selector/src/utils/extensions.dart';
-import 'package:items_selector/src/model/selection_mode.dart';
-import 'package:items_selector/src/model/select_options.dart';
+import 'package:items_selector/src/common/selection_mode.dart';
+import 'package:items_selector/src/common/select_options.dart';
 import 'package:items_selector/src/utils/multi_select_util_mixin.dart';
 import 'package:items_selector/src/utils/single_select_util_mixin.dart';
 
