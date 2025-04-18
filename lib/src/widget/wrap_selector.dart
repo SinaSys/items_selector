@@ -41,7 +41,7 @@ class WrapSelectorState<T> extends BaseSelectorState<T> {
     return Wrap(
       key: widget.key,
       direction: config?.direction ?? Axis.horizontal,
-      crossAxisAlignment: config?.crossAxisAlignment ?? WrapCrossAlignment.start,
+      crossAxisAlignment: config?.wrapCrossAxisAlignment ?? WrapCrossAlignment.start,
       runSpacing: config?.runSpacing ?? 0.0,
       spacing: config?.spacing ?? 0.0,
       alignment: config?.alignment ?? WrapAlignment.start,
