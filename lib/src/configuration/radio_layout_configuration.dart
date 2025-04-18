@@ -5,7 +5,23 @@ import 'package:items_selector/src/common/wrap_attributes.dart';
 enum RadioLayoutType {
   row,
   column,
-  wrap,
+  wrap;
+
+  const RadioLayoutType();
+
+  Axis get direction {
+    return switch (this) {
+      RadioLayoutType.row => Axis.horizontal,
+      _ => Axis.vertical,
+    };
+  }
+
+  bool get isFlexType {
+    return switch (this) {
+      RadioLayoutType.row || RadioLayoutType.column => true,
+      _ => false,
+    };
+  }
 }
 
 class RadioLayoutConfiguration implements FlexAttributes, WrapAttributes {
