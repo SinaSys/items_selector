@@ -1,7 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:items_selector/items_selector.dart';
+import 'package:items_selector/src/common/flex_attributes.dart';
+
+typedef LayoutOption = FlexConfiguration;
+
+abstract class RadioSelectorItemBase {}
 
 @immutable
-class RadioSelectorItem extends RadioListTile {
+abstract interface class RadioAttributes {
+  MouseCursor? get mouseCursor;
+
+  bool get toggleable;
+
+  Color? get activeColor;
+
+  WidgetStateProperty<Color?>? get fillColor;
+
+  MaterialTapTargetSize? get materialTapTargetSize;
+
+  VisualDensity? get visualDensity;
+
+  Color? get focusColor;
+
+  Color? get hoverColor;
+
+  WidgetStateProperty<Color?>? get overlayColor;
+
+  double? get splashRadius;
+
+  FocusNode? get focusNode;
+
+  bool get autofocus;
+
+  bool get useCupertinoCheckmarkStyle;
+}
+
+@immutable
+class RadioSelectorItem extends RadioListTile implements RadioSelectorItemBase {
   const RadioSelectorItem({
     super.key,
     super.activeColor,
@@ -78,7 +113,8 @@ class RadioSelectorItem extends RadioListTile {
   }
 }
 
-class RadioSelectorOption extends RadioSelectorItem {
+@immutable
+class RadioSelectorOption extends RadioSelectorItem implements FlexAttributes {
   const RadioSelectorOption({
     super.key,
     super.activeColor,
@@ -110,19 +146,82 @@ class RadioSelectorOption extends RadioSelectorItem {
     this.spacing = 0.0,
   }) : super(title: null);
 
+  @override
   final MainAxisAlignment mainAxisAlignment;
-
+  @override
   final MainAxisSize mainAxisSize;
-
+  @override
   final CrossAxisAlignment crossAxisAlignment;
-
+  @override
   final TextDirection? textDirection;
-
+  @override
   final VerticalDirection verticalDirection;
-
+  @override
   final TextBaseline? textBaseline;
-
+  @override
   final Clip clipBehavior;
-
+  @override
   final double spacing;
+}
+
+@immutable
+class CustomRadioSelectorItem implements RadioSelectorItemBase {
+  final Widget? leading;
+  final Widget? trailing;
+
+  const CustomRadioSelectorItem({
+    this.leading,
+    this.trailing,
+    this.radioOption,
+    this.layoutOption,
+  });
+
+  final CustomRadioSelectorOption? radioOption;
+  final LayoutOption? layoutOption;
+}
+
+@immutable
+class CustomRadioSelectorOption implements RadioAttributes {
+  const CustomRadioSelectorOption({
+    this.mouseCursor,
+    this.toggleable = false,
+    this.activeColor,
+    this.fillColor,
+    this.materialTapTargetSize,
+    this.visualDensity,
+    this.focusColor,
+    this.hoverColor,
+    this.overlayColor,
+    this.splashRadius,
+    this.focusNode,
+    this.autofocus = false,
+    this.useCupertinoCheckmarkStyle = false,
+  });
+
+  @override
+  final MouseCursor? mouseCursor;
+  @override
+  final bool toggleable;
+  @override
+  final Color? activeColor;
+  @override
+  final WidgetStateProperty<Color?>? fillColor;
+  @override
+  final MaterialTapTargetSize? materialTapTargetSize;
+  @override
+  final VisualDensity? visualDensity;
+  @override
+  final Color? focusColor;
+  @override
+  final Color? hoverColor;
+  @override
+  final WidgetStateProperty<Color?>? overlayColor;
+  @override
+  final double? splashRadius;
+  @override
+  final FocusNode? focusNode;
+  @override
+  final bool autofocus;
+  @override
+  final bool useCupertinoCheckmarkStyle;
 }
