@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/gestures.dart' show DragStartBehavior;
+import 'package:items_selector/src/common/flex_attributes.dart';
 import 'package:flutter/rendering.dart' show RenderListWheelViewport;
 
 sealed class BaseListConfiguration {}
@@ -44,7 +45,7 @@ class ListConfiguration extends BaseListConfiguration {
   final EdgeInsetsGeometry? padding;
 }
 
-class FlexConfiguration extends BaseListConfiguration {
+class FlexConfiguration extends BaseListConfiguration implements FlexAttributes {
   FlexConfiguration({
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
@@ -56,13 +57,21 @@ class FlexConfiguration extends BaseListConfiguration {
     this.spacing = 0.0,
   });
 
+  @override
   final MainAxisAlignment mainAxisAlignment;
+  @override
   final MainAxisSize mainAxisSize;
+  @override
   final CrossAxisAlignment crossAxisAlignment;
+  @override
   final TextDirection? textDirection;
+  @override
   final VerticalDirection verticalDirection;
+  @override
   final TextBaseline? textBaseline;
+  @override
   final Clip clipBehavior;
+  @override
   final double spacing;
 }
 
