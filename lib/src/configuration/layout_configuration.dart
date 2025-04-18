@@ -2,31 +2,31 @@ import 'package:flutter/widgets.dart';
 import 'package:items_selector/src/common/flex_attributes.dart';
 import 'package:items_selector/src/common/wrap_attributes.dart';
 
-enum RadioLayoutType {
+enum LayoutType {
   row,
   column,
   wrap;
 
-  const RadioLayoutType();
+  const LayoutType();
 
   Axis get direction {
     return switch (this) {
-      RadioLayoutType.row => Axis.horizontal,
+      LayoutType.row => Axis.horizontal,
       _ => Axis.vertical,
     };
   }
 
   bool get isFlexType {
     return switch (this) {
-      RadioLayoutType.row || RadioLayoutType.column => true,
+      LayoutType.row || LayoutType.column => true,
       _ => false,
     };
   }
 }
 
-class RadioLayoutConfiguration implements FlexAttributes, WrapAttributes {
-  const RadioLayoutConfiguration._internal({
-    this.layoutType = RadioLayoutType.column,
+class LayoutConfiguration implements FlexAttributes, WrapAttributes {
+  const LayoutConfiguration._internal({
+    this.layoutType = LayoutType.column,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
     this.crossAxisAlignment = CrossAxisAlignment.center,
@@ -42,7 +42,7 @@ class RadioLayoutConfiguration implements FlexAttributes, WrapAttributes {
     this.wrapCrossAxisAlignment = WrapCrossAlignment.start,
   });
 
-  factory RadioLayoutConfiguration.withRow({
+  factory LayoutConfiguration.withRow({
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
     MainAxisSize mainAxisSize = MainAxisSize.max,
     CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
@@ -52,29 +52,7 @@ class RadioLayoutConfiguration implements FlexAttributes, WrapAttributes {
     Clip clipBehavior = Clip.none,
     double spacing = 0.0,
   }) {
-    return RadioLayoutConfiguration._internal(
-        mainAxisAlignment: mainAxisAlignment,
-        mainAxisSize: mainAxisSize,
-        crossAxisAlignment: crossAxisAlignment,
-        textDirection: textDirection,
-        verticalDirection: verticalDirection,
-        textBaseline: textBaseline,
-        clipBehavior: clipBehavior,
-        spacing: spacing,
-        layoutType: RadioLayoutType.row);
-  }
-
-  factory RadioLayoutConfiguration.withColumn({
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    MainAxisSize mainAxisSize = MainAxisSize.max,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-    TextDirection? textDirection,
-    VerticalDirection verticalDirection = VerticalDirection.down,
-    TextBaseline? textBaseline,
-    Clip clipBehavior = Clip.none,
-    double spacing = 0.0,
-  }) {
-    return RadioLayoutConfiguration._internal(
+    return LayoutConfiguration._internal(
       mainAxisAlignment: mainAxisAlignment,
       mainAxisSize: mainAxisSize,
       crossAxisAlignment: crossAxisAlignment,
@@ -83,11 +61,34 @@ class RadioLayoutConfiguration implements FlexAttributes, WrapAttributes {
       textBaseline: textBaseline,
       clipBehavior: clipBehavior,
       spacing: spacing,
-      layoutType: RadioLayoutType.column,
+      layoutType: LayoutType.row,
     );
   }
 
-  factory RadioLayoutConfiguration.withWrap({
+  factory LayoutConfiguration.withColumn({
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
+    Clip clipBehavior = Clip.none,
+    double spacing = 0.0,
+  }) {
+    return LayoutConfiguration._internal(
+      mainAxisAlignment: mainAxisAlignment,
+      mainAxisSize: mainAxisSize,
+      crossAxisAlignment: crossAxisAlignment,
+      textDirection: textDirection,
+      verticalDirection: verticalDirection,
+      textBaseline: textBaseline,
+      clipBehavior: clipBehavior,
+      spacing: spacing,
+      layoutType: LayoutType.column,
+    );
+  }
+
+  factory LayoutConfiguration.withWrap({
     Axis direction = Axis.horizontal,
     WrapAlignment alignment = WrapAlignment.start,
     double spacing = 0.0,
@@ -98,7 +99,7 @@ class RadioLayoutConfiguration implements FlexAttributes, WrapAttributes {
     VerticalDirection verticalDirection = VerticalDirection.down,
     Clip clipBehavior = Clip.none,
   }) {
-    return RadioLayoutConfiguration._internal(
+    return LayoutConfiguration._internal(
       direction: direction,
       alignment: alignment,
       spacing: spacing,
@@ -108,11 +109,11 @@ class RadioLayoutConfiguration implements FlexAttributes, WrapAttributes {
       textDirection: textDirection,
       verticalDirection: verticalDirection,
       clipBehavior: clipBehavior,
-      layoutType: RadioLayoutType.wrap,
+      layoutType: LayoutType.wrap,
     );
   }
 
-  final RadioLayoutType layoutType;
+  final LayoutType layoutType;
 
   @override
   final MainAxisAlignment mainAxisAlignment;
