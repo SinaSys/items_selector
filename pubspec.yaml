@@ -1,5 +1,5 @@
 name: items_selector
-description: "📦 A Flutter package providing flexible item selection widgets with support for multiple layouts including list, grid, wrap, radio button, and checkbox list selectors, allowing you to choose the perfect selection style for your app's needs."
+description: "A Flutter package providing flexible item selection widgets with support for multiple layouts including list, grid, wrap, radio button, and checkbox list selectors, allowing you to choose the perfect selection style for your app's needs."
 version: 2.3.1
 homepage: "https://github.com/SinaSys/items_selector"
 
