@@ -1,3 +1,9 @@
+## [2.3.1]
+### 📝 Documentation
+- Fixed broken image links in `README.md` by replacing GitHub URLs with raw image links.
+- Ensured all widgets’ demo GIFs render correctly on pub.dev.
+
+
 ## [2.3.0]
 
 ### ✨ New Features
