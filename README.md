@@ -2,7 +2,7 @@
 # Items Selector
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/other/main_image.png?raw=true" alt="Group 7">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/other/main_image.png" alt="Group 7">
 </p>
 
 <br>
@@ -52,11 +52,11 @@ flutter pub add items_selector
 
 | Row | Initial Items | Main Items | Allow Unselect Main Items | Allow Unselect Initial Items | Image | 
 |:---:|:------------:|:---------:|:-----------------------:|:--------------------------:|:-----------------:|
-| 1  | Y | Y | Y | Y | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/1.gif?raw=true)   |
-| 2  | Y | Y | Y | N | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/2.gif?raw=true)   |
-| 3  | Y | Y | N | Y | ![9](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/3.gif?raw=true)   |
-| 4  | Y | Y | N | N | ![13](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/4.gif?raw=true)  |
-| 5  | N | Y | N | N | ![14](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/single/5.gif?raw=true)  |
+| 1  | Y | Y | Y | Y | ![1](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/single/1.gif)   |
+| 2  | Y | Y | Y | N | ![5](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/single/2.gif)   |
+| 3  | Y | Y | N | Y | ![9](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/single/3.gif)   |
+| 4  | Y | Y | N | N | ![13](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/single/4.gif)  |
+| 5  | N | Y | N | N | ![14](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/single/5.gif)  |
 
 <br>
 
@@ -73,12 +73,12 @@ flutter pub add items_selector
 
 | Row | Initial Items | Main Items | Allow Unselect Initial Items | Max Items | Image |
 |:---:|:------------:|:--------:|:----------------------:|:---------:|:-----:|
-| 1  | Y | Y | Y | Y | ![6](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/1.gif?raw=true) |
-| 2  | Y | Y | N | Y | ![5](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/2.gif?raw=true) | 
-| 3  | N | Y | N | Y | ![4](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/3.gif?raw=true) | 
-| 4  | Y | Y | Y | N | ![3](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/4.gif?raw=true) |
-| 5  | Y | Y | N | N | ![2](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/5.gif?raw=true) |
-| 6  | N | Y | N | N | ![1](https://github.com/SinaSys/items_selector/blob/images/assets/images/options/multi/6.gif?raw=true) | 
+| 1  | Y | Y | Y | Y | ![6](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/multi/1.gif) |
+| 2  | Y | Y | N | Y | ![5](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/multi/2.gif) | 
+| 3  | N | Y | N | Y | ![4](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/multi/3.gif) | 
+| 4  | Y | Y | Y | N | ![3](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/multi/4.gif) |
+| 5  | Y | Y | N | N | ![2](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/multi/5.gif) |
+| 6  | N | Y | N | N | ![1](https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/options/multi/6.gif) | 
 
 <br>
 <br>
@@ -312,13 +312,13 @@ flutter pub add items_selector
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/single_select_int.gif?raw=true" width="32%">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/single_select_object.gif?raw=true" width="32%">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/multi_select_enum.gif?raw=true" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/list_selector/single_select_int.gif" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/list_selector/single_select_object.gif" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/list_selector/multi_select_enum.gif" width="32%">
 </p>
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/list_selector/list_wheel_multi_select.gif?raw=true" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/list_selector/list_wheel_multi_select.gif" width="32%">
 </p>
 
 
@@ -404,9 +404,9 @@ flutter pub add items_selector
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/multi_select_double.gif?raw=true" width="32%">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/multi_select_object.gif?raw=true" width="32%">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/grid_selector/single_select_enum.gif?raw=true" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/grid_selector/multi_select_double.gif" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/grid_selector/multi_select_object.gif" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/grid_selector/single_select_enum.gif" width="32%">
 </p>
 
 <br>
@@ -437,7 +437,7 @@ flutter pub add items_selector
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/single_wrap_item/single_wrap_item.gif?raw=true">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/single_wrap_item/single_wrap_item.gif">
 </p>
 
 
@@ -525,8 +525,8 @@ flutter pub add items_selector
 ```
 
 <p align="center">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/radio_selector/radio_selector.gif?raw=true" width="32%">
-  <img src="https://github.com/SinaSys/items_selector/blob/images/assets/images/widgets/checkbox_selector/checkbox_selector.gif?raw=true" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/radio_selector/radio_selector.gif" width="32%">
+  <img src="https://raw.githubusercontent.com/SinaSys/items_selector/images/assets/images/widgets/checkbox_selector/checkbox_selector.gif" width="32%">
 </p>
 
 
