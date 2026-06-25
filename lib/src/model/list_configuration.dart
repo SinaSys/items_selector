@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/gestures.dart' show DragStartBehavior;
-import 'package:flutter/rendering.dart' show RenderListWheelViewport;
+import 'package:flutter/rendering.dart' show RenderListWheelViewport, ScrollCacheExtent;
 
 sealed class BaseListConfiguration {}
 
@@ -11,7 +11,7 @@ class ListConfiguration extends BaseListConfiguration {
     this.center,
     this.anchor,
     this.semanticChildCount,
-    this.cacheExtent,
+    this.scrollCacheExtent,
     this.clipBehavior,
     this.controller,
     this.dragStartBehavior,
@@ -35,7 +35,7 @@ class ListConfiguration extends BaseListConfiguration {
   final bool? shrinkWrap;
   final Key? center;
   final double? anchor;
-  final double? cacheExtent;
+  final ScrollCacheExtent? scrollCacheExtent;
   final int? semanticChildCount;
   final DragStartBehavior? dragStartBehavior;
   final String? restorationId;
