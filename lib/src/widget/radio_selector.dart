@@ -10,7 +10,8 @@ class RadioSelector extends StatefulWidget {
     this.initialItem,
     this.options,
   }) : assert(
-          initialItem == null || (initialItem >= 0 && initialItem < items.length),
+          initialItem == null ||
+              (initialItem >= 0 && initialItem < items.length),
           'initialItem must be a valid index of the items list.',
         );
 
@@ -44,15 +45,18 @@ class _RadioSelectorState extends State<RadioSelector> {
   Widget build(BuildContext context) {
     return RadioGroup<RadioSelectorItem>(
       onChanged: setSelectedRadio,
-      groupValue:selectedRadio ,
+      groupValue: selectedRadio,
       child: Column(
         spacing: widget.options?.spacing ?? 0.0,
         textBaseline: widget.options?.textBaseline,
         mainAxisSize: widget.options?.mainAxisSize ?? MainAxisSize.max,
-        crossAxisAlignment: widget.options?.crossAxisAlignment ?? CrossAxisAlignment.center,
-        verticalDirection: widget.options?.verticalDirection ?? VerticalDirection.down,
+        crossAxisAlignment:
+            widget.options?.crossAxisAlignment ?? CrossAxisAlignment.center,
+        verticalDirection:
+            widget.options?.verticalDirection ?? VerticalDirection.down,
         textDirection: widget.options?.textDirection,
-        mainAxisAlignment: widget.options?.mainAxisAlignment ?? MainAxisAlignment.start,
+        mainAxisAlignment:
+            widget.options?.mainAxisAlignment ?? MainAxisAlignment.start,
         children: List.generate(
           widget.items.length,
           (int index) {
@@ -77,15 +81,28 @@ class _RadioSelectorState extends State<RadioSelector> {
               fillColor: item.fillColor ?? options?.fillColor,
               focusNode: item.focusNode ?? options?.focusNode,
               hoverColor: item.hoverColor ?? options?.hoverColor,
-              materialTapTargetSize: item.materialTapTargetSize ?? options?.materialTapTargetSize,
+              materialTapTargetSize:
+                  item.materialTapTargetSize ?? options?.materialTapTargetSize,
               mouseCursor: item.mouseCursor ?? options?.mouseCursor,
               onFocusChange: item.onFocusChange ?? options?.onFocusChange,
               overlayColor: item.overlayColor ?? options?.overlayColor,
-              selectedTileColor: item.selectedTileColor ?? options?.selectedTileColor,
+              selectedTileColor:
+                  item.selectedTileColor ?? options?.selectedTileColor,
               shape: item.shape ?? options?.shape,
               splashRadius: item.splashRadius ?? options?.splashRadius,
               tileColor: item.tileColor ?? options?.tileColor,
               visualDensity: item.visualDensity ?? options?.visualDensity,
+              enabled: item.enabled,
+              horizontalTitleGap: item.horizontalTitleGap,
+              minLeadingWidth: item.minLeadingWidth,
+              minTileHeight: item.minTileHeight,
+              minVerticalPadding: item.minVerticalPadding,
+              radioBackgroundColor: item.radioBackgroundColor,
+              radioInnerRadius: item.radioInnerRadius,
+              radioScaleFactor: item.radioScaleFactor,
+              radioSide: item.radioSide,
+              statesController: item.statesController,
+              titleAlignment: item.titleAlignment,
             );
           },
         ),
