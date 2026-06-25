@@ -1,3 +1,20 @@
+## [2.4.0]
+
+### ✨ New Features & Enhancements
+- **Adopted Flutter RadioGroup API** 🔄
+    - Migrated from individual `Radio` widgets to `RadioGroup` for better radio button group management and improved state handling.
+
+- **Added new RadioListTile properties for SDK compatibility** 🆕
+    - Exposed newly introduced properties: `enabled`, `horizontalTitleGap`, `minLeadingWidth`, `minTileHeight`, `minVerticalPadding`, `radioBackgroundColor`, `radioInnerRadius`, `radioScaleFactor`, `statesController`, `radioSide`, and `titleAlignment`.
+    - Ensures compatibility with the latest Flutter SDK versions.
+
+### 🐛 Bug Fixes
+- Fixed deprecation warning by migrating `cacheExtent` to `scrollCacheExtent`.
+
+### 📝 Documentation
+- Trimmed package description to comply with pub.dev character limit guidelines.
+
+
 ## [2.3.1]
 ### 📝 Documentation
 - Fixed broken image links in `README.md` by replacing GitHub URLs with raw image links.
