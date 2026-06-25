@@ -42,51 +42,53 @@ class _RadioSelectorState extends State<RadioSelector> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: widget.options?.spacing ?? 0.0,
-      textBaseline: widget.options?.textBaseline,
-      mainAxisSize: widget.options?.mainAxisSize ?? MainAxisSize.max,
-      crossAxisAlignment: widget.options?.crossAxisAlignment ?? CrossAxisAlignment.center,
-      verticalDirection: widget.options?.verticalDirection ?? VerticalDirection.down,
-      textDirection: widget.options?.textDirection,
-      mainAxisAlignment: widget.options?.mainAxisAlignment ?? MainAxisAlignment.start,
-      children: List.generate(
-        widget.items.length,
-        (int index) {
-          RadioSelectorItem item = widget.items[index];
-          RadioSelectorOption? options = widget.options;
-          return RadioListTile<RadioSelectorItem>(
-            key: item.key,
-            value: item,
-            groupValue: selectedRadio,
-            onChanged: setSelectedRadio,
-            title: item.title,
-            subtitle: item.subtitle,
-            isThreeLine: item.isThreeLine,
-            toggleable: item.toggleable,
-            autofocus: item.autofocus,
-            selected: item.selected,
-            internalAddSemanticForOnTap: item.internalAddSemanticForOnTap,
-            secondary: item.secondary ?? options?.secondary,
-            activeColor: item.activeColor ?? options?.activeColor,
-            contentPadding: item.contentPadding ?? options?.contentPadding,
-            controlAffinity: item.controlAffinity ?? options?.controlAffinity,
-            dense: item.dense ?? options?.dense,
-            enableFeedback: item.enableFeedback ?? options?.enableFeedback,
-            fillColor: item.fillColor ?? options?.fillColor,
-            focusNode: item.focusNode ?? options?.focusNode,
-            hoverColor: item.hoverColor ?? options?.hoverColor,
-            materialTapTargetSize: item.materialTapTargetSize ?? options?.materialTapTargetSize,
-            mouseCursor: item.mouseCursor ?? options?.mouseCursor,
-            onFocusChange: item.onFocusChange ?? options?.onFocusChange,
-            overlayColor: item.overlayColor ?? options?.overlayColor,
-            selectedTileColor: item.selectedTileColor ?? options?.selectedTileColor,
-            shape: item.shape ?? options?.shape,
-            splashRadius: item.splashRadius ?? options?.splashRadius,
-            tileColor: item.tileColor ?? options?.tileColor,
-            visualDensity: item.visualDensity ?? options?.visualDensity,
-          );
-        },
+    return RadioGroup<RadioSelectorItem>(
+      onChanged: setSelectedRadio,
+      groupValue:selectedRadio ,
+      child: Column(
+        spacing: widget.options?.spacing ?? 0.0,
+        textBaseline: widget.options?.textBaseline,
+        mainAxisSize: widget.options?.mainAxisSize ?? MainAxisSize.max,
+        crossAxisAlignment: widget.options?.crossAxisAlignment ?? CrossAxisAlignment.center,
+        verticalDirection: widget.options?.verticalDirection ?? VerticalDirection.down,
+        textDirection: widget.options?.textDirection,
+        mainAxisAlignment: widget.options?.mainAxisAlignment ?? MainAxisAlignment.start,
+        children: List.generate(
+          widget.items.length,
+          (int index) {
+            RadioSelectorItem item = widget.items[index];
+            RadioSelectorOption? options = widget.options;
+            return RadioListTile<RadioSelectorItem>(
+              key: item.key,
+              value: item,
+              title: item.title,
+              subtitle: item.subtitle,
+              isThreeLine: item.isThreeLine,
+              toggleable: item.toggleable,
+              autofocus: item.autofocus,
+              selected: item.selected,
+              internalAddSemanticForOnTap: item.internalAddSemanticForOnTap,
+              secondary: item.secondary ?? options?.secondary,
+              activeColor: item.activeColor ?? options?.activeColor,
+              contentPadding: item.contentPadding ?? options?.contentPadding,
+              controlAffinity: item.controlAffinity ?? options?.controlAffinity,
+              dense: item.dense ?? options?.dense,
+              enableFeedback: item.enableFeedback ?? options?.enableFeedback,
+              fillColor: item.fillColor ?? options?.fillColor,
+              focusNode: item.focusNode ?? options?.focusNode,
+              hoverColor: item.hoverColor ?? options?.hoverColor,
+              materialTapTargetSize: item.materialTapTargetSize ?? options?.materialTapTargetSize,
+              mouseCursor: item.mouseCursor ?? options?.mouseCursor,
+              onFocusChange: item.onFocusChange ?? options?.onFocusChange,
+              overlayColor: item.overlayColor ?? options?.overlayColor,
+              selectedTileColor: item.selectedTileColor ?? options?.selectedTileColor,
+              shape: item.shape ?? options?.shape,
+              splashRadius: item.splashRadius ?? options?.splashRadius,
+              tileColor: item.tileColor ?? options?.tileColor,
+              visualDensity: item.visualDensity ?? options?.visualDensity,
+            );
+          },
+        ),
       ),
     );
   }
