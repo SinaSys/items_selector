@@ -1,6 +1,6 @@
 name: items_selector
 description: "A Flutter package for item selection with support for list, grid, wrap, radio, and checkbox layouts."
-version: 2.4.0
+version: 2.4.1
 homepage: "https://github.com/SinaSys/items_selector"
 
 environment:
