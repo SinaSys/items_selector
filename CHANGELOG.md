@@ -1,3 +1,14 @@
+## [2.4.1]
+
+### 🛠 Maintenance
+- **Upgraded flutter_lints to ^6.0.0** 🔧
+    - Updated static analysis rules to the latest version.
+    - Resolved new lint warnings to ensure clean code quality and compatibility with the latest linting standards.
+
+---
+
+
+
 ## [2.4.0]
 
 ### ✨ New Features & Enhancements
