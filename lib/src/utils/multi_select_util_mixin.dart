@@ -10,7 +10,8 @@ mixin MultiSelectUtil<T> {
   }) {
     for (var i = 0; i < itemsWrapper.length; ++i) {
       if (item.item == itemsWrapper[i].item) {
-        if (itemsWrapper.where((item) => item.isSelected).length < multiSelectOption.maxItems!) {
+        if (itemsWrapper.where((item) => item.isSelected).length <
+            multiSelectOption.maxItems!) {
           if (multiSelectOption.allowUnselectInitialItems!) {
             itemsWrapper[index].isSelected = !itemsWrapper[index].isSelected;
           } else {
@@ -18,7 +19,8 @@ mixin MultiSelectUtil<T> {
               itemsWrapper[index].isSelected = !itemsWrapper[index].isSelected;
             }
           }
-        } else if (itemsWrapper[index].isSelected && !itemsWrapper[index].isInitialItem) {
+        } else if (itemsWrapper[index].isSelected &&
+            !itemsWrapper[index].isInitialItem) {
           itemsWrapper[index].isSelected = !itemsWrapper[index].isSelected;
         }
       }
@@ -40,7 +42,7 @@ mixin MultiSelectUtil<T> {
     return itemsWrapper;
   }
 
-  selectWithSelectableInitialItems({
+  List<ItemWrapper<T>> selectWithSelectableInitialItems({
     required List<ItemWrapper<T>> itemsWrapper,
     required item,
     required int index,

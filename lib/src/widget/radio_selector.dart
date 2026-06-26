@@ -35,7 +35,7 @@ class _RadioSelectorState extends State<RadioSelector> {
     super.initState();
   }
 
-  setSelectedRadio(RadioSelectorItem? item) {
+  void setSelectedRadio(RadioSelectorItem? item) {
     selectedRadio = item!;
     widget.selectedItems(selectedRadio!, widget.items.indexOf(item));
     setState(() {});
